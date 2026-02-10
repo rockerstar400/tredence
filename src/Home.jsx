@@ -12,7 +12,7 @@ const Home = () => {
 
             {/* Latest & Leading (Awards Section) */}
             <section className="py-20 bg-white px-12 lg:px-24">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-gray-900">Latest & leading</h2>
+                <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-gray-900">Latest & leading partner</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* Card 1 */}
                     <div className="border border-gray-100 shadow-sm p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between group">
@@ -20,7 +20,7 @@ const Home = () => {
                             <div className="h-32 bg-blue-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" className="w-24" />
                             </div>
-                            <p className="font-bold text-lg leading-snug">Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year</p>
+                            <p className="font-bold text-lg leading-snug">Trends Named 2025 Microsoft Data & Analytics Platform Partner of the Year</p>
                         </div>
                         <button className="text-orange-600 mt-10 font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
                             Learn more <span>→</span>
@@ -33,7 +33,7 @@ const Home = () => {
                             <div className="h-32 bg-red-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all text-red-600 font-bold">
                                 DATABRICKS 5X
                             </div>
-                            <p className="font-bold text-lg leading-snug">Tredence Awarded 2025 Databricks Growth Partner of the Year</p>
+                            <p className="font-bold text-lg leading-snug">Trends Awarded 2025 Databricks Growth Partner of the Year</p>
                         </div>
                         <button className="text-orange-600 mt-10 font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
                             Learn more <span>→</span>
@@ -46,7 +46,7 @@ const Home = () => {
                             <div className="h-32 bg-blue-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
                                 SNOWFLAKE
                             </div>
-                            <p className="font-bold text-lg leading-snug">Tredence Named Snowflake Partner of the Year for Retail & CPG</p>
+                            <p className="font-bold text-lg leading-snug">Trends Named Snowflake Partner of the Year for Retail & CPG</p>
                         </div>
                         <button className="text-orange-600 mt-10 font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
                             Learn more <span>→</span>
@@ -58,7 +58,7 @@ const Home = () => {
                             <div className="h-32 bg-yellow-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
                                 GOOGLE CLOUD
                             </div>
-                            <p className="font-bold text-lg leading-snug">Tredence Wins 2025 Google Cloud Industry Solutions Partner of the Year</p>
+                            <p className="font-bold text-lg leading-snug">Trends Wins 2025 Google Cloud Industry Solutions Partner of the Year</p>
                         </div>
                         <button className="text-orange-600 mt-10 font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
                             Learn more <span>→</span>
@@ -107,7 +107,7 @@ const Home = () => {
             <section className="py-20 bg-white px-12 lg:px-24">
                 <div className="flex justify-between items-end mb-12">
                     <h2 className="text-4xl lg:text-5xl font-bold max-w-2xl leading-tight">
-                        Plotting your Northstar with thought leadership
+                         Decoding the future of AI through strategic perspectives
                     </h2>
                     <div className="flex gap-4">
                         <button className="w-12 h-12 rounded-full border border-orange-500 text-orange-500 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all">←</button>
@@ -145,7 +145,7 @@ const Home = () => {
 
                 <div className="relative z-10 w-full">
                     <span className="text-lg font-bold mb-4 block">TREDENCE STUDIO</span>
-                    <h2 className="text-5xl lg:text-6xl font-bold mb-6 max-w-3xl leading-tight">AI/ML Accelerator Ecosystem for Enterprises</h2>
+                    <h2 className="text-5xl lg:text-6xl font-bold mb-6 max-w-3xl leading-tight">Scaling High-Impact AI Solutions at Unmatched Speed</h2>
                     <p className="text-xl mb-12 max-w-2xl opacity-90">Envision new possibilities and extraordinary paths to value using AI-powered data science solutions and accelerators.</p>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 border-t border-white/20 pt-10">
@@ -171,7 +171,7 @@ const Home = () => {
             {/* --- Section 3: Elite Ecosystem Partnerships --- */}
             <section className="py-24 bg-white text-center px-12">
                 <h2 className="text-4xl lg:text-5xl font-bold mb-16 text-gray-900">
-                    Propelling hyperscale enterprises with elite ecosystem partnerships
+                    Unlocking global scale through strategic technology alliances
                 </h2>
 
                 <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-70 mb-16">
@@ -214,7 +214,7 @@ const Home = () => {
             {/* --- Section 5: Recognized by Industry Leaders (Awards) --- */}
             <section className="py-24 bg-gray-50 px-12 lg:px-24">
                 <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 max-w-4xl mx-auto leading-tight">
-                    Recognized by industry leaders for our pathfinding
+                   Industry-leading excellence, recognized globally
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

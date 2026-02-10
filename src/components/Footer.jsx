@@ -88,7 +88,7 @@ const Footer = () => {
           <a href="#" className="hover:text-orange-500">Third Party Security & Privacy Policy</a>
         </div>
         <div className="text-gray-300 font-semibold">
-          © Copyright 2026. Tredence.Inc. All rights reserved
+          © Copyright 2026. Trends.Inc. All rights reserved
         </div>
       </div>
 

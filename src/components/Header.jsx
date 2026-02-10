@@ -46,7 +46,7 @@ const Navbar = () => {
     <nav className="absolute top-0 left-0 w-full z-[100] text-white p-4 font-sans">
       {/* Top Small Menu */}
       <div className="flex justify-end gap-6 text-[10px] font-bold px-12 py-2 mb-2 opacity-80 tracking-widest">
-        <a href="#" className="hover:text-orange-500">TREDENCE AT A GLANCE</a>
+        <a href="#" className="hover:text-orange-500">TRENDS AT A GLANCE</a>
         <a href="#" className="hover:text-orange-500">LATEST NEWS</a>
         <a href="#" className="hover:text-orange-500">EVENTS</a>
         <a href="#" className="hover:text-orange-500">WE'RE HIRING</a>
@@ -56,7 +56,7 @@ const Navbar = () => {
       {/* Main Menu */}
       <div className="flex justify-between items-center px-12">
         <div className="flex items-center cursor-pointer">
-           <h1 className="text-3xl font-black tracking-tighter">TREDENCE</h1>
+           <h1 className="text-3xl font-black tracking-tighter">TRENDS</h1>
            <span className="text-[10px] ml-1 mt-4 font-bold border-l border-white/30 pl-1 uppercase tracking-tighter">Beyond Possible</span>
         </div>
 

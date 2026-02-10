@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 const slides = [
   {
-    title: "Tredence Unveils Agentic Commerce Solution Accelerators",
+    title: "Trends Accelerating Enterprise Growth through Intelligent Automation",
     subtitle: "with THORNE as a Lighthouse Customer",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=2000", 
     buttonText: "Read more"
   },
   {
-    title: "Powering Last Mile with Industry-Specific Solutions",
+    title: " Next-Gen Agentic AI Solutions for Global Enterprises",
     subtitle: "Bridging the gap between insights and value realization.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000",
     buttonText: "Explore our success stories"
