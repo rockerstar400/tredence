@@ -39,6 +39,8 @@
 // export default Navbar;
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Search, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
@@ -56,20 +58,23 @@ const Navbar = () => {
       {/* Main Menu */}
       <div className="flex justify-between items-center px-12">
         <div className="flex items-center cursor-pointer">
-           <h1 className="text-3xl font-black tracking-tighter">TRENDS</h1>
-           <span className="text-[10px] ml-1 mt-4 font-bold border-l border-white/30 pl-1 uppercase tracking-tighter">Beyond Possible</span>
+          <h1 className="text-3xl font-black tracking-tighter">TRENDS</h1>
+          <span className="text-[10px] ml-1 mt-4 font-bold border-l border-white/30 pl-1 uppercase tracking-tighter">Beyond Possible</span>
         </div>
 
         <div className="flex items-center gap-8 text-[14px] font-bold">
           <ul className="flex gap-8">
-            
+
             {/* 1. Industries Dropdown (2 Columns) */}
             <li className="group relative py-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500">Industries <ChevronDown size={14}/></div>
+              <div className="flex items-center gap-1 group-hover:text-orange-500">Industries <ChevronDown size={14} /></div>
               <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[500px] shadow-2xl border-t-4 border-orange-500 p-8">
                 <div className="grid grid-cols-2 gap-x-12 gap-y-4">
                   <div className="space-y-4 font-medium text-gray-600">
-                    <p className="hover:text-orange-500">Retail</p>
+                    {/* <p className="hover:text-orange-500">Retail</p> */}
+                    <Link to="/industrial/retail" className="hover:text-orange-500 block">
+                      Retail
+                    </Link>
                     <p className="hover:text-orange-500">Healthcare</p>
                     <p className="hover:text-orange-500">Banking, Financial Services & Insurance</p>
                     <p className="hover:text-orange-500">Telco, Media & Tech</p>
@@ -86,7 +91,7 @@ const Navbar = () => {
 
             {/* 2. Services Dropdown (2 Columns) */}
             <li className="group relative py-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500">Services <ChevronDown size={14}/></div>
+              <div className="flex items-center gap-1 group-hover:text-orange-500">Services <ChevronDown size={14} /></div>
               <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[500px] shadow-2xl border-t-4 border-orange-500 p-8">
                 <div className="grid grid-cols-2 gap-x-12 gap-y-4">
                   <div className="space-y-4 font-medium text-gray-600">
@@ -111,17 +116,17 @@ const Navbar = () => {
 
             {/* 3. Life at Tredence (Small Dropdown) */}
             <li className="group relative py-4 cursor-pointer">
-               <div className="flex items-center gap-1 group-hover:text-orange-500">Life at Tredence <ChevronDown size={14}/></div>
-               <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[200px] shadow-xl border-t-4 border-orange-500 p-6 space-y-4 font-medium text-gray-600">
-                  <p className="hover:text-orange-500">Culture</p>
-                  <p className="hover:text-orange-500">DEI</p>
-                  <p className="hover:text-orange-500">Sustainability</p>
-               </div>
+              <div className="flex items-center gap-1 group-hover:text-orange-500">Life at Tredence <ChevronDown size={14} /></div>
+              <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[200px] shadow-xl border-t-4 border-orange-500 p-6 space-y-4 font-medium text-gray-600">
+                <p className="hover:text-orange-500">Culture</p>
+                <p className="hover:text-orange-500">DEI</p>
+                <p className="hover:text-orange-500">Sustainability</p>
+              </div>
             </li>
 
             {/* 4. Insights Dropdown (Single Column) */}
             <li className="group relative py-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500">Insights <ChevronDown size={14}/></div>
+              <div className="flex items-center gap-1 group-hover:text-orange-500">Insights <ChevronDown size={14} /></div>
               <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[250px] shadow-2xl border-t-4 border-orange-500 p-6">
                 <div className="space-y-4 font-medium text-gray-600">
                   <p className="hover:text-orange-500">Data & AI Playbooks</p>
@@ -139,7 +144,7 @@ const Navbar = () => {
 
             {/* 5. Company Dropdown (Single Column) */}
             <li className="group relative py-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500">Company <ChevronDown size={14}/></div>
+              <div className="flex items-center gap-1 group-hover:text-orange-500">Company <ChevronDown size={14} /></div>
               <div className="absolute top-full right-0 hidden group-hover:block bg-white text-black min-w-[220px] shadow-2xl border-t-4 border-orange-500 p-6">
                 <div className="space-y-4 font-medium text-gray-600">
                   <p className="hover:text-orange-500">Our Story</p>

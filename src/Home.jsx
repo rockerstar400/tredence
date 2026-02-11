@@ -107,7 +107,7 @@ const Home = () => {
             <section className="py-20 bg-white px-12 lg:px-24">
                 <div className="flex justify-between items-end mb-12">
                     <h2 className="text-4xl lg:text-5xl font-bold max-w-2xl leading-tight">
-                         Decoding the future of AI through strategic perspectives
+                        Decoding the future of AI through strategic perspectives
                     </h2>
                     <div className="flex gap-4">
                         <button className="w-12 h-12 rounded-full border border-orange-500 text-orange-500 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all">←</button>
@@ -214,7 +214,7 @@ const Home = () => {
             {/* --- Section 5: Recognized by Industry Leaders (Awards) --- */}
             <section className="py-24 bg-gray-50 px-12 lg:px-24">
                 <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 max-w-4xl mx-auto leading-tight">
-                   Industry-leading excellence, recognized globally
+                    Industry-leading excellence, recognized globally
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -262,76 +262,76 @@ const Home = () => {
                 </div>
             </section>
             {/* --- Recognized by Industry Leaders Section --- */}
-<section className="py-24 bg-[#f8f9fa] px-12 lg:px-24">
-  <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 max-w-4xl mx-auto leading-tight text-gray-900">
-    Recognized by industry leaders for our pathfinding
-  </h2>
+            <section className="py-24 bg-[#f8f9fa] px-12 lg:px-24">
+                <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 max-w-4xl mx-auto leading-tight text-gray-900">
+                    Recognized by industry leaders for our pathfinding
+                </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    
-    {/* Card 1: Great Place to Work */}
-    <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
-      <div className="h-56 flex items-center justify-center mb-8">
-         <img 
-            src="https://www.greatplacetowork.in/wp-content/uploads/2021/04/Certified-Logo-300x300.png" 
-            alt="GPTW India" 
-            className="h-full object-contain" 
-         />
-      </div>
-      {/* Divider line */}
-      <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-      <p className="text-gray-600 font-medium leading-relaxed px-4">
-        Tredence is Certified as a Great Place to Work® by GPTW India
-      </p>
-    </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    {/* Card 2: Business Insider */}
-    <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
-      <div className="h-56 flex items-center justify-center mb-8">
-         <img 
-            src="https://plantainsights.com/wp-content/uploads/2023/11/BI-Top-Consulting-Firms-2024.png" 
-            alt="Business Insider" 
-            className="h-full object-contain" 
-         />
-      </div>
-      <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-      <p className="text-gray-600 font-medium leading-relaxed px-4">
-        Recognized as a Top Management Consulting Firm in the U.S. by Business Insider.
-      </p>
-    </div>
+                    {/* Card 1: Great Place to Work */}
+                    <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
+                        <div className="h-56 flex items-center justify-center mb-8">
+                            <img
+                                src="https://www.greatplacetowork.in/wp-content/uploads/2021/04/Certified-Logo-300x300.png"
+                                alt="GPTW India"
+                                className="h-full object-contain"
+                            />
+                        </div>
+                        {/* Divider line */}
+                        <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
+                        <p className="text-gray-600 font-medium leading-relaxed px-4">
+                            Tredence is Certified as a Great Place to Work® by GPTW India
+                        </p>
+                    </div>
 
-    {/* Card 3: Microsoft Partner */}
-    <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
-      <div className="h-56 w-full flex items-center justify-center mb-8">
-         {/* Custom Microsoft Card Style */}
-         <div className="w-full border border-blue-200 rounded-sm overflow-hidden flex flex-col">
-            <div className="bg-white p-6 text-left flex items-start gap-4">
-               <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" className="w-8" />
-               <div>
-                  <p className="text-blue-600 font-bold text-sm">Microsoft</p>
-                  <p className="text-blue-800 text-xs font-semibold">2025 Partner of the Year</p>
-               </div>
-            </div>
-            <div className="bg-[#0078d4] p-6 text-white text-left">
-               <p className="font-bold text-sm">Winner</p>
-               <p className="text-[10px] opacity-90">Data and Analytics Platform Award</p>
-            </div>
-         </div>
-      </div>
-      <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-      <p className="text-gray-600 font-medium leading-relaxed px-4">
-        Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year
-      </p>
-    </div>
+                    {/* Card 2: Business Insider */}
+                    <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
+                        <div className="h-56 flex items-center justify-center mb-8">
+                            <img
+                                src="https://plantainsights.com/wp-content/uploads/2023/11/BI-Top-Consulting-Firms-2024.png"
+                                alt="Business Insider"
+                                className="h-full object-contain"
+                            />
+                        </div>
+                        <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
+                        <p className="text-gray-600 font-medium leading-relaxed px-4">
+                            Recognized as a Top Management Consulting Firm in the U.S. by Business Insider.
+                        </p>
+                    </div>
 
-  </div>
+                    {/* Card 3: Microsoft Partner */}
+                    <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
+                        <div className="h-56 w-full flex items-center justify-center mb-8">
+                            {/* Custom Microsoft Card Style */}
+                            <div className="w-full border border-blue-200 rounded-sm overflow-hidden flex flex-col">
+                                <div className="bg-white p-6 text-left flex items-start gap-4">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" className="w-8" />
+                                    <div>
+                                        <p className="text-blue-600 font-bold text-sm">Microsoft</p>
+                                        <p className="text-blue-800 text-xs font-semibold">2025 Partner of the Year</p>
+                                    </div>
+                                </div>
+                                <div className="bg-[#0078d4] p-6 text-white text-left">
+                                    <p className="font-bold text-sm">Winner</p>
+                                    <p className="text-[10px] opacity-90">Data and Analytics Platform Award</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
+                        <p className="text-gray-600 font-medium leading-relaxed px-4">
+                            Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year
+                        </p>
+                    </div>
 
-  {/* Slider Indicator (Progress Bar) */}
-  <div className="mt-20 w-80 h-1.5 bg-gray-200 mx-auto rounded-full overflow-hidden flex">
-    <div className="w-1/3 h-full bg-orange-600 transition-all"></div>
-    <div className="flex-1"></div>
-  </div>
-</section>
+                </div>
+
+                {/* Slider Indicator (Progress Bar) */}
+                <div className="mt-20 w-80 h-1.5 bg-gray-200 mx-auto rounded-full overflow-hidden flex">
+                    <div className="w-1/3 h-full bg-orange-600 transition-all"></div>
+                    <div className="flex-1"></div>
+                </div>
+            </section>
             <Footer />
         </div>
     );
