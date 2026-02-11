@@ -2,8 +2,21 @@ import React from 'react';
 import Navbar from "./components/Header"; // Path check kar lena agar folder alag ho
 import Hero from './components/Hero';
 import Footer from './components/Footer';
+import isgLogo from "././assets/Sigmalogo.png";
+import LogoSlider from "././components/LogoSlider";
+ // Jo pehle banaya tha
+
+
+// Awards/Logo Slider ke liye data
+
 
 const Home = () => {
+    const awardLogos = [
+        isgLogo,
+        isgLogo,
+        isgLogo,
+        isgLogo
+    ];
     return (
         <div className="relative font-sans antialiased">
             {/* Header and Hero */}
@@ -134,6 +147,13 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            <LogoSlider
+                title="Meet the"
+                highlightText="undisputed healthcare analytics"
+                subtitle="Don't just take our word for it!"
+                logos={awardLogos}
+            />
 
             {/* --- Section 2: Tredence Studio (Airplane Section) --- */}
             <section className="relative min-h-[600px] flex items-center text-white py-20 px-12 lg:px-24 overflow-hidden">

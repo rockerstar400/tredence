@@ -21,6 +21,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Header'; // Aapka header code yahan move kar dein
 import Home from './Home';
 import Retail from "./pages/industrial/Retails";
+import Healthcare from './pages/industrial/Healthcare';
+import LifeSciences from './pages/industrial/LifeSciences';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           
           {/* Industrial -> Retail Page Route */}
           <Route path="/industrial/retail" element={<Retail />} />
+          <Route path="/industrial/healthcare" element={<Healthcare />} />
+          <Route path="/industrial/life-sciences" element={<LifeSciences />} />
           
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>
