@@ -129,24 +129,34 @@ const Navbar = () => {
 
             {/* --- SERVICES DROPDOWN --- */}
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500">
+              <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
                 Services <ChevronDown size={14} />
               </div>
-              <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[500px] shadow-2xl border-t-4 border-orange-500 p-8 z-[1000]">
-                <div className="grid grid-cols-2 gap-x-12 gap-y-4">
-                  <div className="space-y-4 font-medium text-gray-600">
-                    <p className="hover:text-orange-500">Agentic AI</p>
-                    <p className="hover:text-orange-500">
-                      Supply Chain Management
-                    </p>
-                    <p className="hover:text-orange-500">Data Science</p>
-                  </div>
-                  <div className="space-y-4 font-medium text-gray-600">
-                    <p className="hover:text-orange-500">Generative AI</p>
-                    <p className="hover:text-orange-500">Data Engineering</p>
-                    <p className="hover:text-orange-500">Digital Engineering</p>
-                  </div>
-                </div>
+              <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black min-w-[320px] shadow-2xl border-t-4 border-orange-500 p-6 space-y-4 font-medium text-gray-600 z-[1000]">
+                <Link
+                  to="/services/data-engineering"
+                  className="hover:text-orange-500 block"
+                >
+                  Data Engineering
+                </Link>
+                <Link
+                  to="/services/data-modernization"
+                  className="hover:text-orange-500 block"
+                >
+                  Data Modernization
+                </Link>
+                <Link
+                  to="/services/digital-engineering"
+                  className="hover:text-orange-500 block"
+                >
+                  Digital Engineering
+                </Link>
+                <Link
+                  to="/services/llmops"
+                  className="hover:text-orange-500 block"
+                >
+                  LLMOps
+                </Link>
               </div>
             </li>
 

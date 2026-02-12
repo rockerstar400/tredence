@@ -34,6 +34,13 @@ import ThoughtLeadership from './pages/insights/ThoughtLeadership';
 import DataAIPlaybooks from './pages/insights/DataAIPlaybooks';
 import CustomerVoice from './pages/insights/CustomerVoice';
 
+// Services Pages
+import DataEngineering from './pages/services/DataEngineering';
+import DataModernization from './pages/services/DataModernization';
+import DigitalEngineering from './pages/services/DigitalEngineering';
+import LLMOps from './pages/services/LLMOps';
+import LifeAtSigma from './pages/Services/LifeAtSigma';
+
 function App() {
   return (
     <Router>
@@ -69,6 +76,24 @@ function App() {
             element={<DataAIPlaybooks />}
           />
           <Route path="/insights/customer-voice" element={<CustomerVoice />} />
+
+          {/* Services Pages Routes */}
+          <Route
+            path="/services/data-engineering"
+            element={<DataEngineering />}
+          />
+          <Route
+            path="/services/data-modernization"
+            element={<DataModernization />}
+          />
+          <Route
+            path="/services/digital-engineering"
+            element={<DigitalEngineering />}
+          />
+          <Route path="/services/llmops" element={<LLMOps />} />
+
+          {/* Life at Sigma Route */}
+          <Route path="/careers" element={<LifeAtSigma />} />
 
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>
