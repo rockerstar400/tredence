@@ -3,12 +3,10 @@
 // import { Menu, X } from 'lucide-react';
 // import Retail from "./pages/industrial/Retails"
 
-
-
 // function App() {
 //   return (
 //     <div className="App">
-      
+
 //       <Home />
 //     </div>
 //   );
@@ -20,33 +18,41 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Header'; // Aapka header code yahan move kar dein
 import Home from './Home';
-import Retail from "./pages/industrial/Retails";
-import Healthcare from './pages/industrial/Healthcare';
+import Retail from './pages/industrial/Retails';
+
 import LifeSciences from './pages/industrial/LifeSciences';
 import CPG from './pages/industrial/CPG';
 import BFSI from './pages/industrial/BFSI';
 import Telcomedia from './pages/industrial/Telcomedia';
+import TravelHospitality from './pages/industrial/TravelHospitality';
+import Industrials from './pages/industrial/Industrials';
+import Healthcare from './pages/industrial/Healthcare';
+
 
 function App() {
   return (
     <Router>
       <div className="App">
         {/* Navbar ko Routes ke bahar rakha hai taaki ye har page par dikhe */}
-        <Navbar /> 
+        <Navbar />
 
         <Routes>
           {/* Home Page Route */}
           <Route path="/" element={<Home />} />
-          
+
           {/* Industrial -> Retail Page Route */}
           <Route path="/industrial/retail" element={<Retail />} />
           <Route path="/industrial/healthcare" element={<Healthcare />} />
           <Route path="/industrial/life-sciences" element={<LifeSciences />} />
-           <Route path="/industrial/cpg" element={<CPG />} />
-            <Route path="/industrial/financial-services" element={<BFSI />} />
-            <Route path="/industrial/telco-media" element={<Telcomedia />} />
+          <Route path="/industrial/cpg" element={<CPG />} />
+          <Route path="/industrial/financial-services" element={<BFSI />} />
+          <Route path="/industrial/telco-media" element={<Telcomedia />} />
+          <Route
+            path="/industrial/travel-hospitality"
+            element={<TravelHospitality />}
+          />
+          <Route path="/industrial/industrials" element={<Industrials />} />
 
-          
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>
       </div>
