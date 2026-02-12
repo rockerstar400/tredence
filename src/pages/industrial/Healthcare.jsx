@@ -1,98 +1,3 @@
-// import React from 'react';
-// import AIIntroSection from '../../components/common/AIIntroSection';
-// import ContactSection from '../../components/common/ContactSection';
-// import FAQSection from '../../components/common/FAQSection';
-// import ImpactSection from '../../components/common/ImpactSection';
-// import InsightsSection from '../../components/common/InsightsSection';
-// import PartnersSection from '../../components/common/PartnersSection';
-// import ServicesSection from '../../components/common/ServicesSection';
-// import StatsSection from '../../components/common/StatsSection';
-// import TestimonialSection from '../../components/common/TestimonialSection';
-// import Footer from '../../components/Footer';
-// import LogoSlider from '../../components/LogoSlider';
-// import isgLogo from '../../assets/logo.png';
-
-// const Healthcare = () => {
-//   const awardLogos = [isgLogo, isgLogo, isgLogo, isgLogo];
-
-//   return (
-//     <>
-//       {/* ================= HERO SECTION ================= */}
-//       <section className="relative h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
-//         <div
-//           className="absolute inset-0 bg-cover bg-center -z-10"
-//           style={{
-//             backgroundImage:
-//               "url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000')",
-//           }}
-//         >
-//           <div className="absolute inset-0 bg-black/60"></div>
-//         </div>
-
-//         <div className="px-6 lg:px-24">
-//           <nav className="mb-12 text-sm font-medium flex justify-center gap-2 opacity-90">
-//             <span>Home</span> / <span>Industry</span> /
-//             <span className="text-orange-500">Healthcare</span>
-//           </nav>
-
-//           <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-//             Harnessing AI in Healthcare
-//           </h1>
-//           <p className="text-3xl lg:text-5xl font-light italic">
-//             For Value-Based Care and Superior Member Experience
-//           </p>
-//         </div>
-//       </section>
-
-//       {/* ================= MODERNIZE SECTION ================= */}
-//       <section className="py-24 px-12 lg:px-24 bg-white">
-//         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
-//           <div className="lg:w-1/2 relative">
-//             <img
-//               src="https://img.freepik.com/free-photo/medium-shot-doctor-with-clipboard_23-2148816188.jpg"
-//               alt="Healthcare"
-//               className="w-full max-w-md rounded-lg shadow-2xl"
-//             />
-//           </div>
-
-//           <div className="lg:w-1/2">
-//             <h2 className="text-4xl lg:text-5xl font-bold mb-8">
-//               Modernize{' '}
-//               <span className="text-orange-600">data & optimize care</span>
-//             </h2>
-//             <p className="text-gray-700 text-lg leading-relaxed">
-//               Tredence helps leading healthcare organizations move toward
-//               value-based care by modernizing data and analytics ecosystems.
-//             </p>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* ================= LOGO SLIDER ================= */}
-//       <LogoSlider
-//         title="Meet the"
-//         highlightText="undisputed healthcare analytics"
-//         subtitle="Don't just take our word for it!"
-//         logos={awardLogos}
-//       />
-
-//       {/* ================= REMAINING SECTIONS ================= */}
-//       <TestimonialSection />
-//       <AIIntroSection />
-//       <ServicesSection />
-//       <StatsSection />
-//       <PartnersSection />
-//       <ImpactSection />
-//       <InsightsSection />
-//       <FAQSection />
-//       <ContactSection />
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default Healthcare;
-
 import React, { useState } from 'react';
 import {
   Star,
@@ -103,12 +8,32 @@ import {
 } from 'lucide-react';
 import LogoSlider from '../../components/LogoSlider';
 import Footer from '../../components/Footer';
-import isgLogo from '../../assets/Sigmalogo.png'; // Jo pehle banaya tha
 
 const Healthcare = () => {
   const [activeFaq, setActiveFaq] = useState(0);
   // Awards/Logo Slider ke liye data
-  const awardLogos = [isgLogo, isgLogo, isgLogo, isgLogo];
+  // const awardLogos = [
+  //   "https://picsum.photos/seed/1/800/600",
+  //   "https://picsum.photos/seed/2/800/600",
+  //   "https://picsum.photos/seed/3/800/600",
+  //   "https://picsum.photos/seed/4/800/600",
+  //   "https://picsum.photos/seed/5/800/600",
+  //   "https://picsum.photos/seed/6/800/600",
+  //   "https://picsum.photos/seed/7/800/600",
+  //   "https://picsum.photos/seed/8/800/600",
+  //   "https://picsum.photos/seed/9/800/600",
+  //   "https://picsum.photos/seed/10/800/600"
+  // ];
+  const awardLogos = [
+    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80', // AI chip
+    'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', // Cloud tech
+    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80', // Data analytics
+    'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80', // Team tech workspace
+    'https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=800&q=80', // Coding laptop
+    'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80', // Cyber security
+    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80', // Developer setup
+    'https://images.unsplash.com/photo-1581093588401-22f5f8a7e3c6?auto=format&fit=crop&w=800&q=80', // Data dashboard
+  ];
 
   return (
     <div className="font-sans antialiased">
@@ -245,14 +170,7 @@ const Healthcare = () => {
             </div>
 
             {/* Slider Controls Placeholder */}
-            <div className="flex gap-4 mt-12">
-              <button className="p-3 border border-gray-300 hover:bg-gray-100 transition">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="p-3 border border-gray-300 hover:bg-gray-100 transition">
-                <ChevronRight size={20} />
-              </button>
-            </div>
+            <div className="flex gap-4 mt-12"></div>
           </div>
         </div>
       </section>
@@ -315,31 +233,53 @@ const Healthcare = () => {
               Modernizing Healthcare with Connected Data and AI
             </h2>
             <p className="text-gray-600 max-w-sm text-sm hidden lg:block">
-              Deliver measurable value in care, cost, and operations through a
-              unified, governed, AI-ready healthcare data layer.
+              Transform care delivery using intelligent, interoperable and
+              AI-ready healthcare platforms.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Interoperability', icon: '📄' },
-              { title: 'AI-augmented data governance', icon: '☁️' },
-              { title: 'Unified data models', icon: '🗄️' },
-              { title: 'AI driven payer and provider analytics', icon: '🔍' },
-              { title: 'GenAI-powered Healthcare', icon: '❤️' },
+              {
+                title: 'Healthcare Data Interoperability',
+                image: 'https://picsum.photos/seed/health1/800/600',
+              },
+              {
+                title: 'AI-Driven Data Governance',
+                image: 'https://picsum.photos/seed/health2/800/600',
+              },
+              {
+                title: 'Unified Clinical Data Models',
+                image: 'https://picsum.photos/seed/health3/800/600',
+              },
+              {
+                title: 'Advanced Payer & Provider Analytics',
+                image: 'https://picsum.photos/seed/health4/800/600',
+              },
+              {
+                title: 'Generative AI for Healthcare',
+                image: 'https://picsum.photos/seed/health5/800/600',
+              },
+              {
+                title: 'Provider Analytics AI for Healthcare',
+                image: 'https://picsum.photos/seed/health6/800/600',
+              },
             ].map((item, idx) => (
               <div key={idx} className="group cursor-pointer">
-                <div className="bg-orange-600 h-48 flex items-center justify-center text-6xl text-white">
-                  {item.icon}
+                {/* Image Section - SAME UI */}
+                <div className="bg-orange-600 h-48 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
+
+                {/* Content Section - SAME UI */}
                 <div className="bg-white p-8 h-40 flex flex-col justify-between border border-t-0 border-gray-100 shadow-sm group-hover:shadow-md transition-all">
                   <h3 className="text-xl font-bold leading-tight">
                     {item.title}
                   </h3>
-                  <span className="text-orange-600 font-bold text-xs uppercase tracking-widest flex items-center gap-1">
-                    READ MORE{' '}
-                    <ChevronRight size={14} className="rotate-[-45deg]" />
-                  </span>
                 </div>
               </div>
             ))}
@@ -383,6 +323,11 @@ const Healthcare = () => {
                 desc: 'with extensive customer recommendations across multiple engagements',
                 icon: '👍',
               },
+              {
+                val: '1000+',
+                desc: 'successful healthcare transformation programs delivered globally',
+                icon: '🏥',
+              },
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -412,37 +357,57 @@ const Healthcare = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
             {[
               {
-                name: 'databricks',
-                desc: 'Accelerating enterprise data modernization...',
-                badge: '🏆',
+                name: 'Databricks',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
+                desc: 'Accelerating enterprise data modernization with unified lakehouse architecture.',
+                badge:
+                  'https://www.vectorlogo.zone/logos/databricks/databricks-icon.svg',
               },
               {
                 name: 'Google Cloud',
-                desc: 'Driving business transformation with AI...',
-                badge: '☁️',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+                desc: 'Driving AI-led digital transformation at enterprise scale.',
+                badge:
+                  'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
               },
               {
-                name: 'snowflake',
-                desc: 'Driving data and AI innovation as a Snowflake Elite Partner...',
-                badge: '❄️',
+                name: 'Snowflake',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
+                desc: 'Delivering modern data platforms with scalable cloud-native architecture.',
+                badge:
+                  'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
               },
               {
                 name: 'Microsoft Azure',
-                desc: 'Driving scalable decision intelligence...',
-                badge: '💻',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+                desc: 'Driving scalable decision intelligence with cloud and AI innovation.',
+                badge:
+                  'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
               },
             ].map((p, i) => (
               <div key={i} className="space-y-6">
-                <div className="h-12 flex items-center font-bold text-2xl text-gray-400 grayscale hover:grayscale-0 cursor-pointer">
-                  {p.name}
+                {/* Partner Logo */}
+                <div className="h-12 flex items-center cursor-pointer grayscale hover:grayscale-0 transition-all">
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className="h-full object-contain"
+                  />
                 </div>
+
+                {/* Description */}
                 <p className="text-sm text-gray-500 leading-relaxed">
                   {p.desc}
                 </p>
+
+                {/* Badge */}
                 <div className="h-24 w-24 bg-gray-50 flex items-center justify-center border border-gray-100">
-                  Badge {i + 1}
+                  <img
+                    src={p.badge}
+                    alt={`${p.name} badge`}
+                    className="max-h-12 object-contain"
+                  />
                 </div>
-                <div className="text-orange-600 font-bold">→</div>
               </div>
             ))}
           </div>
@@ -526,64 +491,72 @@ const Healthcare = () => {
 
       {/* --- Section 10: Featured Insights --- */}
       <section className="py-24 px-12 lg:px-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Featured Insights</h2>
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-4xl font-bold mb-8">Featured Insights</h2>
 
-          <div className="flex gap-4 mb-12 overflow-x-auto pb-4">
-            {[
-              'LATEST BLOGS',
-              'CASE STUDIES',
-              'E-BOOKS',
-              'THOUGHT LEADERSHIP',
-              'VIDEOS',
-            ].map((tab, i) => (
-              <button
-                key={i}
-                className={`px-6 py-2 text-xs font-bold tracking-widest whitespace-nowrap ${i === 0 ? 'bg-[#72c6b3] text-white' : 'bg-gray-200 text-gray-500'}`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
+    <div className="flex gap-4 mb-12 overflow-x-auto pb-4">
+      {[
+        'LATEST BLOGS',
+        'CASE STUDIES',
+        'E-BOOKS',
+        'THOUGHT LEADERSHIP',
+        'VIDEOS',
+      ].map((tab, i) => (
+        <button
+          key={i}
+          className={`px-6 py-2 text-xs font-bold tracking-widest whitespace-nowrap ${
+            i === 0
+              ? 'bg-[#72c6b3] text-white'
+              : 'bg-gray-200 text-gray-500'
+          }`}
+        >
+          {tab}
+        </button>
+      ))}
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Enhancing Healthcare Supply Chain Data Quality...',
-                img: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=400',
-              },
-              {
-                title: 'How AI Diagnostics is Revolutionizing the Fight...',
-                img: 'https://images.unsplash.com/photo-1579154235602-3c3103734c44?auto=format&fit=crop&q=80&w=400',
-              },
-              {
-                title: 'Key Opinion Leader (KOL) Engagement in Healthcare...',
-                img: 'https://images.unsplash.com/photo-1532187875605-1ef6c237ddc4?auto=format&fit=crop&q=80&w=400',
-              },
-            ].map((blog, idx) => (
-              <div
-                key={idx}
-                className="bg-white group cursor-pointer shadow-sm hover:shadow-lg transition-all"
-              >
-                <img
-                  src={blog.img}
-                  className="w-full h-52 object-cover"
-                  alt=""
-                />
-                <div className="p-8">
-                  <span className="bg-[#72c6b3] text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">
-                    BLOG
-                  </span>
-                  <h3 className="text-lg font-bold mt-4 mb-8 min-h-[60px] group-hover:text-orange-600">
-                    {blog.title}
-                  </h3>
-                  <div className="text-orange-600 font-bold">→</div>
-                </div>
-              </div>
-            ))}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          title:
+            'Enhancing Healthcare Supply Chain Data Quality and Visibility',
+          img: 'https://picsum.photos/seed/healthblog1/600/400',
+        },
+        {
+          title:
+            'How AI Diagnostics is Transforming Clinical Decision Making',
+          img: 'https://picsum.photos/seed/healthblog2/600/400',
+        },
+        {
+          title:
+            'Improving Patient Engagement Through Advanced Analytics',
+          img: 'https://picsum.photos/seed/healthblog3/600/400',
+        },
+      ].map((blog, idx) => (
+        <div
+          key={idx}
+          className="bg-white group cursor-pointer shadow-sm hover:shadow-lg transition-all"
+        >
+          <img
+            src={blog.img}
+            className="w-full h-52 object-cover"
+            alt={blog.title}
+          />
+          <div className="p-8">
+            <span className="bg-[#72c6b3] text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">
+              BLOG
+            </span>
+            <h3 className="text-lg font-bold mt-4 mb-8 min-h-[60px] group-hover:text-orange-600 transition-colors">
+              {blog.title}
+            </h3>
+            <div className="text-orange-600 font-bold">→</div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* --- Section 11: Healthcare FAQs --- */}
       <section className="py-24 px-12 lg:px-24 bg-white">

@@ -14,7 +14,17 @@ const BFSI = () => {
   const [activeFaq, setActiveFaq] = useState(0);
 
   // Award Logos (Aapne jo local import setup kiya hai wahi use karein)
-  const awardLogos = [logo, logo];
+  const awardLogos = [
+    'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
+    'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+    'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
+  ];
 
   return (
     <div className="font-sans antialiased text-gray-900">
@@ -108,8 +118,7 @@ const BFSI = () => {
         subtitle="Don't just take our word for it!"
         logos={awardLogos}
       />
-
-      {/* --- Section 4: BFSI FAQs --- */}
+      {/* --- Section 4: Testimonial Section --- */}
       <section className="py-24 px-12 lg:px-24 bg-white">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl font-bold mb-2">
@@ -152,14 +161,7 @@ const BFSI = () => {
             </div>
 
             {/* Slider Controls Placeholder */}
-            <div className="flex gap-4 mt-12">
-              <button className="p-3 border border-gray-300 hover:bg-gray-100 transition">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="p-3 border border-gray-300 hover:bg-gray-100 transition">
-                <ChevronRight size={20} />
-              </button>
-            </div>
+            <div className="flex gap-4 mt-12"></div>
           </div>
         </div>
       </section>
@@ -222,31 +224,53 @@ const BFSI = () => {
               Modernizing Healthcare with Connected Data and AI
             </h2>
             <p className="text-gray-600 max-w-sm text-sm hidden lg:block">
-              Deliver measurable value in care, cost, and operations through a
-              unified, governed, AI-ready healthcare data layer.
+              Transform care delivery using intelligent, interoperable and
+              AI-ready healthcare platforms.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Interoperability', icon: '📄' },
-              { title: 'AI-augmented data governance', icon: '☁️' },
-              { title: 'Unified data models', icon: '🗄️' },
-              { title: 'AI driven payer and provider analytics', icon: '🔍' },
-              { title: 'GenAI-powered Healthcare', icon: '❤️' },
+              {
+                title: 'Healthcare Data Interoperability',
+                image: 'https://picsum.photos/seed/health1/800/600',
+              },
+              {
+                title: 'AI-Driven Data Governance',
+                image: 'https://picsum.photos/seed/health2/800/600',
+              },
+              {
+                title: 'Unified Clinical Data Models',
+                image: 'https://picsum.photos/seed/health3/800/600',
+              },
+              {
+                title: 'Advanced Payer & Provider Analytics',
+                image: 'https://picsum.photos/seed/health4/800/600',
+              },
+              {
+                title: 'Generative AI for Healthcare',
+                image: 'https://picsum.photos/seed/health5/800/600',
+              },
+              {
+                title: 'Provider Analytics AI for Healthcare',
+                image: 'https://picsum.photos/seed/health6/800/600',
+              },
             ].map((item, idx) => (
               <div key={idx} className="group cursor-pointer">
-                <div className="bg-orange-600 h-48 flex items-center justify-center text-6xl text-white">
-                  {item.icon}
+                {/* Image Section - SAME UI */}
+                <div className="bg-orange-600 h-48 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
+
+                {/* Content Section - SAME UI */}
                 <div className="bg-white p-8 h-40 flex flex-col justify-between border border-t-0 border-gray-100 shadow-sm group-hover:shadow-md transition-all">
                   <h3 className="text-xl font-bold leading-tight">
                     {item.title}
                   </h3>
-                  <span className="text-orange-600 font-bold text-xs uppercase tracking-widest flex items-center gap-1">
-                    READ MORE{' '}
-                    <ChevronRight size={14} className="rotate-[-45deg]" />
-                  </span>
                 </div>
               </div>
             ))}
@@ -290,6 +314,11 @@ const BFSI = () => {
                 desc: 'with extensive customer recommendations across multiple engagements',
                 icon: '👍',
               },
+              {
+                val: '1000+',
+                desc: 'successful healthcare transformation programs delivered globally',
+                icon: '🏥',
+              },
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -319,37 +348,57 @@ const BFSI = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
             {[
               {
-                name: 'databricks',
-                desc: 'Accelerating enterprise data modernization...',
-                badge: '🏆',
+                name: 'Databricks',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
+                desc: 'Accelerating enterprise data modernization with unified lakehouse architecture.',
+                badge:
+                  'https://www.vectorlogo.zone/logos/databricks/databricks-icon.svg',
               },
               {
                 name: 'Google Cloud',
-                desc: 'Driving business transformation with AI...',
-                badge: '☁️',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+                desc: 'Driving AI-led digital transformation at enterprise scale.',
+                badge:
+                  'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
               },
               {
-                name: 'snowflake',
-                desc: 'Driving data and AI innovation as a Snowflake Elite Partner...',
-                badge: '❄️',
+                name: 'Snowflake',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
+                desc: 'Delivering modern data platforms with scalable cloud-native architecture.',
+                badge:
+                  'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
               },
               {
                 name: 'Microsoft Azure',
-                desc: 'Driving scalable decision intelligence...',
-                badge: '💻',
+                logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+                desc: 'Driving scalable decision intelligence with cloud and AI innovation.',
+                badge:
+                  'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
               },
             ].map((p, i) => (
               <div key={i} className="space-y-6">
-                <div className="h-12 flex items-center font-bold text-2xl text-gray-400 grayscale hover:grayscale-0 cursor-pointer">
-                  {p.name}
+                {/* Partner Logo */}
+                <div className="h-12 flex items-center cursor-pointer grayscale hover:grayscale-0 transition-all">
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className="h-full object-contain"
+                  />
                 </div>
+
+                {/* Description */}
                 <p className="text-sm text-gray-500 leading-relaxed">
                   {p.desc}
                 </p>
+
+                {/* Badge */}
                 <div className="h-24 w-24 bg-gray-50 flex items-center justify-center border border-gray-100">
-                  Badge {i + 1}
+                  <img
+                    src={p.badge}
+                    alt={`${p.name} badge`}
+                    className="max-h-12 object-contain"
+                  />
                 </div>
-                <div className="text-orange-600 font-bold">→</div>
               </div>
             ))}
           </div>
@@ -446,7 +495,11 @@ const BFSI = () => {
             ].map((tab, i) => (
               <button
                 key={i}
-                className={`px-6 py-2 text-xs font-bold tracking-widest whitespace-nowrap ${i === 0 ? 'bg-[#72c6b3] text-white' : 'bg-gray-200 text-gray-500'}`}
+                className={`px-6 py-2 text-xs font-bold tracking-widest whitespace-nowrap ${
+                  i === 0
+                    ? 'bg-[#72c6b3] text-white'
+                    : 'bg-gray-200 text-gray-500'
+                }`}
               >
                 {tab}
               </button>
@@ -456,16 +509,19 @@ const BFSI = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Enhancing Healthcare Supply Chain Data Quality...',
-                img: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=400',
+                title:
+                  'Enhancing Healthcare Supply Chain Data Quality and Visibility',
+                img: 'https://picsum.photos/seed/healthblog1/600/400',
               },
               {
-                title: 'How AI Diagnostics is Revolutionizing the Fight...',
-                img: 'https://images.unsplash.com/photo-1579154235602-3c3103734c44?auto=format&fit=crop&q=80&w=400',
+                title:
+                  'How AI Diagnostics is Transforming Clinical Decision Making',
+                img: 'https://picsum.photos/seed/healthblog2/600/400',
               },
               {
-                title: 'Key Opinion Leader (KOL) Engagement in Healthcare...',
-                img: 'https://images.unsplash.com/photo-1532187875605-1ef6c237ddc4?auto=format&fit=crop&q=80&w=400',
+                title:
+                  'Improving Patient Engagement Through Advanced Analytics',
+                img: 'https://picsum.photos/seed/healthblog3/600/400',
               },
             ].map((blog, idx) => (
               <div
@@ -475,13 +531,13 @@ const BFSI = () => {
                 <img
                   src={blog.img}
                   className="w-full h-52 object-cover"
-                  alt=""
+                  alt={blog.title}
                 />
                 <div className="p-8">
                   <span className="bg-[#72c6b3] text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">
                     BLOG
                   </span>
-                  <h3 className="text-lg font-bold mt-4 mb-8 min-h-[60px] group-hover:text-orange-600">
+                  <h3 className="text-lg font-bold mt-4 mb-8 min-h-[60px] group-hover:text-orange-600 transition-colors">
                     {blog.title}
                   </h3>
                   <div className="text-orange-600 font-bold">→</div>
@@ -541,6 +597,7 @@ const BFSI = () => {
       </section>
 
       {/* --- Section 12: Contact Form --- */}
+
       <section className="relative pt-20">
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
         <div className="max-w-6xl mx-auto px-6 pb-20">
