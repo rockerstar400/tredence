@@ -29,17 +29,19 @@ import Industrials from './pages/industrial/Industrials';
 import Healthcare from './pages/industrial/Healthcare';
 
 // Insights Pages
-import CaseStudies from './pages/insights/CaseStudies';
-import ThoughtLeadership from './pages/insights/ThoughtLeadership';
-import DataAIPlaybooks from './pages/insights/DataAIPlaybooks';
-import CustomerVoice from './pages/insights/CustomerVoice';
+import CaseStudies from './pages/Insights/CaseStudies';
+import ThoughtLeadership from './pages/Insights/ThoughtLeadership';
+import DataAIPlaybooks from './pages/Insights/DataAIPlaybooks';
+import CustomerVoice from './pages/Insights/CustomerVoice';
+
 
 // Services Pages
-import DataEngineering from './pages/services/DataEngineering';
-import DataModernization from './pages/services/DataModernization';
-import DigitalEngineering from './pages/services/DigitalEngineering';
-import LLMOps from './pages/services/LLMOps';
+import DataEngineering from './pages/Services/DataEngineering';
+import DataModernization from './pages/Services/DataModernization';
+import DigitalEngineering from './pages/Services/DigitalEngineering';
+import LLMOps from './pages/Services/LLMOps';
 import LifeAtSigma from './pages/Services/LifeAtSigma';
+
 
 function App() {
   return (
