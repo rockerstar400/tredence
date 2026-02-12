@@ -28,6 +28,11 @@ import TravelHospitality from './pages/industrial/TravelHospitality';
 import Industrials from './pages/industrial/Industrials';
 import Healthcare from './pages/industrial/Healthcare';
 
+// Insights Pages
+import CaseStudies from './pages/insights/CaseStudies';
+import ThoughtLeadership from './pages/insights/ThoughtLeadership';
+import DataAIPlaybooks from './pages/insights/DataAIPlaybooks';
+import CustomerVoice from './pages/insights/CustomerVoice';
 
 function App() {
   return (
@@ -52,6 +57,18 @@ function App() {
             element={<TravelHospitality />}
           />
           <Route path="/industrial/industrials" element={<Industrials />} />
+
+          {/* Insights Pages Routes */}
+          <Route path="/insights/case-studies" element={<CaseStudies />} />
+          <Route
+            path="/insights/thought-leadership"
+            element={<ThoughtLeadership />}
+          />
+          <Route
+            path="/insights/data-ai-playbooks"
+            element={<DataAIPlaybooks />}
+          />
+          <Route path="/insights/customer-voice" element={<CustomerVoice />} />
 
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>

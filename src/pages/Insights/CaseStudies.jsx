@@ -1,0 +1,575 @@
+import React, { useState, useEffect } from 'react';
+import {
+  ChevronRight,
+  ChevronLeft,
+  ChevronDown,
+  ChevronUp,
+  TrendingUp,
+  Award,
+} from 'lucide-react';
+import Footer from '../../components/Footer';
+
+const CaseStudies = () => {
+  const [activeFaq, setActiveFaq] = useState(0);
+  const [counters, setCounters] = useState({
+    caseStudies: 0,
+    industries: 0,
+    impact: 0,
+    clients: 0,
+  });
+
+  // Counter animation on mount
+  useEffect(() => {
+    const targets = {
+      caseStudies: 450,
+      industries: 25,
+      impact: 340,
+      clients: 190,
+    };
+    const duration = 2000; // 2 seconds
+    const startTime = Date.now();
+
+    const updateCounters = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      setCounters({
+        caseStudies: Math.floor(targets.caseStudies * progress),
+        industries: Math.floor(targets.industries * progress),
+        impact: Math.floor(targets.impact * progress),
+        clients: Math.floor(targets.clients * progress),
+      });
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounters);
+      }
+    };
+
+    updateCounters();
+  }, []);
+
+  return (
+    <div className="font-sans antialiased">
+      {/* --- Section 1: Hero Banner --- */}
+      <section className="relative h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center -z-10"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2000')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+        </div>
+
+        <div className="px-6 lg:px-24 animate-fade-in-up">
+          <nav className="mb-12 text-sm font-medium flex justify-center gap-2 opacity-90">
+            <span>Home</span> / <span>Insights</span> /{' '}
+            <span className="text-orange-500">Case Studies</span>
+          </nav>
+
+          <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+            Driving Measurable Impact
+          </h1>
+          <p className="text-2xl lg:text-4xl font-light italic mb-8">
+            Enterprise-Grade Transformation Stories Across Industries
+          </p>
+          <p className="text-lg max-w-2xl mx-auto text-gray-200">
+            Discover how leading organizations have transformed their data and
+            AI capabilities to unlock unprecedented business value and
+            competitive advantage.
+          </p>
+        </div>
+      </section>
+
+      {/* --- Section 2: Content + Image Section --- */}
+      <section className="py-24 px-12 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+          <div className="lg:w-1/2 relative">
+            <div className="absolute -top-10 left-10 w-48 h-16 bg-orange-600 -z-0 transform -skew-x-12"></div>
+
+            <div className="relative z-10 flex justify-center items-center">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600"
+                alt="Case Studies Hero"
+                className="w-full max-w-md rounded-lg shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 border-[3px] border-orange-500/30 rounded-full scale-110 -rotate-12"></div>
+              <div className="absolute inset-0 border-[2px] border-orange-500/20 rounded-full scale-125 rotate-45"></div>
+
+              <div className="absolute top-10 -left-6 bg-orange-600 p-4 text-white text-2xl shadow-lg animate-bounce">
+                📊
+              </div>
+              <div className="absolute top-20 -right-6 bg-orange-600 p-4 text-white text-2xl shadow-lg animate-pulse">
+                🎯
+              </div>
+              <div className="absolute bottom-10 right-10 bg-orange-600 p-4 text-white text-2xl shadow-lg">
+                ⚡
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:w-1/2">
+            <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-8">
+              Real Outcomes from
+              <span className="text-orange-600"> Real Transformations</span>
+            </h2>
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              Our case studies showcase how organizations across banking,
+              healthcare, retail, and manufacturing have leveraged Tredence's AI
+              and data expertise to achieve transformative results. Each story
+              represents a partnership that went beyond technology
+              implementation to unlock sustainable competitive advantage.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              From modernizing legacy data architectures to deploying advanced
+              AI models, our customers have achieved measurable improvements in
+              operational efficiency, customer experience, and revenue growth.
+              These aren't just success stories— they're blueprints for digital
+              transformation in your industry.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              By combining deep domain expertise with proven accelerators, we've
+              helped enterprises compress transformation timelines and maximize
+              ROI on their AI and data investments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 3: Case Studies Grid --- */}
+      <section className="py-24 px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-16 text-center">
+            Stories of Digital{' '}
+            <span className="text-orange-600">Leadership</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                industry: 'Banking & Financial Services',
+                title: 'Real-Time Risk Intelligence for Global Investment Bank',
+                outcomes: [
+                  'Reduced risk detection time by 85%',
+                  'Fraud prevention improved by 72%',
+                  '150% increase in client retention',
+                ],
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400',
+              },
+              {
+                industry: 'Healthcare & Life Sciences',
+                title: 'AI-Powered Clinical Insights for Hospital Network',
+                outcomes: [
+                  '40% reduction in patient readmissions',
+                  '33% improvement in resource utilization',
+                  '$8.2M annual cost savings achieved',
+                ],
+                image:
+                  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400',
+              },
+              {
+                industry: 'Retail & E-Commerce',
+                title: 'Demand Forecasting Revolution for Global Retailer',
+                outcomes: [
+                  '94% forecast accuracy achieved',
+                  '$12M reduction in inventory costs',
+                  '45% improvement in stock availability',
+                ],
+                image:
+                  'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=400',
+              },
+              {
+                industry: 'Manufacturing & Industrial',
+                title: 'Predictive Maintenance Platform for Equipment Giants',
+                outcomes: [
+                  '68% reduction in unplanned downtime',
+                  '$15M in avoided maintenance costs',
+                  '3x improvement in asset utilization',
+                ],
+                image:
+                  'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=400',
+              },
+              {
+                industry: 'Telecommunications',
+                title: 'Customer Churn Prediction for Major Telco',
+                outcomes: [
+                  '35% lift in retention campaigns',
+                  '50% reduction in customer churn',
+                  '$25M revenue retention annually',
+                ],
+                image:
+                  'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=400',
+              },
+              {
+                industry: 'CPG & Consumer Goods',
+                title: 'Supply Chain Optimization for Industry Leader',
+                outcomes: [
+                  '22% improvement in on-time delivery',
+                  '31% reduction in logistics costs',
+                  '89% inventory accuracy achieved',
+                ],
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400',
+              },
+            ].map((study, idx) => (
+              <div
+                key={idx}
+                className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:scale-105 hover:-translate-y-2"
+              >
+                {/* Image */}
+                <div className="h-40 overflow-hidden bg-orange-600">
+                  <img
+                    src={study.image}
+                    alt={study.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+                  <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-3">
+                    {study.industry}
+                  </p>
+                  <h3 className="text-xl font-bold mb-6 leading-tight group-hover:text-orange-600 transition-colors">
+                    {study.title}
+                  </h3>
+
+                  {/* Outcomes */}
+                  <div className="space-y-3 mb-6">
+                    {study.outcomes.map((outcome, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <TrendingUp
+                          size={16}
+                          className="text-orange-600 mt-1 flex-shrink-0"
+                        />
+                        <p className="text-sm text-gray-600">{outcome}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button className="inline-flex items-center gap-2 text-orange-600 font-bold group-hover:gap-4 transition-all">
+                    Read Full Story <ChevronRight size={18} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 4: Impact Metrics --- */}
+      <section className="py-24 px-12 lg:px-24 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4">
+            Proven Track Record of Success
+          </h2>
+          <p className="text-xl text-center text-orange-100 mb-16 max-w-2xl mx-auto">
+            Metrics that demonstrate the tangible impact of our transformations
+            across enterprises globally.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                value: counters.caseStudies,
+                suffix: '+',
+                label: 'Successful Projects',
+                icon: '🎯',
+              },
+              {
+                value: counters.industries,
+                suffix: '+',
+                label: 'Industries Served',
+                icon: '🌍',
+              },
+              {
+                value: counters.impact,
+                suffix: '%',
+                label: 'Avg ROI Delivered',
+                icon: '📈',
+              },
+              {
+                value: counters.clients,
+                suffix: '+',
+                label: 'Enterprise Clients',
+                icon: '🤝',
+              },
+            ].map((metric, idx) => (
+              <div
+                key={idx}
+                className="text-center p-8 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all"
+              >
+                <div className="text-5xl mb-4">{metric.icon}</div>
+                <div className="text-5xl font-bold mb-2">
+                  {metric.value}
+                  {metric.suffix}
+                </div>
+                <p className="text-orange-100 font-medium">{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 5: Featured Insights --- */}
+      <section className="py-24 px-12 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-16">
+            Industry-Specific <span className="text-orange-600">Insights</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'AI-Driven Banking: From Legacy to Leadership',
+                category: 'Banking',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                excerpt:
+                  'How top-tier financial institutions are leveraging AI to modernize operations and stay competitive in the digital age.',
+              },
+              {
+                title: 'Healthcare Data Integration: Breaking Down Silos',
+                category: 'Healthcare',
+                image:
+                  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600',
+                excerpt:
+                  'A comprehensive guide to unifying fragmented healthcare data across systems for better patient care and outcomes.',
+              },
+              {
+                title: 'Retail Analytics: The New Competitive Edge',
+                category: 'Retail',
+                image:
+                  'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=600',
+                excerpt:
+                  'Learn how predictive analytics and AI are transforming retail strategies and customer experiences.',
+              },
+            ].map((insight, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 group cursor-pointer shadow-sm hover:shadow-lg transition-all rounded-lg overflow-hidden"
+              >
+                <div className="h-48 overflow-hidden bg-orange-600">
+                  <img
+                    src={insight.image}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    alt={insight.title}
+                  />
+                </div>
+                <div className="p-8">
+                  <span className="bg-orange-100 text-orange-700 px-3 py-1 text-xs font-bold tracking-widest rounded-full">
+                    {insight.category}
+                  </span>
+                  <h3 className="text-lg font-bold mt-4 mb-4 group-hover:text-orange-600 transition-colors">
+                    {insight.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-6">
+                    {insight.excerpt}
+                  </p>
+                  <div className="text-orange-600 font-bold flex items-center gap-2">
+                    Explore <ChevronRight size={16} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 6: Industry Breakdown --- */}
+      <section className="py-24 px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-16 text-center">
+            Where We Make{' '}
+            <span className="text-orange-600">The Most Impact</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                industry: 'Banking & Financial Services',
+                description:
+                  'Risk management, fraud detection, and customer intelligence at enterprise scale.',
+                stats: '85+ transformations',
+              },
+              {
+                industry: 'Healthcare & Life Sciences',
+                description:
+                  'Clinical insights, patient experience optimization, and operational efficiency.',
+                stats: '120+ implementations',
+              },
+              {
+                industry: 'Retail & E-Commerce',
+                description:
+                  'Demand forecasting, inventory optimization, and personalization engines.',
+                stats: '95+ deployments',
+              },
+              {
+                industry: 'Manufacturing & Industrial',
+                description:
+                  'Predictive maintenance, supply chain optimization, and quality assurance.',
+                stats: '70+ projects',
+              },
+              {
+                industry: 'Telecommunications',
+                description:
+                  'Customer churn prediction, network optimization, and service personalization.',
+                stats: '60+ engagements',
+              },
+              {
+                industry: 'CPG & Consumer Goods',
+                description:
+                  'Supply chain visibility, demand planning, and market intelligence.',
+                stats: '50+ initiatives',
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {item.industry}
+                  </h3>
+                  <Award size={24} className="text-orange-600" />
+                </div>
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                  {item.description}
+                </p>
+                <p className="text-orange-600 font-bold text-sm">
+                  {item.stats}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 7: FAQs --- */}
+      <section className="py-24 px-12 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+          <div className="lg:w-1/4">
+            <h2 className="text-4xl font-bold">
+              Case Study <span className="text-orange-600">FAQs</span>
+            </h2>
+          </div>
+          <div className="lg:w-3/4 space-y-4">
+            {[
+              {
+                q: 'Can I access the full case studies?',
+                a: 'Yes, comprehensive case studies with detailed metrics, implementation timelines, and ROI breakdowns are available. Simply request access and our team will share the relevant materials aligned with your industry.',
+              },
+              {
+                q: 'How long does a typical transformation take?',
+                a: 'Transformation timelines vary based on scope and complexity. Most of our implementations span 6-18 months, with quick-wins delivered within the first 90 days and sustained value realization over the project lifecycle.',
+              },
+              {
+                q: 'What is your typical engagement model?',
+                a: 'We offer flexible engagement models including dedicated teams, time-and-materials, and fixed-scope projects. We tailor the structure based on your specific needs, risk tolerance, and organizational preferences.',
+              },
+              {
+                q: 'How do you ensure ROI on transformation projects?',
+                a: 'We employ a rigorous methodology combining baseline metrics, staged implementation, continuous measurement, and optimization. Our accelerators compress timelines, and our teams have proven track records in delivering measurable business outcomes.',
+              },
+            ].map((faq, idx) => (
+              <div key={idx} className="border-b border-gray-200">
+                <button
+                  onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
+                  className="w-full py-6 flex justify-between items-center text-left hover:text-orange-600 transition-colors"
+                >
+                  <span className="text-lg font-bold pr-8">{faq.q}</span>
+                  {activeFaq === idx ? (
+                    <ChevronUp
+                      size={20}
+                      className="text-orange-500 flex-shrink-0"
+                    />
+                  ) : (
+                    <ChevronDown
+                      size={20}
+                      className="text-gray-400 flex-shrink-0"
+                    />
+                  )}
+                </button>
+                {activeFaq === idx && (
+                  <div className="pb-8 text-gray-600 text-sm leading-relaxed animate-fade-in">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Section 8: CTA Section --- */}
+      <section className="relative pt-20">
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
+        <div className="max-w-6xl mx-auto px-6 pb-20">
+          <div className="bg-[#fff1ea] shadow-2xl p-10 lg:p-16 flex flex-col lg:flex-row gap-12 rounded-lg">
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-8">
+                Ready to Write Your Success Story?
+              </h2>
+              <p className="text-gray-700 text-lg mb-8">
+                Let's discuss how we can drive measurable impact in your
+                organization. Our team is ready to share relevant case studies
+                and explore transformation opportunities specific to your
+                industry.
+              </p>
+              <div className="space-y-4">
+                <p className="text-sm text-gray-600">
+                  ✓ Personalized case study recommendations
+                  <br />
+                  ✓ Industry-specific benchmarking
+                  <br />✓ Transformation roadmap discussion
+                </p>
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <form className="space-y-6">
+                <div className="grid grid-cols-2 gap-6">
+                  <input
+                    type="text"
+                    placeholder="First name"
+                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last name"
+                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
+                  />
+                </div>
+                <input
+                  type="email"
+                  placeholder="Email Address*"
+                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
+                />
+                <input
+                  type="text"
+                  placeholder="Industry"
+                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
+                />
+                <textarea
+                  placeholder="Tell us about your transformation goals"
+                  rows="3"
+                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full resize-none"
+                ></textarea>
+                <button
+                  type="submit"
+                  className="bg-orange-600 text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-orange-700 transition-colors rounded-sm"
+                >
+                  Request Case Studies
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default CaseStudies;

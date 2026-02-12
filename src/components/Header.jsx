@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
@@ -160,10 +158,31 @@ const Navbar = () => {
               <div className="flex items-center gap-1 group-hover:text-orange-500">
                 Insights <ChevronDown size={14} />
               </div>
-              <div className="absolute top-full right-0 hidden group-hover:block bg-white text-black min-w-[220px] shadow-2xl border-t-4 border-orange-500 p-6 space-y-4 font-medium text-gray-600 z-[1000]">
-                <p className="hover:text-orange-500">Case Studies</p>
-                <p className="hover:text-orange-500">Blog</p>
-                <p className="hover:text-orange-500">Podcast</p>
+              <div className="absolute top-full right-0 hidden group-hover:block bg-white text-black min-w-[320px] shadow-2xl border-t-4 border-orange-500 p-6 space-y-4 font-medium text-gray-600 z-[1000]">
+                <Link
+                  to="/insights/case-studies"
+                  className="hover:text-orange-500 block"
+                >
+                  Case Studies
+                </Link>
+                <Link
+                  to="/insights/thought-leadership"
+                  className="hover:text-orange-500 block"
+                >
+                  Thought Leadership
+                </Link>
+                <Link
+                  to="/insights/data-ai-playbooks"
+                  className="hover:text-orange-500 block"
+                >
+                  Data & AI Playbooks
+                </Link>
+                <Link
+                  to="/insights/customer-voice"
+                  className="hover:text-orange-500 block"
+                >
+                  Customer Voice
+                </Link>
               </div>
             </li>
 
