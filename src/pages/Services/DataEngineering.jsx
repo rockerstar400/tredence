@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import {
   ChevronRight,
   ChevronDown,
@@ -46,109 +47,277 @@ const DataEngineering = () => {
   return (
     <div className="font-sans antialiased">
       {/* --- Section 1: Hero Banner --- */}
-      <section className="relative h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
-        <div
+      <motion.section
+        className="relative h-[80vh] flex items-center justify-center text-center text-white overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        {/* Animated Background */}
+        <motion.div
           className="absolute inset-0 bg-cover bg-center -z-10"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2000')`,
           }}
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
-        </div>
+        </motion.div>
 
-        <div className="px-6 lg:px-24 max-w-4xl mx-auto animate-fade-in-up">
-          <nav className="mb-12 text-sm font-medium flex justify-center gap-2 opacity-90">
+        {/* Subtle Floating Glow */}
+        <motion.div
+          className="absolute w-[500px] h-[500px] bg-orange-600/20 rounded-full blur-3xl"
+          animate={{ y: [0, -40, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+        {/* Content */}
+        <motion.div
+          className="px-6 lg:px-24 max-w-4xl mx-auto relative z-10"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
+        >
+          <motion.nav
+            className="mb-12 text-sm font-medium flex justify-center gap-2 opacity-90"
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6 }}
+          >
             <span>Services</span> /{' '}
             <span className="text-orange-500">Data Engineering</span>
-          </nav>
+          </motion.nav>
 
-          <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+          <motion.h1
+            className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.8 }}
+          >
             Building Scalable, Intelligent Data Foundations
-          </h1>
-          <p className="text-2xl lg:text-3xl font-light italic mb-8">
+          </motion.h1>
+
+          <motion.p
+            className="text-2xl lg:text-3xl font-light italic mb-8"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.8 }}
+          >
             Transform Raw Data Into Enterprise-Ready Intelligence
-          </p>
-          <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+          </motion.p>
+
+          <motion.p
+            className="text-lg text-gray-200 max-w-3xl mx-auto"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.8 }}
+          >
             Enterprise-grade data engineering that transforms fragmented data
             sources into intelligent, scalable foundations powering real-time
             decision-making across your organization.
-          </p>
-        </div>
-      </section>
+          </motion.p>
+        </motion.div>
+      </motion.section>
 
       {/* --- Section 2: Content + Image Section --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white">
+      <motion.section
+        className="py-24 px-12 lg:px-24 bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
-          <div className="lg:w-1/2 relative">
-            <div className="absolute -top-10 left-10 w-48 h-16 bg-orange-600 -z-0 transform -skew-x-12"></div>
+          {/* LEFT SIDE */}
+          <motion.div
+            className="lg:w-1/2 relative"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+          >
+            <motion.div
+              className="absolute -top-10 left-10 w-48 h-16 bg-orange-600 -z-0 transform -skew-x-12"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{ transformOrigin: 'left' }}
+            />
 
             <div className="relative z-10 flex justify-center items-center">
-              <img
+              <motion.img
                 src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600"
                 alt="Data Engineering"
-                className="w-full max-w-md rounded-lg shadow-2xl hover:scale-105 transition-transform duration-500"
+                className="w-full max-w-md rounded-lg shadow-2xl"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.5 }}
               />
-              <div className="absolute inset-0 border-[3px] border-orange-500/30 rounded-full scale-110 -rotate-12"></div>
-              <div className="absolute inset-0 border-[2px] border-orange-500/20 rounded-full scale-125 rotate-45"></div>
 
-              <div className="absolute top-10 -left-6 bg-orange-600 p-4 text-white text-2xl shadow-lg animate-bounce">
+              {/* Circular Borders Animation */}
+              <motion.div
+                className="absolute inset-0 border-[3px] border-orange-500/30 rounded-full scale-110 -rotate-12"
+                animate={{ rotate: -12 }}
+              />
+              <motion.div
+                className="absolute inset-0 border-[2px] border-orange-500/20 rounded-full scale-125 rotate-45"
+                animate={{ rotate: 45 }}
+              />
+
+              {/* Floating Icons */}
+              <motion.div
+                className="absolute top-10 -left-6 bg-orange-600 p-4 text-white text-2xl shadow-lg"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
                 📊
-              </div>
-              <div className="absolute top-20 -right-6 bg-orange-600 p-4 text-white text-2xl shadow-lg animate-pulse">
-                ⚡
-              </div>
-              <div className="absolute bottom-10 right-10 bg-orange-600 p-4 text-white text-2xl shadow-lg">
-                🔗
-              </div>
-            </div>
-          </div>
+              </motion.div>
 
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-8">
+              <motion.div
+                className="absolute top-20 -right-6 bg-orange-600 p-4 text-white text-2xl shadow-lg"
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              >
+                ⚡
+              </motion.div>
+
+              <motion.div
+                className="absolute bottom-10 right-10 bg-orange-600 p-4 text-white text-2xl shadow-lg"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity }}
+              >
+                🔗
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT SIDE */}
+          <motion.div
+            className="lg:w-1/2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+          >
+            <motion.h2
+              className="text-4xl lg:text-5xl font-bold leading-tight mb-8"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.8 }}
+            >
               Data Engineering That
               <span className="text-orange-600">
                 {' '}
                 Scales With Your Ambition
               </span>
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              In today's data-driven enterprise, having a robust data foundation
-              isn't optional— it's essential. Our data engineering expertise
-              spans the entire spectrum: from real-time ingestion and
-              transformation pipelines to cloud-native warehousing architectures
-              that power analytics, AI, and business intelligence at enterprise
-              scale.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              We've helped 200+ enterprises modernize their data estates,
-              eliminate data silos, and build infrastructure capable of
-              supporting advanced analytics and AI workloads. Whether you're
-              starting from legacy systems or scaling existing capabilities, we
-              bring proven methodologies, cloud expertise, and architectural
-              rigor to every engagement.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Our team combines deep technical expertise with business acumen,
-              ensuring that engineering investments directly support your
-              strategic objectives. We don't just build pipelines; we architect
-              data ecosystems that become organizational assets.
-            </p>
-          </div>
+            </motion.h2>
+
+            {[
+              `In today's data-driven enterprise, having a robust data foundation
+        isn't optional— it's essential. Our data engineering expertise
+        spans the entire spectrum: from real-time ingestion and
+        transformation pipelines to cloud-native warehousing architectures
+        that power analytics, AI, and business intelligence at enterprise
+        scale.`,
+
+              `We've helped 200+ enterprises modernize their data estates,
+        eliminate data silos, and build infrastructure capable of
+        supporting advanced analytics and AI workloads. Whether you're
+        starting from legacy systems or scaling existing capabilities, we
+        bring proven methodologies, cloud expertise, and architectural
+        rigor to every engagement.`,
+
+              `Our team combines deep technical expertise with business acumen,
+        ensuring that engineering investments directly support your
+        strategic objectives. We don't just build pipelines; we architect
+        data ecosystems that become organizational assets.`,
+            ].map((text, idx) => (
+              <motion.p
+                key={idx}
+                className="text-gray-700 text-lg leading-relaxed mb-6"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.8 }}
+              >
+                {text}
+              </motion.p>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* --- Section 3: Capabilities Grid --- */}
-      <section className="py-24 px-12 lg:px-24 bg-gray-50">
+      <motion.section
+        className="py-24 px-12 lg:px-24 bg-gray-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center">
+          <motion.h2
+            className="text-4xl font-bold mb-4 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             Our Data Engineering{' '}
             <span className="text-orange-600">Capabilities</span>
-          </h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
-            Comprehensive services spanning the entire data pipeline lifecycle.
-          </p>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.p
+            className="text-gray-600 text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
+            Comprehensive services spanning the entire data pipeline lifecycle.
+          </motion.p>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+          >
             {[
               {
                 title: 'Real-Time Data Ingestion',
@@ -187,33 +356,72 @@ const DataEngineering = () => {
                 icon: <BarChart3 className="w-8 h-8" />,
               },
             ].map((cap, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-8 hover:-translate-y-2"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.03,
+                }}
+                className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-8"
               >
-                <div className="text-orange-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <motion.div
+                  className="text-orange-600 mb-4"
+                  whileHover={{ rotate: 5, scale: 1.2 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
                   {cap.icon}
-                </div>
+                </motion.div>
+
                 <h3 className="text-xl font-bold mb-4 group-hover:text-orange-600 transition-colors">
                   {cap.title}
                 </h3>
+
                 <p className="text-gray-600 leading-relaxed">
                   {cap.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* --- Section 4: Implementation Process --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white">
+      <motion.section
+        className="py-24 px-12 lg:px-24 bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             Our <span className="text-orange-600">Implementation Process</span>
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+          >
             {[
               {
                 step: '01',
@@ -244,46 +452,104 @@ const DataEngineering = () => {
                 icon: '⚙️',
               },
             ].map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.03,
+                }}
                 className="relative group p-8 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg hover:border-orange-300 hover:shadow-lg transition-all"
               >
-                <div className="text-5xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <motion.div
+                  className="text-5xl mb-4 opacity-50"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
                   {item.icon}
-                </div>
+                </motion.div>
+
                 <p className="text-xs font-bold text-orange-600 uppercase mb-2">
                   Step {item.step}
                 </p>
+
                 <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600 transition-colors">
                   {item.title}
                 </h3>
+
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {item.description}
                 </p>
 
                 {idx < 3 && (
-                  <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-orange-300">
+                  <motion.div
+                    className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-orange-300"
+                    animate={{ x: [0, 6, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
                     <ChevronRight size={32} />
-                  </div>
+                  </motion.div>
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* --- Section 5: Impact Metrics --- */}
-      <section className="py-24 px-12 lg:px-24 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">
+      <motion.section
+        className="py-24 px-12 lg:px-24 bg-gradient-to-r from-orange-600 to-orange-700 text-white relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        {/* Subtle Background Glow */}
+        <motion.div
+          className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl -z-0"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             Proven Track Record
-          </h2>
-          <p className="text-xl text-orange-100 text-center mb-16 max-w-2xl mx-auto">
+          </motion.h2>
+
+          <motion.p
+            className="text-xl text-orange-100 text-center mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
             Measurable impact delivered across enterprise data engineering
             engagements.
-          </p>
+          </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+          >
             {[
               {
                 value: counters.pipelines,
@@ -304,30 +570,74 @@ const DataEngineering = () => {
                 icon: '⚡',
               },
             ].map((metric, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="text-center p-8 bg-white/10 rounded-lg backdrop-blur-sm"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{ scale: 1.05, y: -8 }}
+                className="text-center p-8 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all"
               >
-                <div className="text-5xl mb-4">{metric.icon}</div>
-                <div className="text-6xl font-bold mb-2">
+                <motion.div
+                  className="text-5xl mb-4"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  {metric.icon}
+                </motion.div>
+
+                <motion.div
+                  className="text-6xl font-bold mb-2"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, type: 'spring', stiffness: 120 }}
+                >
                   {metric.value}
                   {metric.suffix}
-                </div>
+                </motion.div>
+
                 <p className="text-orange-100 font-medium">{metric.label}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* --- Section 6: Technology Stack --- */}
-      <section className="py-24 px-12 lg:px-24 bg-whitemb-8">
+      <motion.section
+        className="py-24 px-12 lg:px-24 bg-white mb-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             Technologies & <span className="text-orange-600">Platforms</span>
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                },
+              },
+            }}
+          >
             {[
               { name: 'Snowflake', category: 'Cloud DW' },
               { name: 'BigQuery', category: 'Analytics' },
@@ -338,21 +648,37 @@ const DataEngineering = () => {
               { name: 'Terraform', category: 'Infrastructure' },
               { name: 'dbt', category: 'Transformation' },
             ].map((tech, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.05,
+                }}
                 className="p-6 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg text-center hover:border-orange-300 hover:shadow-lg transition-all group"
               >
-                <p className="text-xs text-orange-600 font-bold uppercase mb-2">
+                <motion.p
+                  className="text-xs text-orange-600 font-bold uppercase mb-2"
+                  whileHover={{ letterSpacing: '0.1em' }}
+                  transition={{ duration: 0.3 }}
+                >
                   {tech.category}
-                </p>
-                <p className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
+                </motion.p>
+
+                <motion.p
+                  className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
                   {tech.name}
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* --- Section 7: FAQs --- */}
       <section className="py-24 px-12 lg:px-24 bg-gray-50">

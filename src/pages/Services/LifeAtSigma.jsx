@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   ChevronRight,
   ChevronLeft,
@@ -37,10 +38,10 @@ const LifeAtSigma = () => {
             Building the Future of Data & AI, Together
           </p>
           <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-            At Sigma Data System, we don't just build software. We build careers,
-            invest in people, and create an environment where brilliant minds solve
-            the world's most challenging problems. Join a team that values impact,
-            innovation, and your growth.
+            At Sigma Data System, we don't just build software. We build
+            careers, invest in people, and create an environment where brilliant
+            minds solve the world's most challenging problems. Join a team that
+            values impact, innovation, and your growth.
           </p>
         </div>
       </section>
@@ -52,7 +53,8 @@ const LifeAtSigma = () => {
             Our Core <span className="text-orange-600">Values</span>
           </h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
-            Foundation principles guiding every decision and interaction at Sigma.
+            Foundation principles guiding every decision and interaction at
+            Sigma.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -60,7 +62,7 @@ const LifeAtSigma = () => {
               {
                 value: 'Excellence',
                 description:
-                  'We relentlessly pursue excellence in everything we do—code quality, customer outcomes, and team culture. Excellence is not a destination; it\'s a mindset.',
+                  "We relentlessly pursue excellence in everything we do—code quality, customer outcomes, and team culture. Excellence is not a destination; it's a mindset.",
                 icon: '⭐',
               },
               {
@@ -72,7 +74,7 @@ const LifeAtSigma = () => {
               {
                 value: 'Integrity',
                 description:
-                  'We operate with unwavering integrity. We\'re honest with clients, with each other, and with ourselves. Trust is earned daily.',
+                  "We operate with unwavering integrity. We're honest with clients, with each other, and with ourselves. Trust is earned daily.",
                 icon: '🤝',
               },
               {
@@ -102,7 +104,9 @@ const LifeAtSigma = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
                   {item.value}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -159,17 +163,28 @@ const LifeAtSigma = () => {
                 ],
               },
             ].map((benefit, idx) => (
-              <div key={idx} className="bg-white p-10 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div
+                key={idx}
+                className="bg-white p-10 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
                 <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                   <span className="text-2xl">
-                    {idx === 0 ? '📚' : idx === 1 ? '🧘' : idx === 2 ? '💰' : '🎉'}
+                    {idx === 0
+                      ? '📚'
+                      : idx === 1
+                        ? '🧘'
+                        : idx === 2
+                          ? '💰'
+                          : '🎉'}
                   </span>
                   {benefit.title}
                 </h3>
                 <ul className="space-y-4">
                   {benefit.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-4">
-                      <span className="text-orange-600 font-bold text-xl flex-shrink-0">✓</span>
+                      <span className="text-orange-600 font-bold text-xl flex-shrink-0">
+                        ✓
+                      </span>
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -202,23 +217,26 @@ const LifeAtSigma = () => {
                   author: 'Priya Sharma',
                   title: 'Engineering Manager, Platform Team',
                   tenure: '3 years at Sigma',
-                  image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
+                  image:
+                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
                 },
                 {
                   quote:
-                    'What struck me immediately was the culture of psychological safety. People genuinely listen to each other, disagree respectfully, and collaborate to find the best solutions. I\'ve worked in many organizations, and this level of trust is rare.',
+                    "What struck me immediately was the culture of psychological safety. People genuinely listen to each other, disagree respectfully, and collaborate to find the best solutions. I've worked in many organizations, and this level of trust is rare.",
                   author: 'Rajesh Kumar',
                   title: 'Lead Data Scientist',
                   tenure: '2 years at Sigma',
-                  image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+                  image:
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
                 },
                 {
                   quote:
-                    'The diversity of projects and clients means I\'m constantly learning. One month I\'m optimizing financial trading systems, the next I\'m building healthcare analytics. The intellectual stimulation and variety keep the work exciting and fulfilling.',
+                    "The diversity of projects and clients means I'm constantly learning. One month I'm optimizing financial trading systems, the next I'm building healthcare analytics. The intellectual stimulation and variety keep the work exciting and fulfilling.",
                   author: 'Sarah Chen',
                   title: 'Senior Solutions Architect',
                   tenure: '4 years at Sigma',
-                  image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200',
+                  image:
+                    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200',
                 },
               ].map((testimonial, idx) => (
                 <div
@@ -229,7 +247,8 @@ const LifeAtSigma = () => {
                       : 'opacity-0 absolute translate-x-8'
                   }`}
                   style={{
-                    pointerEvents: selectedTestimonial === idx ? 'auto' : 'none',
+                    pointerEvents:
+                      selectedTestimonial === idx ? 'auto' : 'none',
                   }}
                 >
                   <blockquote className="text-2xl lg:text-3xl font-medium text-gray-800 mb-10 italic">
@@ -243,9 +262,15 @@ const LifeAtSigma = () => {
                       className="w-24 h-24 rounded-full object-cover"
                     />
                     <div>
-                      <p className="font-bold text-xl text-gray-900">{testimonial.author}</p>
-                      <p className="text-sm text-orange-600 font-bold mb-1">{testimonial.title}</p>
-                      <p className="text-gray-600 text-sm">{testimonial.tenure}</p>
+                      <p className="font-bold text-xl text-gray-900">
+                        {testimonial.author}
+                      </p>
+                      <p className="text-sm text-orange-600 font-bold mb-1">
+                        {testimonial.title}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        {testimonial.tenure}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -281,7 +306,9 @@ const LifeAtSigma = () => {
 
               <button
                 onClick={() =>
-                  setSelectedTestimonial(selectedTestimonial === 2 ? 0 : selectedTestimonial + 1)
+                  setSelectedTestimonial(
+                    selectedTestimonial === 2 ? 0 : selectedTestimonial + 1
+                  )
                 }
                 className="p-3 border border-gray-300 rounded-lg hover:border-orange-600 hover:bg-orange-50 transition-colors"
               >
@@ -304,27 +331,33 @@ const LifeAtSigma = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
               {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
                 caption: 'Collaboration in action',
               },
               {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
                 caption: 'Learning workshops',
               },
               {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
                 caption: 'Team events',
               },
               {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
                 caption: 'Innovation sprints',
               },
               {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
                 caption: 'Diverse team members',
               },
               {
-                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600',
                 caption: 'Office culture',
               },
             ].map((photo, idx) => (
@@ -355,8 +388,9 @@ const LifeAtSigma = () => {
             Diversity & <span className="text-orange-600">Inclusion</span>
           </h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
-            We believe diverse teams build better products. We're committed to creating
-            an inclusive environment where every voice is heard and valued.
+            We believe diverse teams build better products. We're committed to
+            creating an inclusive environment where every voice is heard and
+            valued.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -381,7 +415,9 @@ const LifeAtSigma = () => {
                 key={idx}
                 className="p-10 bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-lg text-center hover:border-orange-500 hover:shadow-lg transition-all"
               >
-                <div className="text-5xl font-bold text-orange-600 mb-2">{stat.metric}</div>
+                <div className="text-5xl font-bold text-orange-600 mb-2">
+                  {stat.metric}
+                </div>
                 <p className="font-bold text-gray-900 mb-3">{stat.label}</p>
                 <p className="text-sm text-gray-600">{stat.detail}</p>
               </div>
@@ -440,7 +476,9 @@ const LifeAtSigma = () => {
                 key={idx}
                 className="group p-8 bg-white border border-gray-200 rounded-lg hover:border-orange-300 hover:shadow-lg transition-all hover:-translate-y-2"
               >
-                <p className="text-xs font-bold text-orange-600 uppercase mb-2">{job.team}</p>
+                <p className="text-xs font-bold text-orange-600 uppercase mb-2">
+                  {job.team}
+                </p>
                 <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
                   {job.role}
                 </h3>
@@ -484,16 +522,25 @@ const LifeAtSigma = () => {
                 a: 'Were committed to building a diverse team. We partner with diverse hiring networks, review job descriptions for inclusive language, and have diverse interview panels. We measure and track hiring diversity metrics.',
               },
             ].map((faq, idx) => (
-              <div key={idx} className="border-b border-gray-200 bg-gray-50 p-6 -mx-6 rounded-lg">
+              <div
+                key={idx}
+                className="border-b border-gray-200 bg-gray-50 p-6 -mx-6 rounded-lg"
+              >
                 <button
                   onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
                   className="w-full py-4 flex justify-between items-center text-left hover:text-orange-600 transition-colors"
                 >
                   <span className="text-lg font-bold pr-8">{faq.q}</span>
                   {activeFaq === idx ? (
-                    <ChevronUp size={20} className="flex-shrink-0 text-orange-500" />
+                    <ChevronUp
+                      size={20}
+                      className="flex-shrink-0 text-orange-500"
+                    />
                   ) : (
-                    <ChevronDown size={20} className="flex-shrink-0 text-gray-400" />
+                    <ChevronDown
+                      size={20}
+                      className="flex-shrink-0 text-gray-400"
+                    />
                   )}
                 </button>
                 {activeFaq === idx && (
@@ -517,8 +564,8 @@ const LifeAtSigma = () => {
                 Ready to Make an Impact?
               </h2>
               <p className="text-gray-700 text-lg mb-8">
-                If you're passionate about data, AI, and building products that matter,
-                let's talk. We'd love to hear from you.
+                If you're passionate about data, AI, and building products that
+                matter, let's talk. We'd love to hear from you.
               </p>
             </div>
             <div className="lg:w-1/2">
