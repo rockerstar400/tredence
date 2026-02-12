@@ -233,11 +233,14 @@ const Navbar = () => {
                   <div className="space-y-4 font-medium text-gray-600">
                     <Link to="/industrial/retail" className="hover:text-orange-500 block">Retail</Link>
                     <Link to="/industrial/healthcare" className="hover:text-orange-500 block">Healthcare</Link>
-                    <p className="hover:text-orange-500">Banking & Insurance</p>
-                    <p className="hover:text-orange-500">Telco, Media & Tech</p>
+                     <Link to="/industrial/financial-services" className="hover:text-orange-500 block">Banking & Insurance</Link>
+                    {/* <p className="hover:text-orange-500">Banking & Insurance</p> */}
+                    {/* <p className="hover:text-orange-500">Telco, Media & Tech</p> */}
+                    <Link to="/industrial/telco-media" className="hover:text-orange-500 block">Telco, Media & Tech</Link>
                   </div>
                   <div className="space-y-4 font-medium text-gray-600">
-                    <p className="hover:text-orange-500">CPG</p>
+                    <Link to="/industrial/cpg" className="hover:text-orange-500 block">CPG</Link>
+                    {/* <p className="hover:text-orange-500">CPG</p> */}
                     <Link to="industrial/life-sciences" className="hover:text-orange-500 block">Life Sciences</Link>
                     <p className="hover:text-orange-500">Travel and Hospitality</p>
                     <p className="hover:text-orange-500">Industrials</p>

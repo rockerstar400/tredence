@@ -23,6 +23,9 @@ import Home from './Home';
 import Retail from "./pages/industrial/Retails";
 import Healthcare from './pages/industrial/Healthcare';
 import LifeSciences from './pages/industrial/LifeSciences';
+import CPG from './pages/industrial/CPG';
+import BFSI from './pages/industrial/BFSI';
+import Telcomedia from './pages/industrial/Telcomedia';
 
 function App() {
   return (
@@ -39,6 +42,10 @@ function App() {
           <Route path="/industrial/retail" element={<Retail />} />
           <Route path="/industrial/healthcare" element={<Healthcare />} />
           <Route path="/industrial/life-sciences" element={<LifeSciences />} />
+           <Route path="/industrial/cpg" element={<CPG />} />
+            <Route path="/industrial/financial-services" element={<BFSI />} />
+            <Route path="/industrial/telco-media" element={<Telcomedia />} />
+
           
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>
