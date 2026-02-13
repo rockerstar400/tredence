@@ -4,14 +4,14 @@ const slides = [
   {
     title: "Trends Accelerating Enterprise Growth through Intelligent Automation",
     subtitle: "with THORNE as a Lighthouse Customer",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=2000", 
-    buttonText: "Read more"
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=2000",
+   
   },
   {
     title: " Next-Gen Agentic AI Solutions for Global Enterprises",
     subtitle: "Bridging the gap between insights and value realization.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000",
-    buttonText: "Explore our success stories"
+
   }
 ];
 
@@ -36,7 +36,7 @@ const Hero = () => {
           }`}
         >
           {/* Background Image with Overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
@@ -62,7 +62,7 @@ const Hero = () => {
       {/* Slider Indicators */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4">
         {slides.map((_, i) => (
-          <div 
+          <div
             key={i}
             className={`h-1 w-20 transition-all duration-300 ${i === current ? "bg-orange-600" : "bg-gray-300"}`}
           />
