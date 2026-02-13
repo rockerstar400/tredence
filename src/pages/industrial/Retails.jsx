@@ -13,19 +13,19 @@ const newsData = [
   {
     tag: "NEWS",
     title:
-      "Tredence Unveils Agentic Commerce Solution Accelerators at NRF 2025",
+      "Sigma Unveils Agentic Commerce Solution Accelerators at NRF 2025",
     img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600",
   },
   {
     tag: "NEWS",
     title:
-      "Tredence Named a Leader in ISG's 2025 Provider Lens Assessment",
+      "Sigma Named a Leader in ISG's 2025 Provider Lens Assessment",
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400",
   },
   {
     tag: "NEWS",
     title:
-      "Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year",
+      "Sigma Named 2025 Microsoft Data & Analytics Platform Partner of the Year",
     img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400",
   },
 ];
@@ -33,7 +33,7 @@ const newsData = [
   const heroSlides = [
     {
       bg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000',
-      title: 'The New Retail Mandate: Speed. Scale. Tredence.',
+      title: 'The New Retail Mandate: Speed. Scale. Sigma.',
       subtitle: 'Powering $2T+ in Global Retail Revenue',
     },
     {
@@ -173,7 +173,7 @@ useEffect(() => {
         viewport={{ once: true }}
         className="text-gray-600 text-lg leading-relaxed mb-8"
       >
-        Tredence drives the data and AI strategies for 8 of the world's
+        Sigma drives the data and AI strategies for 8 of the world's
         top 10 global retailers. We combine deep data engineering and data
         science capabilities with retail expertise to help leading
         retailers modernize their data foundation and turn enterprise data
@@ -344,8 +344,8 @@ useEffect(() => {
       className="text-2xl font-medium leading-relaxed text-gray-800 mb-12"
     >
       “Mobile App Marketing has found immense value in our collaboration
-      with Tredence. Their insights have transformed Walmart's approach to
-      app marketing and customer growth. Tredence has enabled advanced app
+      with Sigma. Their insights have transformed Walmart's approach to
+      app marketing and customer growth. Sigma has enabled advanced app
       strategies, including the implementation of cohort-based targeting
       that demonstrably increase customer LTV.”
     </motion.p>
@@ -386,7 +386,7 @@ useEffect(() => {
 
 
 
-      {/* --- Section 5: Tredence AI (Peach Section) --- */}
+      {/* --- Section 5: Sigma AI (Peach Section) --- */}
      <section className="relative bg-[#fff1ea] py-24 px-12 lg:px-24 overflow-hidden">
 
   {/* Subtle Animated Background Glow */}
@@ -414,7 +414,7 @@ useEffect(() => {
         viewport={{ once: true }}
         className="text-orange-600 text-3xl font-bold flex items-center gap-2 mb-4"
       >
-        Tredence AI <span className="text-2xl">✨</span>
+        Sigma AI <span className="text-2xl">✨</span>
       </motion.h4>
 
       <motion.h2
@@ -434,7 +434,7 @@ useEffect(() => {
         viewport={{ once: true }}
         className="text-2xl text-gray-800 leading-snug"
       >
-        Tredence helps leading global retailers by accelerating retail
+        Sigma helps leading global retailers by accelerating retail
         data and AI modernization, turning fragmented systems into
         actionable insights and tangible business impact.
       </motion.p>
@@ -453,9 +453,9 @@ useEffect(() => {
       className="lg:w-1/2 text-gray-700 space-y-8 text-lg"
     >
       {[
-        `Retailers are sitting on mountains of data. Tredence combines deep data engineering and data science capabilities with retail expertise to help the world's leading retailers modernize their data foundation and turn their enterprise data into insights with AI/ML.`,
-        `Leveraging Atom.AI, our accelerator ecosystem, with +150 AI/ML retail specific solutions and 12+ GenAI agents, Tredence helps solve the hairiest data engineering and data science challenges for the world's largest and fastest growing retailers.`,
-        `Unlike dated software-as-a-service solutions that take months to implement, Tredence Accelerators are custom-built to align with your data and unique business requirements.`
+        `Retailers are sitting on mountains of data. Sigma combines deep data engineering and data science capabilities with retail expertise to help the world's leading retailers modernize their data foundation and turn their enterprise data into insights with AI/ML.`,
+        `Leveraging Atom.AI, our accelerator ecosystem, with +150 AI/ML retail specific solutions and 12+ GenAI agents, Sigma helps solve the hairiest data engineering and data science challenges for the world's largest and fastest growing retailers.`,
+        `Unlike dated software-as-a-service solutions that take months to implement, Sigma Accelerators are custom-built to align with your data and unique business requirements.`
       ].map((text, i) => (
         <motion.p
           key={i}
@@ -538,7 +538,7 @@ useEffect(() => {
       className="text-4xl font-bold text-center mb-20"
     >
       Why do leading retailers choose{" "}
-      <span className="text-orange-600">Tredence</span>
+      <span className="text-orange-600">Sigma</span>
     </motion.h2>
 
     {/* Grid with Stagger Animation */}
@@ -691,7 +691,7 @@ useEffect(() => {
             {[
               {
                 q: 'What are AI-powered retail solutions, and how do they benefit retailers?',
-                a: 'AI-powered retail solutions use machine learning, predictive analytics, and automation to enhance decision-making, optimize supply chains, personalize customer experiences, and increase operational efficiency. Tredence provides AI-driven solutions that help retailers modernize data platforms, improve demand forecasting, and maximize customer engagement.',
+                a: 'AI-powered retail solutions use machine learning, predictive analytics, and automation to enhance decision-making, optimize supply chains, personalize customer experiences, and increase operational efficiency. Sigma provides AI-driven solutions that help retailers modernize data platforms, improve demand forecasting, and maximize customer engagement.',
               },
               {
                 q: 'Why should retailers invest in AI solutions for their business?',
@@ -706,7 +706,7 @@ useEffect(() => {
                 a: 'Agentic AI goes beyond simple automation; it acts as an intelligent agent that can reason, plan, and execute tasks autonomously to solve complex business problems.',
               },
               {
-                q: 'What makes Tredence a top retail AI consulting firm?',
+                q: 'What makes Sigma a top retail AI consulting firm?',
                 a: 'Our deep domain expertise, proprietary Atom.AI accelerators, and a track record of working with 8 of the top 10 global retailers make us a leader in this space.',
               },
             ].map((faq, idx) => (

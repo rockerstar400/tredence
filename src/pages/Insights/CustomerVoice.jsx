@@ -121,7 +121,7 @@ const CustomerVoice = () => {
             }}
             transition={{ duration: 0.8 }}
           >
-            Hear directly from our customers how Tredence partnerships have
+            Hear directly from our customers how Sigma partnerships have
             transformed their businesses, solved their biggest challenges, and
             accelerated their digital evolution.
           </motion.p>
@@ -285,7 +285,7 @@ const CustomerVoice = () => {
               {[
                 {
                   quote:
-                    "Tredence didn't just implement a data warehouse—they transformed our entire approach to decision-making. Within 6 months, we went from reactive to predictive across every business unit. The ROI has been extraordinary, but the real value is in the competitive advantage we've gained.",
+                    "Sigma didn't just implement a data warehouse—they transformed our entire approach to decision-making. Within 6 months, we went from reactive to predictive across every business unit. The ROI has been extraordinary, but the real value is in the competitive advantage we've gained.",
                   author: 'Sarah Chen',
                   title: 'Chief Data Officer',
                   company: 'Global Financial Services Firm',
@@ -294,7 +294,7 @@ const CustomerVoice = () => {
                 },
                 {
                   quote:
-                    "What impressed us most wasn't just Tredence's technical expertise—it was their deep understanding of healthcare. They spoke our language, understood our compliance requirements, and delivered a solution that clinicians actually want to use. Patient outcomes have visibly improved.",
+                    "What impressed us most wasn't just Sigma's technical expertise—it was their deep understanding of healthcare. They spoke our language, understood our compliance requirements, and delivered a solution that clinicians actually want to use. Patient outcomes have visibly improved.",
                   author: 'Dr. Michael Patel',
                   title: 'Chief Medical Officer',
                   company: 'Multi-Hospital Healthcare Network',
@@ -303,7 +303,7 @@ const CustomerVoice = () => {
                 },
                 {
                   quote:
-                    "Our inventory optimization savings alone have paid for the engagement multiple times over. But beyond the numbers, Tredence helped us build internal capabilities so we're not dependent on consultants. That's true partnership.",
+                    "Our inventory optimization savings alone have paid for the engagement multiple times over. But beyond the numbers, Sigma helped us build internal capabilities so we're not dependent on consultants. That's true partnership.",
                   author: 'James Wellington',
                   title: 'VP Supply Chain',
                   company: 'International Retail Corporation',
@@ -453,7 +453,7 @@ const CustomerVoice = () => {
             transition={{ delay: 0.2, duration: 0.7 }}
           >
             Hear directly from customer executives about their transformation
-            journey with Tredence.
+            journey with Sigma.
           </motion.p>
 
           <motion.div
@@ -571,7 +571,7 @@ const CustomerVoice = () => {
             transition={{ duration: 0.7 }}
           >
             Why Customers{' '}
-            <span className="text-orange-600">Trust Tredence</span>
+            <span className="text-orange-600">Trust Sigma</span>
           </motion.h2>
 
           <motion.div
@@ -862,7 +862,7 @@ const CustomerVoice = () => {
         </div>
       </section>
 
-     
+
 
       <Footer />
     </div>

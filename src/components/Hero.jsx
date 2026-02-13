@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const slides = [
   {
-    title: "Trends Accelerating Enterprise Growth through Intelligent Automation",
+    title: "Sigma Accelerating Enterprise Growth through Intelligent Automation",
     subtitle: "with THORNE as a Lighthouse Customer",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=2000",
 
@@ -52,7 +52,7 @@ const Hero = () => {
             <p className="text-black text-4xl font-bold mb-8">
               {slide.subtitle}
             </p>
-            
+
           </div>
         </div>
       ))}

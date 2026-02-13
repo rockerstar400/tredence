@@ -194,7 +194,7 @@ const Telcomedia = () => {
         className="space-y-6 text-gray-700 text-lg leading-relaxed"
       >
         <p>
-          Tredence helps leading telecom, media, and tech (TMT) companies
+          Sigma helps leading telecom, media, and tech (TMT) companies
           modernize their data assets, unify enterprise insights, and
           scale AI adoption.
         </p>
@@ -265,7 +265,7 @@ const Telcomedia = () => {
               viewport={{ once: true }}
               className="text-2xl lg:text-3xl font-medium leading-snug text-gray-800 mb-14"
             >
-              “Tredence has accelerators that can address different steps in the
+              Sigma has accelerators that can address different steps in the
               data flow journey. If you want to build data quality checks, do
               ingestions, create data models, enable semantic layers that can go
               into self-service consumption, they have built all these
@@ -318,7 +318,7 @@ const Telcomedia = () => {
       </section>
 
       {/* Note: Iske baad aap Retail page wale FAQs aur Contact Form sections copy-paste kar sakte hain */}
-      {/* --- Section 5: Tredence AI (Peach Intro) --- */}
+      {/* --- Section 5: Sigma AI (Peach Intro) --- */}
       <section className="bg-[#fff1ea] py-28 px-12 lg:px-24 overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
@@ -342,7 +342,7 @@ const Telcomedia = () => {
               viewport={{ once: true }}
               className="text-orange-600 text-3xl font-bold flex items-center gap-2 mb-6"
             >
-              Tredence AI
+              Sigma AI
               {/* Animated Sparkle */}
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
@@ -370,7 +370,7 @@ const Telcomedia = () => {
               viewport={{ once: true }}
               className="text-2xl text-gray-800 leading-snug"
             >
-              Tredence helps leading healthcare organizations unify fragmented
+              Sigma helps leading healthcare organizations unify fragmented
               data to enable real-time intelligence. The 360-degree view enables
               improved member experience, and delivers cost-efficient outcomes.
             </motion.p>
@@ -387,11 +387,11 @@ const Telcomedia = () => {
             className="lg:w-1/2 text-gray-700 space-y-8 text-lg"
           >
             {[
-              'Managing complex, fast-growing data is a foundational challenge that every healthcare enterprise faces. They need a scalable, secure, AI-ready data foundation. Tredence helps unify siloed data through cloud-native modernization, deploy domain-specific data models, and activate the power of AI for faster decisions.',
+              'Managing complex, fast-growing data is a foundational challenge that every healthcare enterprise faces. They need a scalable, secure, AI-ready data foundation. Sigma helps unify siloed data through cloud-native modernization, deploy domain-specific data models, and activate the power of AI for faster decisions.',
 
               'Our offerings span AI advisory, data engineering, and healthcare analytics to advance value-based care, elevate member and patient experiences, improve clinical outcomes, and optimize operational efficiency.',
 
-              'At the center is ATOM.AI—an accelerator ecosystem with 150+ AI/ML solutions and 12+ GenAI agents that deliver insights in weeks. With deep domain expertise, Tredence turns AI potential into measurable impact for healthcare enterprises.',
+              'At the center is ATOM.AI—an accelerator ecosystem with 150+ AI/ML solutions and 12+ GenAI agents that deliver insights in weeks. With deep domain expertise, Sigma turns AI potential into measurable impact for healthcare enterprises.',
             ].map((text, idx) => (
               <motion.p
                 key={idx}
@@ -565,7 +565,7 @@ const Telcomedia = () => {
           >
             Why do leading <span className="text-orange-600">Healthcare</span>{' '}
             organizations choose{' '}
-            <span className="text-orange-600">Tredence</span>
+            <span className="text-orange-600">Sigma</span>
           </motion.h2>
 
           {/* Grid */}
@@ -787,7 +787,7 @@ const Telcomedia = () => {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-16"
           >
-            Tredence is the{' '}
+            Sigma is the{' '}
             <span className="text-orange-600">secret weapon</span> powering last
             mile impact stories
           </motion.h2>
@@ -811,7 +811,7 @@ const Telcomedia = () => {
                   create a 360-degree view of member information...
                 </p>
                 <p>
-                  Tredence developed an enterprise member360 data hub with data
+                  Sigma developed an enterprise member360 data hub with data
                   models, key performance indicators, and AI and ML risk
                   models...
                 </p>
@@ -1001,7 +1001,7 @@ const Telcomedia = () => {
             {[
               {
                 q: 'What are Healthcare Analytics Services and why are they important?',
-                a: 'Healthcare Analytics Services help payer and provider firms unlock insights from clinical, operational, and financial data. Tredence delivers AI-powered solutions such as unified health data platforms, clinical risk prediction models, and personalized care engagement to improve care quality, reduce costs, and accelerate innovation.',
+                a: 'Healthcare Analytics Services help payer and provider firms unlock insights from clinical, operational, and financial data. Sigma delivers AI-powered solutions such as unified health data platforms, clinical risk prediction models, and personalized care engagement to improve care quality, reduce costs, and accelerate innovation.',
               },
               {
                 q: 'How do Healthcare Analytics Solutions improve patient outcomes and operational efficiency?',
@@ -1012,7 +1012,7 @@ const Telcomedia = () => {
                 a: 'GenAI is helping in clinical documentation, medical research, and patient communication...',
               },
               {
-                q: 'What makes Tredence a trusted Healthcare AI partner?',
+                q: 'What makes Sigma a trusted Healthcare AI partner?',
                 a: 'Our deep domain expertise and proprietary accelerators like ATOM.AI...',
               },
             ].map((faq, idx) => (

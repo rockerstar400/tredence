@@ -42,6 +42,7 @@ import DigitalEngineering from './pages/Services/DigitalEngineering';
 import LLMOps from './pages/Services/LLMOps';
 import LifeAtSigma from './pages/Services/LifeAtSigma';
 import Contact from './components/Contact';
+import About from './pages/About';
 
 
 function App() {
@@ -100,6 +101,9 @@ function App() {
 
            {/*contact-us form page */}
           <Route path="/contact" element={<Contact />} />
+
+            {/*About-us  page */}
+          <Route path="/about" element={<About />} />
 
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>

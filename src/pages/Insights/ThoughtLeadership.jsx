@@ -130,7 +130,7 @@ const ThoughtLeadership = () => {
               visible: { opacity: 1, y: 0 },
             }}
           >
-            Expert perspectives from Tredence leaders on emerging technologies,
+            Expert perspectives from Sigma leaders on emerging technologies,
             enterprise transformation trends, and the future of AI-driven
             decision-making.
           </motion.p>
@@ -204,7 +204,7 @@ const ThoughtLeadership = () => {
                   <div>
                     <p className="font-bold">Sameer Nigam</p>
                     <p className="text-sm text-gray-300">
-                      CEO & Co-founder, Tredence
+                      CEO & Co-founder, Sigma
                     </p>
                   </div>
                 </div>
@@ -252,7 +252,7 @@ const ThoughtLeadership = () => {
                   title:
                     'Navigating the GenAI Inflection Point: Enterprise Strategy at a Crossroads',
                   author: 'Chetan Rao',
-                  role: 'Chief Strategy Officer, Tredence',
+                  role: 'Chief Strategy Officer, Sigma',
                   date: 'March 10, 2025',
                   category: 'Strategy',
                   excerpt:
@@ -264,7 +264,7 @@ const ThoughtLeadership = () => {
                   title:
                     'Data Leverage: The Silent Competitive Advantage Every Enterprise Overlooked',
                   author: 'Abhijit Jhadav',
-                  role: 'Chief Technology Officer, Tredence',
+                  role: 'Chief Technology Officer, Sigma',
                   date: 'March 5, 2025',
                   category: 'Data Engineering',
                   excerpt:
@@ -276,7 +276,7 @@ const ThoughtLeadership = () => {
                   title:
                     'Beyond ROI: The Human Dimension of Successful AI Transformations',
                   author: 'Dr. Priya Sharma',
-                  role: 'Director of Organizational Design, Tredence',
+                  role: 'Director of Organizational Design, Sigma',
                   date: 'February 28, 2025',
                   category: 'Change Management',
                   excerpt:
@@ -579,7 +579,7 @@ text-white p-8 rounded-lg mb-12 sticky top-24"
                 a: 'We publish 2-3 in-depth articles per week, with featured pieces monthly from our executive team. You can subscribe to our newsletter or follow our blog for regular updates.',
               },
               {
-                q: 'Can I invite Tredence experts to speak at my event?',
+                q: 'Can I invite Sigma experts to speak at my event?',
                 a: 'Absolutely! Our leaders are active in industry conferences, webinars, and executive forums. Contact our communications team to discuss speaking opportunities for your organization.',
               },
               {
@@ -623,7 +623,7 @@ text-white p-8 rounded-lg mb-12 sticky top-24"
         </div>
       </section>
 
-     
+
 
       <Footer />
     </div>

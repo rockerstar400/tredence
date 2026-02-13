@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
-import logo from '../assets/sigmaLogos.png';
+import logo from '../assets/Logo.png';
 
 // Apna logo path yahan update karein
 // import logoImg from '../assets/sigma-logo.png';
@@ -15,16 +15,17 @@ const Navbar = () => {
         <div className="flex items-center h-full">
           <Link to="/" className="flex items-center gap-4 h-full group">
             {/* LOGO IMAGE AREA */}
-            <div className="h-40 w-66 flex items-center justify-center p-2">
+            <div className="h-full flex items-center">
               <img
                 src={logo}
                 alt="Sigma Logo"
-                className="h-full w-full object-contain" // object-contain ensures logo looks sharps
+                className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
               />
             </div>
+
             {/* SIGMA TEXT */}
           </Link>
         </div>
@@ -38,6 +39,14 @@ const Navbar = () => {
               <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
                 <Link to="/" className="transition-colors">
                   Home
+                </Link>
+              </div>
+            </li>
+            {/* --- ABOUT US LINK --- */}
+            <li className="group relative h-full flex items-center px-4 cursor-pointer">
+              <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
+                <Link to="/about" className="transition-colors">
+                  About Us
                 </Link>
               </div>
             </li>

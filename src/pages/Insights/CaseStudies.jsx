@@ -206,7 +206,7 @@ const CaseStudies = () => {
       </motion.h2>
 
       {[
-        `Our case studies showcase how organizations across banking, healthcare, retail, and manufacturing have leveraged Tredence's AI and data expertise to achieve transformative results.`,
+        `Our case studies showcase how organizations across banking, healthcare, retail, and manufacturing have leveraged Sigma's AI and data expertise to achieve transformative results.`,
         `From modernizing legacy data architectures to deploying advanced AI models, our customers have achieved measurable improvements in operational efficiency, customer experience, and revenue growth.`,
         `By combining deep domain expertise with proven accelerators, we've helped enterprises compress transformation timelines and maximize ROI on their AI and data investments.`
       ].map((text, i) => (
@@ -812,7 +812,7 @@ const CaseStudies = () => {
         </div>
       </section>
 
-    
+
 
       <Footer />
     </div>
