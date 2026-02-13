@@ -143,8 +143,6 @@ const Navbar = () => {
               </div>
             </li>
 
-
-
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
               <div className="flex items-center gap-1 group-hover:text-orange-500">
                 Insights <ChevronDown size={14} />
@@ -178,13 +176,14 @@ const Navbar = () => {
             </li>
 
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500">
+              <Link
+                to="/contact"
+                className="flex items-center gap-1 transition group-hover:text-orange-500"
+              >
                 Contact
-              </div>
-
+              </Link>
             </li>
           </ul>
-
         </div>
       </div>
     </nav>

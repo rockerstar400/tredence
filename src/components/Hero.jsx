@@ -5,7 +5,7 @@ const slides = [
     title: "Trends Accelerating Enterprise Growth through Intelligent Automation",
     subtitle: "with THORNE as a Lighthouse Customer",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=2000",
-   
+
   },
   {
     title: " Next-Gen Agentic AI Solutions for Global Enterprises",
@@ -52,9 +52,7 @@ const Hero = () => {
             <p className="text-black text-4xl font-bold mb-8">
               {slide.subtitle}
             </p>
-            <button className="w-fit bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 rounded-full text-lg font-bold transition-all">
-              {slide.buttonText}
-            </button>
+            
           </div>
         </div>
       ))}

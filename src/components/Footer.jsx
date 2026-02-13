@@ -88,7 +88,7 @@ const Footer = () => {
         viewport={{ once: true }}
         className="mb-14"
       >
-        <h5 className="text-lg font-bold mb-6 italic">Follow us on</h5>
+        {/* <h5 className="text-lg font-bold mb-6 italic">Follow us on</h5>
 
         <div className="flex gap-8">
           {[Twitter, Linkedin, Facebook, Youtube].map((Icon, i) => (
@@ -101,7 +101,7 @@ const Footer = () => {
               <Icon size={22} />
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </motion.div>
 
       {/* Bottom Legal Bar */}

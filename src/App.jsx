@@ -41,6 +41,7 @@ import DataModernization from './pages/Services/DataModernization';
 import DigitalEngineering from './pages/Services/DigitalEngineering';
 import LLMOps from './pages/Services/LLMOps';
 import LifeAtSigma from './pages/Services/LifeAtSigma';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -96,6 +97,9 @@ function App() {
 
           {/* Life at Sigma Route */}
           <Route path="/careers" element={<LifeAtSigma />} />
+
+           {/*contact-us form page */}
+          <Route path="/contact" element={<Contact />} />
 
           {/* Aap baaki pages ke routes bhi yahan add kar sakte hain */}
         </Routes>
