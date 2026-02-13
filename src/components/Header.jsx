@@ -19,7 +19,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Sigma Logo"
-                className="h-full w-full object-contain" // object-contain ensures logo looks sharp
+                className="h-full w-full object-contain" // object-contain ensures logo looks sharps
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
