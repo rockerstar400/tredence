@@ -812,70 +812,7 @@ const CaseStudies = () => {
         </div>
       </section>
 
-      {/* --- Section 8: CTA Section --- */}
-      <section className="relative pt-20">
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
-        <div className="max-w-6xl mx-auto px-6 pb-20">
-          <div className="bg-[#fff1ea] shadow-2xl p-10 lg:p-16 flex flex-col lg:flex-row gap-12 rounded-lg">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-8">
-                Ready to Write Your Success Story?
-              </h2>
-              <p className="text-gray-700 text-lg mb-8">
-                Let's discuss how we can drive measurable impact in your
-                organization. Our team is ready to share relevant case studies
-                and explore transformation opportunities specific to your
-                industry.
-              </p>
-              <div className="space-y-4">
-                <p className="text-sm text-gray-600">
-                  ✓ Personalized case study recommendations
-                  <br />
-                  ✓ Industry-specific benchmarking
-                  <br />✓ Transformation roadmap discussion
-                </p>
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <form className="space-y-6">
-                <div className="grid grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                  />
-                </div>
-                <input
-                  type="email"
-                  placeholder="Email Address*"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                />
-                <input
-                  type="text"
-                  placeholder="Industry"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                />
-                <textarea
-                  placeholder="Tell us about your transformation goals"
-                  rows="3"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full resize-none"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="bg-orange-600 text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-orange-700 transition-colors rounded-sm"
-                >
-                  Request Case Studies
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       <Footer />
     </div>

@@ -3,6 +3,8 @@ import Navbar from './components/Header'; // Path check kar lena agar folder ala
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import LogoSlider from '././components/LogoSlider';
+import { motion } from "framer-motion";
+
 // Jo pehle banaya tha
 
 // Awards/Logo Slider ke liye data
@@ -27,185 +29,290 @@ const Home = () => {
       <Hero />
 
       {/* Latest & Leading (Awards Section) */}
-      <section className="py-20 bg-white px-12 lg:px-24">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-gray-900">
-          Latest & leading partner
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1 - Microsoft */}
-          <div className="border border-gray-100 shadow-sm p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div className="h-32 bg-blue-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                  alt="Microsoft"
-                  className="h-16 object-contain"
-                />
-              </div>
-              <p className="font-bold text-lg leading-snug">
-                Trends Named 2025 Microsoft Data & Analytics Platform Partner of
-                the Year
-              </p>
-            </div>
+     <section className="py-24 bg-white px-12 lg:px-24 overflow-hidden">
+
+  {/* Animated Heading */}
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-4xl lg:text-5xl font-bold mb-16 text-gray-900"
+  >
+    Latest & leading partner
+  </motion.h2>
+
+  {/* Stagger Grid */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      visible: {
+        transition: {
+          staggerChildren: 0.2
+        }
+      }
+    }}
+    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+  >
+
+    {[
+      {
+        img: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+        bg: "bg-blue-50",
+        text: "Trends Named 2025 Microsoft Data & Analytics Platform Partner of the Year"
+      },
+      {
+        img: "https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png",
+        bg: "bg-red-50",
+        text: "Trends Awarded 2025 Databricks Growth Partner of the Year"
+      },
+      {
+        img: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg",
+        bg: "bg-blue-50",
+        text: "Trends Named Snowflake Partner of the Year for Retail & CPG"
+      },
+      {
+        img: "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
+        bg: "bg-yellow-50",
+        text: "Trends Wins 2025 Google Cloud Industry Solutions Partner of the Year"
+      }
+    ].map((item, index) => (
+
+      <motion.div
+        key={index}
+        variants={{
+          hidden: { opacity: 0, y: 60 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.6 }}
+        whileHover={{ y: -12, scale: 1.02 }}
+        className="border border-gray-100 shadow-md p-8 cursor-pointer flex flex-col justify-between rounded-xl bg-white"
+      >
+        <div>
+          <div className={`h-32 ${item.bg} mb-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 rounded-lg`}>
+            <motion.img
+              src={item.img}
+              alt=""
+              className="h-16 object-contain"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.4 }}
+            />
           </div>
 
-          {/* Card 2 - Databricks */}
-          {/* Card 2 - Databricks */}
-          <div className="border border-gray-100 shadow-sm p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div
-                className="h-32 bg-red-50 mb-6 flex items-center justify-center
-    grayscale group-hover:grayscale-0 transition-all duration-300"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
-                  alt="Databricks"
-                  className="h-16 object-contain"
-                />
-              </div>
-
-              <p className="font-bold text-lg leading-snug">
-                Trends Awarded 2025 Databricks Growth Partner of the Year
-              </p>
-            </div>
-          </div>
-
-          {/* Card 3 - Snowflake */}
-          <div className="border border-gray-100 shadow-sm p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div className="h-32 bg-blue-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg"
-                  alt="Snowflake"
-                  className="h-16 object-contain"
-                />
-              </div>
-              <p className="font-bold text-lg leading-snug">
-                Trends Named Snowflake Partner of the Year for Retail & CPG
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4 - Google Cloud */}
-          <div className="border border-gray-100 shadow-sm p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div className="h-32 bg-yellow-50 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
-                  alt="Google Cloud"
-                  className="h-16 object-contain"
-                />
-              </div>
-              <p className="font-bold text-lg leading-snug">
-                Trends Wins 2025 Google Cloud Industry Solutions Partner of the
-                Year
-              </p>
-            </div>
-          </div>
+          <p className="font-bold text-lg leading-snug">
+            {item.text}
+          </p>
         </div>
-      </section>
+      </motion.div>
+
+    ))}
+
+  </motion.div>
+</section>
+
 
       {/* What Makes Us Unique Section (From Image 3) */}
-      <section className="py-24 bg-gray-50 px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-16">
-        <div className="lg:w-1/2">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000"
-            alt="Unique"
-            className="rounded-br-[100px] shadow-2xl"
-          />
-        </div>
-        <div className="lg:w-1/2">
-          <h2 className="text-4xl font-bold mb-6">
-            Powering last mile with industry-specific data science solutions
-          </h2>
-          <p className="text-gray-600 mb-12 text-lg">
-            At Tredence, we bridge the gap between insights delivery and value
-            realization by enabling last-mile adoption of data science.
+      <section className="py-28 bg-gray-50 px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-20 overflow-hidden">
+
+  {/* IMAGE SIDE */}
+  <motion.div
+    initial={{ opacity: 0, x: -100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.9 }}
+    viewport={{ once: true }}
+    className="lg:w-1/2"
+  >
+    <motion.img
+      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000"
+      alt="Unique"
+      className="rounded-br-[100px] shadow-2xl"
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.5 }}
+    />
+  </motion.div>
+
+  {/* TEXT SIDE */}
+  <motion.div
+    initial={{ opacity: 0, x: 100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.9 }}
+    viewport={{ once: true }}
+    className="lg:w-1/2"
+  >
+    <motion.h2
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-4xl font-bold mb-6"
+    >
+      Powering last mile with industry-specific data science solutions
+    </motion.h2>
+
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-gray-600 mb-12 text-lg"
+    >
+      At Tredence, we bridge the gap between insights delivery and value
+      realization by enabling last-mile adoption of data science.
+    </motion.p>
+
+    <motion.h3
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.4 }}
+      viewport={{ once: true }}
+      className="text-3xl font-bold mb-10 italic"
+    >
+      What makes us unique
+    </motion.h3>
+
+    {/* UNIQUE POINTS STAGGER */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        visible: {
+          transition: { staggerChildren: 0.2 }
+        }
+      }}
+      className="grid grid-cols-1 md:grid-cols-3 gap-10"
+    >
+      {[
+        { icon: "🎯", text: "Speed to action through accelerators" },
+        { icon: "⚙️", text: "Speed to value through industry expertise" },
+        { icon: "🤝", text: "Speed to scale through AI partnerships" },
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ y: -8 }}
+          className="flex flex-col items-center text-center"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            viewport={{ once: true }}
+            className="text-orange-600 mb-4 text-3xl"
+          >
+            {item.icon}
+          </motion.div>
+
+          <p className="font-semibold text-sm">
+            {item.text}
           </p>
+        </motion.div>
+      ))}
+    </motion.div>
 
-          <h3 className="text-3xl font-bold mb-8 italic">
-            What makes us unique
-          </h3>
+  </motion.div>
+</section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center">
-              <div className="text-orange-600 mb-4">🎯</div>
-              <p className="font-semibold text-sm">
-                Speed to action through accelerators
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="text-orange-600 mb-4">⚙️</div>
-              <p className="font-semibold text-sm">
-                Speed to value through industry expertise
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="text-orange-600 mb-4">🤝</div>
-              <p className="font-semibold text-sm">
-                Speed to scale through AI partnerships
-              </p>
-            </div>
-          </div>
-
-          {/* <button className="mt-12 bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-700 transition-all">
-            Explore our success stories
-          </button> */}
-        </div>
-      </section>
 
       {/* --- Section 1: Thought Leadership --- */}
-      <section className="py-20 bg-white px-12 lg:px-24">
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold max-w-2xl leading-tight">
-            Decoding the future of AI through strategic perspectives
-          </h2>
-          <div className="flex gap-4">
-            <button className="w-12 h-12 rounded-full border border-orange-500 text-orange-500 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all">
-              ←
-            </button>
-            <button className="w-12 h-12 rounded-full border border-orange-500 text-orange-500 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all">
-              →
-            </button>
-          </div>
+     <section className="py-24 bg-white px-12 lg:px-24 overflow-hidden">
+
+  {/* Heading Animation */}
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="flex justify-between items-end mb-16"
+  >
+    <h2 className="text-4xl lg:text-5xl font-bold max-w-2xl leading-tight">
+      Decoding the future of AI through strategic perspectives
+    </h2>
+  </motion.div>
+
+  {/* Cards Grid with Stagger */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      visible: { transition: { staggerChildren: 0.2 } }
+    }}
+    className="grid grid-cols-1 md:grid-cols-2 gap-12"
+  >
+
+    {[
+      {
+        img: "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg",
+        title:
+          "Dominate with Data: Migrate and Modernize your CPG Data to Unlock New Capabilities",
+      },
+      {
+        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000",
+        title:
+          "Dynamic Pricing: How Is AI Making Retail Pricing Smarter?",
+      },
+    ].map((card, idx) => (
+
+      <motion.div
+        key={idx}
+        variants={{
+          hidden: { opacity: 0, y: 60 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.7 }}
+        whileHover={{ y: -10 }}
+        className="group cursor-pointer"
+      >
+        {/* Image Section */}
+        <div className="relative overflow-hidden mb-6 rounded-xl">
+          <motion.img
+            src={card.img}
+            alt=""
+            className="w-full h-80 object-cover"
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
+
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Card 1 */}
-          <div className="group cursor-pointer">
-            <div className="overflow-hidden mb-6">
-              <img
-                src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg"
-                alt="Data"
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <span className="text-orange-600 font-bold text-sm uppercase">
-              Point of View
-            </span>
-            <h3 className="text-2xl font-bold mt-2 text-gray-800 leading-snug">
-              Dominate with Data: Migrate and Modernize your CPG Data to Unlock
-              New Capabilities
-            </h3>
-          </div>
-          {/* Card 2 */}
-          <div className="group cursor-pointer">
-            <div className="overflow-hidden mb-6">
-              <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000"
-                alt="Pricing"
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <span className="text-orange-600 font-bold text-sm uppercase">
-              Point of View
-            </span>
-            <h3 className="text-2xl font-bold mt-2 text-gray-800 leading-snug">
-              Dynamic Pricing: How Is AI Making Retail Pricing Smarter?
-            </h3>
-          </div>
-        </div>
-      </section>
+        <motion.span
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-orange-600 font-bold text-sm uppercase"
+        >
+          Point of View
+        </motion.span>
+
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-2xl font-bold mt-2 text-gray-800 leading-snug group-hover:text-orange-600 transition-colors duration-300"
+        >
+          {card.title}
+        </motion.h3>
+      </motion.div>
+
+    ))}
+
+  </motion.div>
+
+</section>
+
 
       <LogoSlider
         title="Meet the"
@@ -215,296 +322,490 @@ const Home = () => {
       />
 
       {/* --- Section 2: Tredence Studio (Airplane Section) --- */}
-      <section className="relative min-h-[600px] flex items-center text-white py-20 px-12 lg:px-24 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=2000"
-            alt="Studio"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60"></div>{' '}
-          {/* Dark overlay */}
-        </div>
+      <section className="relative min-h-[650px] flex items-center text-white py-24 px-12 lg:px-24 overflow-hidden">
 
-        <div className="relative z-10 w-full">
-          <span className="text-lg font-bold mb-4 block">TREDENCE STUDIO</span>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 max-w-3xl leading-tight">
-            Scaling High-Impact AI Solutions at Unmatched Speed
-          </h2>
-          <p className="text-xl mb-12 max-w-2xl opacity-90">
-            Envision new possibilities and extraordinary paths to value using
-            AI-powered data science solutions and accelerators.
+  {/* Animated Background */}
+  <motion.div
+    initial={{ scale: 1.1 }}
+    whileInView={{ scale: 1 }}
+    transition={{ duration: 2 }}
+    viewport={{ once: true }}
+    className="absolute inset-0 z-0"
+  >
+    <img
+      src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=2000"
+      alt="Studio"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black/70"></div>
+  </motion.div>
+
+  <div className="relative z-10 w-full">
+
+    {/* Heading Stagger */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        visible: { transition: { staggerChildren: 0.2 } }
+      }}
+    >
+      <motion.span
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        className="text-lg font-bold mb-4 block tracking-wider"
+      >
+        TREDENCE STUDIO
+      </motion.span>
+
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.8 }}
+        className="text-5xl lg:text-6xl font-bold mb-6 max-w-3xl leading-tight"
+      >
+        Scaling High-Impact AI Solutions at Unmatched Speed
+      </motion.h2>
+
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.8 }}
+        className="text-xl mb-14 max-w-2xl opacity-90"
+      >
+        Envision new possibilities and extraordinary paths to value using
+        AI-powered data science solutions and accelerators.
+      </motion.p>
+    </motion.div>
+
+    {/* Feature Grid with Stagger */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        visible: { transition: { staggerChildren: 0.15 } }
+      }}
+      className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 border-t border-white/20 pt-10"
+    >
+      {[
+        'AI deep tech & industry experts',
+        'Fully-stocked workbench',
+        'High-voltage collaboration',
+        'Continuous learning paradigm',
+        'Extensive customization',
+        'Lightning fast time to value',
+        'Easy and quick iterations',
+        'Design thinking approach',
+      ].map((item, idx) => (
+
+        <motion.div
+          key={idx}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ x: 8 }}
+          className="border-l-2 border-white pl-4"
+        >
+          <p className="font-semibold text-sm lg:text-base leading-tight">
+            {item}
           </p>
+        </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 border-t border-white/20 pt-10">
-            {[
-              'AI deep tech & industry experts',
-              'Fully-stocked workbench',
-              'High-voltage collaboration',
-              'Continuous learning paradigm',
-              'Extensive customization',
-              'Lightning fast time to value',
-              'Easy and quick iterations',
-              'Design thinking approach',
-            ].map((item, idx) => (
-              <div key={idx} className="border-l-2 border-white pl-4">
-                <p className="font-semibold text-sm lg:text-base leading-tight">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
+      ))}
+    </motion.div>
 
-          <button className="mt-12 flex items-center gap-4 group">
-            <div className="w-14 h-14 bg-orange-600 rounded-full flex items-center justify-center group-hover:bg-orange-700 transition-all">
-              <span className="text-2xl">→</span>
-            </div>
-            <span className="font-bold text-xl">Explore Tredence Studio</span>
-          </button>
-        </div>
-      </section>
+  </div>
+</section>
+
 
       {/* --- Section 3: Elite Ecosystem Partnerships --- */}
-      <section className="py-24 bg-white text-center px-12">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-16 text-gray-900">
-          Unlocking global scale through strategic technology alliances
-        </h2>
+     <section className="py-28 bg-white text-center px-12 overflow-hidden">
 
-        <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-24 opacity-70 mb-16">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-            alt="AWS"
-            className="h-10 lg:h-12"
-          />
-          <div className="text-3xl font-bold text-gray-400">/LiveRamp</div>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
-            alt="Salesforce"
-            className="h-16 lg:h-20"
-          />
-        </div>
+  {/* Heading Animation */}
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-4xl lg:text-5xl font-bold mb-20 text-gray-900"
+  >
+    Unlocking global scale through strategic technology alliances
+  </motion.h2>
 
-        {/* Progress Bar (Slider Indicator) */}
-        <div className="w-64 h-1.5 bg-gray-200 mx-auto rounded-full overflow-hidden">
-          <div className="w-1/3 h-full bg-orange-500"></div>
-        </div>
-      </section>
-      {/* --- Section 4: Join Our Team (Overlapping Style) --- */}
-      <section className="py-20 px-12 lg:px-24 bg-white">
-        <div className="relative h-[600px] w-full">
-          {/* Background Image */}
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000"
-            alt="Team"
-            className="w-full h-full object-cover rounded-sm"
-          />
+  {/* Logos with Stagger */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      visible: { transition: { staggerChildren: 0.2 } }
+    }}
+    className="flex flex-wrap justify-center items-center gap-16 lg:gap-24 mb-20"
+  >
 
-          {/* Overlapping Orange Box */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 lg:left-12 bg-orange-600 p-10 lg:p-16 text-white max-w-2xl shadow-2xl">
-            <h2 className="text-5xl font-bold mb-6">Join our team</h2>
-            <p className="text-lg mb-10 leading-relaxed opacity-90">
-              Celebrating diverse perspectives and innovative ideas, we're
-              always looking for fresh new talent to work on the most pressing
-              data science challenges today. In turn, you get to unlock a world
-              of learning and growth opportunities at every step.
-            </p>
-            {/* <button className="bg-white text-orange-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all">
-              Apply to our jobs
-            </button> */}
+    {[
+      {
+        type: "img",
+        src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+      },
+      {
+        type: "text",
+        value: "/LiveRamp"
+      },
+      {
+        type: "img",
+        src: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+      }
+    ].map((item, idx) => (
+
+      <motion.div
+        key={idx}
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.6 }}
+        whileHover={{ scale: 1.1, y: -6 }}
+        className="opacity-70 hover:opacity-100 transition-all duration-300"
+      >
+        {item.type === "img" ? (
+          <img
+            src={item.src}
+            alt=""
+            className="h-12 lg:h-16 grayscale hover:grayscale-0 transition-all duration-300"
+          />
+        ) : (
+          <div className="text-3xl font-bold text-gray-400">
+            {item.value}
           </div>
-        </div>
-      </section>
+        )}
+      </motion.div>
+
+    ))}
+
+  </motion.div>
+
+
+
+</section>
+
+
+
+      {/* --- Section 4: Join Our Team (Overlapping Style) --- */}
+      <section className="py-24 px-12 lg:px-24 bg-white overflow-hidden">
+  <div className="relative h-[650px] w-full">
+
+    {/* Animated Background */}
+    <motion.img
+      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000"
+      alt="Team"
+      className="w-full h-full object-cover rounded-sm"
+      initial={{ scale: 1.1 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 2 }}
+      viewport={{ once: true }}
+    />
+
+    {/* Animated Orange Box */}
+    <motion.div
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.9 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -8 }}
+      className="absolute top-1/2 -translate-y-1/2 left-0 lg:left-12 bg-orange-600 p-12 lg:p-16 text-white max-w-2xl shadow-2xl rounded-sm"
+    >
+
+      {/* Stagger Text Animation */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          visible: { transition: { staggerChildren: 0.2 } }
+        }}
+      >
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          className="text-5xl font-bold mb-6"
+        >
+          Join our team
+        </motion.h2>
+
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          className="text-lg mb-10 leading-relaxed opacity-90"
+        >
+          Celebrating diverse perspectives and innovative ideas, we're
+          always looking for fresh new talent to work on the most pressing
+          data science challenges today. In turn, you get to unlock a world
+          of learning and growth opportunities at every step.
+        </motion.p>
+      </motion.div>
+
+    </motion.div>
+
+  </div>
+</section>
+
 
       {/* --- Section 5: Recognized by Industry Leaders (Awards) --- */}
-      <section className="py-24 bg-gray-50 px-12 lg:px-24">
-        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 max-w-4xl mx-auto leading-tight">
-          Industry-leading excellence, recognized globally
-        </h2>
+      <section className="py-28 bg-gray-50 px-12 lg:px-24 overflow-hidden">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Award 1 */}
-          <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100">
-            <div className="h-48 flex items-center justify-center mb-8">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
-                alt="Great Place to Work"
-                className="h-32 object-contain"
-              />
-            </div>
+  {/* Animated Heading */}
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-4xl lg:text-5xl font-bold text-center mb-20 max-w-4xl mx-auto leading-tight"
+  >
+    Industry-leading excellence, recognized globally
+  </motion.h2>
 
-            <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
+  {/* Stagger Grid */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      visible: { transition: { staggerChildren: 0.2 } }
+    }}
+    className="grid grid-cols-1 md:grid-cols-3 gap-10"
+  >
 
-            <p className="text-gray-600 font-medium leading-relaxed">
-              Tredence is Certified as a Great Place to Work® by GPTW India
-            </p>
+    {[
+      {
+        content: (
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+            alt=""
+            className="h-32 object-contain"
+          />
+        ),
+        text: "Tredence is Certified as a Great Place to Work® by GPTW India"
+      },
+      {
+        content: (
+          <div className="bg-blue-600 text-white p-6 font-bold text-xl uppercase tracking-tighter">
+            Business Insider <br />
+            <span className="text-sm opacity-80">
+              Top Consulting Firm
+            </span>
           </div>
+        ),
+        text: "Recognized as a Top Management Consulting Firm in the U.S. by Business Insider."
+      },
+      {
+        content: (
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            alt=""
+            className="w-32"
+          />
+        ),
+        text: "Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year"
+      }
+    ].map((item, idx) => (
 
-          {/* Award 2 */}
-          <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100">
-            <div className="h-48 flex items-center justify-center mb-8">
-              {/* Placeholder for Business Insider style logo */}
-              <div className="bg-blue-600 text-white p-6 font-bold text-xl uppercase tracking-tighter">
-                Business Insider <br />{' '}
-                <span className="text-sm opacity-80">Top Consulting Firm</span>
-              </div>
-            </div>
-            <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-            <p className="text-gray-600 font-medium leading-relaxed">
-              Recognized as a Top Management Consulting Firm in the U.S. by
-              Business Insider.
-            </p>
-          </div>
+      <motion.div
+        key={idx}
+        variants={{
+          hidden: { opacity: 0, y: 60 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.7 }}
+        whileHover={{ y: -10 }}
+        className="bg-white p-12 flex flex-col items-center text-center shadow-md border border-gray-100 rounded-xl hover:shadow-xl transition-all duration-300"
+      >
+        <motion.div
+          initial={{ scale: 0.9 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="h-48 flex items-center justify-center mb-10"
+        >
+          {item.content}
+        </motion.div>
 
-          {/* Award 3 */}
-          <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100">
-            <div className="h-48 flex items-center justify-center mb-8">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                alt="Microsoft"
-                className="w-32 mb-4"
-              />
-            </div>
-            <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-            <p className="text-gray-600 font-medium leading-relaxed">
-              Tredence Named 2025 Microsoft Data & Analytics Platform Partner of
-              the Year
-            </p>
-          </div>
-        </div>
+        <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
 
-        {/* Progress Bar (Slider Indicator) */}
-        <div className="mt-16 w-64 h-1.5 bg-gray-200 mx-auto rounded-full overflow-hidden">
-          <div className="w-1/3 h-full bg-orange-500"></div>
-        </div>
-      </section>
+        <p className="text-gray-600 font-medium leading-relaxed">
+          {item.text}
+        </p>
+      </motion.div>
+
+    ))}
+
+  </motion.div>
+
+
+
+</section>
+
 
       {/* --- Recognized by Industry Leaders Section --- */}
-      <section className="py-24 bg-[#f8f9fa] px-12 lg:px-24">
-        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 max-w-4xl mx-auto leading-tight text-gray-900">
-          Recognized by industry leaders for our pathfinding
-        </h2>
+      <section className="py-28 bg-[#f8f9fa] px-12 lg:px-24 overflow-hidden">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Animated Heading */}
+  <motion.h2
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-4xl lg:text-5xl font-bold text-center mb-20 max-w-4xl mx-auto leading-tight text-gray-900"
+  >
+    Recognized by industry leaders for our pathfinding
+  </motion.h2>
 
-          {/* Card 1: Great Place to Work */}
-          <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
-            <div className="h-56 w-full flex items-center justify-center mb-8">
-              <div className="w-full border border-red-200 rounded-sm overflow-hidden flex flex-col">
-                {/* Top White Section */}
-                <div className="bg-white p-6 text-left flex items-start gap-4">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-                    alt="Great Place To Work"
-                    className="w-10"
-                  />
-                  <div>
-                    <p className="text-red-600 font-bold text-sm">
-                      Great Place To Work
-                    </p>
-                    <p className="text-red-800 text-xs font-semibold">
-                      Certified Organization
-                    </p>
-                  </div>
-                </div>
+  {/* Cards with Stagger */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      visible: { transition: { staggerChildren: 0.25 } }
+    }}
+    className="grid grid-cols-1 md:grid-cols-3 gap-10"
+  >
 
-                {/* Bottom Colored Section */}
-                <div className="bg-red-600 p-6 text-white text-left">
-                  <p className="font-bold text-sm">Certified</p>
-                  <p className="text-[10px] opacity-90">
-                    GPTW India Recognition
+    {[1,2,3].map((_, idx) => (
+
+      <motion.div
+        key={idx}
+        variants={{
+          hidden: { opacity: 0, y: 80 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.8 }}
+        whileHover={{ y: -12 }}
+        className="bg-white p-10 flex flex-col items-center text-center shadow-md border border-gray-100 rounded-xl hover:shadow-xl transition-all duration-300"
+      >
+
+        {/* Animated Badge Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+          className="h-56 w-full flex items-center justify-center mb-10"
+        >
+          {idx === 0 && (
+            <div className="w-full border border-red-200 rounded-sm overflow-hidden flex flex-col">
+              <div className="bg-white p-6 text-left flex items-start gap-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+                  alt=""
+                  className="w-10"
+                />
+                <div>
+                  <p className="text-yellow-500 font-bold text-sm">
+                    Great Place To Work
+                  </p>
+                  <p className="text-yellow-500 text-xs font-semibold">
+                    Certified Organization
                   </p>
                 </div>
               </div>
+              <div className="bg-yellow-400 p-6 text-white text-left">
+                <p className="font-bold text-sm">Certified</p>
+                <p className="text-[10px] opacity-90">
+                  GPTW India Recognition
+                </p>
+              </div>
             </div>
+          )}
 
-            <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-
-            <p className="text-gray-600 font-medium leading-relaxed px-4">
-              Tredence is Certified as a Great Place to Work® by GPTW India
-            </p>
-          </div>
-
-          {/* Card 2: Business Insider */}
-          {/* Card 2: Business Insider */}
-          <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
-            <div className="h-56 w-full flex items-center justify-center mb-8">
-              <div className="w-full border border-blue-200 rounded-sm overflow-hidden flex flex-col">
-                {/* Top White Section */}
-                <div className="bg-white p-6 text-left flex items-start gap-4">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-                    alt="Business Insider"
-                    className="w-14"
-                  />
-                  <div>
-                    <p className="text-blue-600 font-bold text-sm">
-                      Business Insider
-                    </p>
-                    <p className="text-blue-800 text-xs font-semibold">
-                      Top Consulting Firm
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom Colored Section */}
-                <div className="bg-blue-600 p-6 text-white text-left">
-                  <p className="font-bold text-sm">Recognized</p>
-                  <p className="text-[10px] opacity-90">
-                    U.S. Management Consulting Leader
+          {idx === 1 && (
+            <div className="w-full border border-blue-200 rounded-sm overflow-hidden flex flex-col">
+              <div className="bg-white p-6 text-left flex items-start gap-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                  alt=""
+                  className="w-14"
+                />
+                <div>
+                  <p className="text-red-600 font-bold text-sm">
+                    Business Insider
+                  </p>
+                  <p className="text-red-800 text-xs font-semibold">
+                    Top Consulting Firm
                   </p>
                 </div>
               </div>
+              <div className="bg-red-600 p-6 text-white text-left">
+                <p className="font-bold text-sm">Recognized</p>
+                <p className="text-[10px] opacity-90">
+                  U.S. Management Consulting Leader
+                </p>
+              </div>
             </div>
+          )}
 
-            <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-
-            <p className="text-gray-600 font-medium leading-relaxed px-4">
-              Recognized as a Top Management Consulting Firm in the U.S. by
-              Business Insider.
-            </p>
-          </div>
-
-          {/* Card 3: Microsoft Partner */}
-          <div className="bg-white p-10 flex flex-col items-center text-center shadow-sm border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
-            <div className="h-56 w-full flex items-center justify-center mb-8">
-              {/* Custom Microsoft Card Style */}
-              <div className="w-full border border-blue-200 rounded-sm overflow-hidden flex flex-col">
-                <div className="bg-white p-6 text-left flex items-start gap-4">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                    alt="Microsoft"
-                    className="w-8"
-                  />
-                  <div>
-                    <p className="text-blue-600 font-bold text-sm">Microsoft</p>
-                    <p className="text-blue-800 text-xs font-semibold">
-                      2025 Partner of the Year
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-[#0078d4] p-6 text-white text-left">
-                  <p className="font-bold text-sm">Winner</p>
-                  <p className="text-[10px] opacity-90">
-                    Data and Analytics Platform Award
+          {idx === 2 && (
+            <div className="w-full border border-blue-200 rounded-sm overflow-hidden flex flex-col">
+              <div className="bg-white p-6 text-left flex items-start gap-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                  alt=""
+                  className="w-8"
+                />
+                <div>
+                  <p className="text-blue-600 font-bold text-sm">
+                    Microsoft
+                  </p>
+                  <p className="text-blue-800 text-xs font-semibold">
+                    2025 Partner of the Year
                   </p>
                 </div>
               </div>
+              <div className="bg-[#0078d4] p-6 text-white text-left">
+                <p className="font-bold text-sm">Winner</p>
+                <p className="text-[10px] opacity-90">
+                  Data and Analytics Platform Award
+                </p>
+              </div>
             </div>
-            <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
-            <p className="text-gray-600 font-medium leading-relaxed px-4">
-              Tredence Named 2025 Microsoft Data & Analytics Platform Partner of
-              the Year
-            </p>
-          </div>
-        </div>
+          )}
+        </motion.div>
 
-        {/* Slider Indicator (Progress Bar) */}
-        <div className="mt-20 w-80 h-1.5 bg-gray-200 mx-auto rounded-full overflow-hidden flex">
-          <div className="w-1/3 h-full bg-orange-600 transition-all"></div>
-          <div className="flex-1"></div>
-        </div>
-      </section>
+        <div className="w-full h-[1px] bg-gray-200 mb-8"></div>
+
+        <p className="text-gray-600 font-medium leading-relaxed px-4">
+          {idx === 0 &&
+            "Tredence is Certified as a Great Place to Work® by GPTW India"}
+          {idx === 1 &&
+            "Recognized as a Top Management Consulting Firm in the U.S. by Business Insider."}
+          {idx === 2 &&
+            "Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year"}
+        </p>
+
+      </motion.div>
+
+    ))}
+
+  </motion.div>
+
+
+
+</section>
+
       <Footer />
     </div>
   );

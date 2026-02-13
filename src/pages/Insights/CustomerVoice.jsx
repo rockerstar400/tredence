@@ -862,69 +862,7 @@ const CustomerVoice = () => {
         </div>
       </section>
 
-      {/* --- Section 8: CTA Section --- */}
-      <section className="relative pt-20">
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
-        <div className="max-w-6xl mx-auto px-6 pb-20">
-          <div className="bg-[#fff1ea] shadow-2xl p-10 lg:p-16 flex flex-col lg:flex-row gap-12 rounded-xl">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-8">
-                Join Leading Organizations Transforming with Tredence
-              </h2>
-              <p className="text-gray-700 text-lg mb-8">
-                Let's discuss how we can accelerate your AI transformation
-                journey. Hear from our customers about their experience and
-                explore how we can deliver similar impact for your organization.
-              </p>
-              <div className="space-y-4">
-                <p className="text-sm text-gray-600">
-                  ✓ Customer success stories & metrics
-                  <br />
-                  ✓ Speaking with our customers
-                  <br />✓ Customized transformation roadmap
-                </p>
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <form className="space-y-6">
-                <div className="grid grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full text-gray-900"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full text-gray-900"
-                  />
-                </div>
-                <input
-                  type="email"
-                  placeholder="Email Address*"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full text-gray-900"
-                />
-                <input
-                  type="text"
-                  placeholder="Company"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full text-gray-900"
-                />
-                <textarea
-                  placeholder="What transformation challenges are you facing?"
-                  rows="3"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full resize-none text-gray-900"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="bg-orange-600 text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-orange-700 transition-colors rounded-sm w-full"
-                >
-                  Schedule Customer Conversation
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       <Footer />
     </div>

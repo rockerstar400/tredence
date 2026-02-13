@@ -1,16 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import {
-  ChevronLeft,
-  ChevronRight,
-  Star,
-  ChevronDown,
-  ChevronUp,
-} from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Star, ChevronDown, ChevronUp } from 'lucide-react';
 import Footer from '../../components/Footer';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Retail = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeFaq, setActiveFaq] = useState(0);
+const [activeTab, setActiveTab] = useState("services");
+const [currentNews, setCurrentNews] = useState(0);
+
+const newsData = [
+  {
+    tag: "NEWS",
+    title:
+      "Tredence Unveils Agentic Commerce Solution Accelerators at NRF 2025",
+    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    tag: "NEWS",
+    title:
+      "Tredence Named a Leader in ISG's 2025 Provider Lens Assessment",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400",
+  },
+  {
+    tag: "NEWS",
+    title:
+      "Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year",
+    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400",
+  },
+];
 
   const heroSlides = [
     {
@@ -19,11 +37,20 @@ const Retail = () => {
       subtitle: 'Powering $2T+ in Global Retail Revenue',
     },
     {
-      bg: 'https://images.unsplash.com/photo-1534452286896-196f633c0501?auto=format&fit=crop&q=80&w=2000',
+      bg: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=2000',
       title: 'Predictive Supply Chains for Modern Retail',
       subtitle: 'Optimize inventory and boost margins with AI',
     },
   ];
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentNews((prev) =>
+      prev === newsData.length - 1 ? 0 : prev + 1
+    );
+  }, 4000);
+
+  return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -38,349 +65,621 @@ const Retail = () => {
     <div className="font-sans antialiased text-gray-900">
       {/* --- Section 1: Retail Hero Slider --- */}
       <section className="relative h-[85vh] w-full overflow-hidden text-white">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.bg})` }}
-            >
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
+        <AnimatePresence mode="wait">
+          {heroSlides.map(
+            (slide, index) =>
+              index === currentSlide && (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="absolute inset-0"
+                >
+                  {/* Background Zoom Effect */}
+                  <motion.div
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 6 }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${slide.bg})` }}
+                  >
+                    <div className="absolute inset-0 bg-black/50"></div>
+                  </motion.div>
 
-            <div className="relative h-full flex flex-col justify-center px-12 lg:px-24">
-              {/* Breadcrumbs */}
-              <nav className="mb-12 text-sm font-bold flex gap-2">
-                <span className="cursor-pointer hover:text-orange-500">
-                  Home
-                </span>{' '}
-                /
-                <span className="cursor-pointer hover:text-orange-500">
-                  Industry
-                </span>{' '}
-                /<span className="text-orange-500">Retail</span>
-              </nav>
+                  {/* Content */}
+                  <div className="relative h-full flex flex-col justify-center px-12 lg:px-24">
+                    {/* Breadcrumbs */}
+                    <motion.nav
+                      initial={{ y: -30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.3, duration: 0.6 }}
+                      className="mb-12 text-sm font-bold flex gap-2"
+                    >
+                      <span className="cursor-pointer hover:text-orange-500">
+                        Home
+                      </span>
+                      /
+                      <span className="cursor-pointer hover:text-orange-500">
+                        Industry
+                      </span>
+                      /<span className="text-orange-500">Retail</span>
+                    </motion.nav>
 
-              <h1 className="text-5xl lg:text-7xl font-bold max-w-5xl leading-tight mb-6">
-                {slide.title}
-              </h1>
-              <p className="text-3xl lg:text-5xl font-light italic opacity-90">
-                {slide.subtitle}
-              </p>
-            </div>
-          </div>
-        ))}
+                    {/* Title Animation */}
+                    <motion.h1
+                      initial={{ y: 60, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}
+                      className="text-5xl lg:text-7xl font-bold max-w-5xl leading-tight mb-6"
+                    >
+                      {slide.title}
+                    </motion.h1>
+
+                    {/* Subtitle Animation */}
+                    <motion.p
+                      initial={{ y: 40, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.8, duration: 0.8 }}
+                      className="text-3xl lg:text-5xl font-light italic opacity-90"
+                    >
+                      {slide.subtitle}
+                    </motion.p>
+                  </div>
+                </motion.div>
+              )
+          )}
+        </AnimatePresence>
       </section>
 
       {/* --- Section 2: Unlock Value (Image + Text) --- */}
-      <section className="py-24 px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-20">
-        <div className="lg:w-1/2 relative">
-          {/* Orange Graphic Element placeholder */}
-          <div className="absolute -top-10 left-10 w-40 h-20 bg-orange-600 -z-10 transform -skew-x-12"></div>
-          <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
-            alt="Retail Data"
-            className="rounded-sm shadow-xl"
-          />
-          {/* Icons Overlay (Conceptual) */}
-          <div className="absolute top-1/4 -left-6 bg-orange-600 p-4 rounded-sm text-white shadow-lg">
-            🏪
-          </div>
-          <div className="absolute bottom-1/4 -right-6 bg-orange-600 p-4 rounded-sm text-white shadow-lg">
-            📈
-          </div>
-        </div>
+     <section className="py-28 px-6 lg:px-24 bg-gray-50 overflow-hidden">
+  <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
 
-        <div className="lg:w-1/2">
-          <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-8">
-            Unlock the value of your{' '}
-            <span className="text-orange-600">enterprise retail data</span>{' '}
-            leveraging <span className="text-orange-600">AI/ML</span> to
-            maximize growth.
-          </h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Tredence drives the data and AI strategies for 8 of the world's top
-            10 global retailers. We combine deep data engineering and data
-            science capabilities with retail expertise to help the world's
-            leading retailers modernize their data foundation and turn their
-            enterprise data into insights with AI/ML.
-          </p>
-        </div>
-      </section>
+    {/* TEXT CONTENT */}
+    <motion.div
+      initial={{ x: -100, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="lg:w-1/2"
+    >
+      <motion.span
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="text-orange-600 font-semibold uppercase tracking-wider text-sm"
+      >
+        Retail Intelligence
+      </motion.span>
+
+      <motion.h2
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-4xl lg:text-5xl font-bold leading-tight mt-4 mb-8 text-gray-900"
+      >
+        Unlock the value of your{" "}
+        <span className="text-orange-600">enterprise retail data</span>{" "}
+        leveraging <span className="text-orange-600">AI/ML</span> to maximize growth.
+      </motion.h2>
+
+      <motion.p
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-gray-600 text-lg leading-relaxed mb-8"
+      >
+        Tredence drives the data and AI strategies for 8 of the world's
+        top 10 global retailers. We combine deep data engineering and data
+        science capabilities with retail expertise to help leading
+        retailers modernize their data foundation and turn enterprise data
+        into insights.
+      </motion.p>
+    </motion.div>
+
+    {/* IMAGE SECTION */}
+    <motion.div
+      initial={{ x: 100, opacity: 0, rotate: 2 }}
+      whileInView={{ x: 0, opacity: 1, rotate: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="lg:w-1/2 relative"
+    >
+      <motion.div
+        whileHover={{ scale: 1.03 }}
+        transition={{ duration: 0.4 }}
+        className="relative rounded-xl overflow-hidden shadow-2xl"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+          alt="Retail Data"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Floating Badges */}
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ delay: 0.6, type: "spring" }}
+        viewport={{ once: true }}
+        className="absolute -top-6 -left-6 bg-white shadow-lg px-4 py-3 rounded-lg text-orange-600 font-semibold"
+      >
+        🏪 Retail
+      </motion.div>
+
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ delay: 0.8, type: "spring" }}
+        viewport={{ once: true }}
+        className="absolute -bottom-6 -right-6 bg-white shadow-lg px-4 py-3 rounded-lg text-orange-600 font-semibold"
+      >
+        📈 Growth
+      </motion.div>
+    </motion.div>
+
+  </div>
+</section>
+
 
       {/* --- Section 3: Experts Slider (Awards) --- */}
-      <section className="py-20 bg-gray-50 text-center px-12">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-          Meet the{' '}
-          <span className="text-orange-600">undisputed retail analytics</span>{' '}
-          experts!
-        </h2>
-        <p className="text-xl font-medium mb-16">
-          Don't just take our word for it!
-        </p>
+      <section className="py-24 bg-gray-50 text-center px-12 overflow-hidden">
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {/* Award Cards placeholders */}
-          {[
-            'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
-            'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
-            'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
-            'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
-            'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
-          ].map((logo, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 border border-gray-100 shadow-sm w-48 h-48 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
-            >
-              <img
-                src={logo}
-                alt="Award Logo"
-                className="max-h-20 object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+  {/* Heading Animation */}
+  <motion.h2
+    initial={{ y: 40, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-4xl lg:text-5xl font-bold mb-4"
+  >
+    Meet the{" "}
+    <span className="text-orange-600">undisputed retail analytics</span>{" "}
+    experts!
+  </motion.h2>
+
+  <motion.p
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ delay: 0.3, duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-xl font-medium mb-16"
+  >
+    Don't just take our word for it!
+  </motion.p>
+
+  {/* Logo Grid with Stagger Animation */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      visible: {
+        transition: { staggerChildren: 0.2 }
+      }
+    }}
+    className="flex flex-wrap justify-center gap-8"
+  >
+    {[
+      'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+      'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
+      'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+      'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
+      'https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg',
+    ].map((logo, i) => (
+
+      <motion.div
+        key={i}
+        variants={{
+          hidden: { opacity: 0, y: 60, scale: 0.9 },
+          visible: { opacity: 1, y: 0, scale: 1 }
+        }}
+        transition={{ duration: 0.6 }}
+        whileHover={{ y: -10, scale: 1.05 }}
+        className="bg-white p-8 border border-gray-100 shadow-md w-52 h-52 flex items-center justify-center grayscale hover:grayscale-0 hover:shadow-xl transition-all duration-300 cursor-pointer rounded-lg"
+      >
+        <img
+          src={logo}
+          alt="Award Logo"
+          className="max-h-20 object-contain"
+        />
+      </motion.div>
+
+    ))}
+  </motion.div>
+
+</section>
+
 
       {/* --- Section 4: Testimonials Slider --- */}
-      <section className="py-24 px-12 lg:px-24">
-        <h3 className="text-2xl font-bold mb-2">What the bold say about us:</h3>
-        <h2 className="text-4xl font-bold text-orange-600 mb-16">
-          Clients. Partners. Analysts.
-        </h2>
+    <section className="py-28 px-12 lg:px-24 bg-white overflow-hidden">
 
-        <div className="relative border-l-4 border-orange-600 pl-10 py-4 max-w-5xl">
-          <div className="absolute -left-5 top-0 bg-orange-600 text-white p-1 rounded-sm">
-            <Star size={16} fill="white" />
-          </div>
+  {/* Heading Animation */}
+  <motion.h3
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+    className="text-2xl font-bold mb-2"
+  >
+    What the bold say about us:
+  </motion.h3>
 
-          <p className="text-2xl font-medium leading-relaxed text-gray-800 mb-12">
-            “Mobile App Marketing has found immense value in our collaboration
-            with Tredence. Their insights have transformed Walmart's approach to
-            app marketing and customer growth. Tredence has enabled advanced app
-            strategies, including the implementation of cohort-based targeting
-            that demonstrably increase customer LTV.”
-          </p>
+  <motion.h2
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-4xl font-bold text-orange-600 mb-16"
+  >
+    Clients. Partners. Analysts.
+  </motion.h2>
 
-          <div className="flex items-center gap-6">
-            <img
-              src="https://images.unsplash.com/photo-1544005313-94ddf028fbdb?auto=format&fit=crop&q=80&w=100"
-              className="w-20 h-20 rounded-sm object-cover grayscale"
-              alt="Sherry"
-            />
-            <div>
-              <p className="font-bold text-lg">Sherry Thomas-Zon</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 font-bold">
-                Director, Mobile App Marketing
-              </p>
-              <div className="mt-4 text-blue-700 font-black text-2xl tracking-tighter italic">
-                Walmart
-              </div>
-            </div>
-          </div>
+  {/* Testimonial Card */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8 }}
+    whileHover={{ y: -8 }}
+    viewport={{ once: true }}
+    className="relative border-l-4 border-orange-600 pl-10 py-8 max-w-5xl bg-gray-50 rounded-lg shadow-md"
+  >
+
+    {/* Star Icon */}
+    <div className="absolute -left-5 top-0 bg-orange-600 text-white p-2 rounded-md shadow-lg">
+      <Star size={16} fill="white" />
+    </div>
+
+    {/* Quote Text */}
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-2xl font-medium leading-relaxed text-gray-800 mb-12"
+    >
+      “Mobile App Marketing has found immense value in our collaboration
+      with Tredence. Their insights have transformed Walmart's approach to
+      app marketing and customer growth. Tredence has enabled advanced app
+      strategies, including the implementation of cohort-based targeting
+      that demonstrably increase customer LTV.”
+    </motion.p>
+
+    {/* Profile Section */}
+    <div className="flex items-center gap-6">
+
+      <motion.img
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        viewport={{ once: true }}
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=2000"
+        className="w-20 h-20 rounded-md object-cover grayscale hover:grayscale-0 transition-all duration-300"
+        alt="Sherry"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <p className="font-bold text-lg">Sherry Thomas-Zon</p>
+        <p className="text-xs uppercase tracking-widest text-gray-500 font-bold">
+          Director, Mobile App Marketing
+        </p>
+        <div className="mt-4 text-blue-700 font-black text-2xl tracking-tighter italic">
+          Walmart
         </div>
-      </section>
+      </motion.div>
+
+    </div>
+
+  </motion.div>
+
+</section>
+
+
+
       {/* --- Section 5: Tredence AI (Peach Section) --- */}
-      <section className="bg-[#fff1ea] py-20 px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
-          <div className="lg:w-1/2">
-            <h4 className="text-orange-600 text-3xl font-bold flex items-center gap-2 mb-4">
-              Tredence AI <span className="text-2xl">✨</span>
-            </h4>
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-8">
-              Where retail's data gets its edge
-            </h2>
-            <p className="text-2xl text-gray-800 leading-snug">
-              Tredence helps leading global retailers by accelerating retail
-              data and AI modernization, turning fragmented systems into
-              actionable insights and tangible business impact.
-            </p>
-          </div>
-          <div className="lg:w-1/2 text-gray-700 space-y-6 text-lg">
-            <p>
-              Retailers are sitting on mountains of data. Tredence combines deep
-              data engineering and data science capabilities with retail
-              expertise to help the world's leading retailers modernize their
-              data foundation and turn their enterprise data into insights with
-              AI/ML.
-            </p>
-            <p>
-              Leveraging Atom.AI, our accelerator ecosystem, with +150 AI/ML
-              retail specific solutions and 12+ GenAI agents, Tredence helps
-              solve the hairiest data engineering and data science challenges
-              for the world's largest and fastest growing retailers.
-            </p>
-            <p>
-              Unlike dated software-as-a-service solutions that take months to
-              implement, Tredence Accelerators are custom-built to align with
-              your data and unique business requirements.
-            </p>
-          </div>
-        </div>
-      </section>
+     <section className="relative bg-[#fff1ea] py-24 px-12 lg:px-24 overflow-hidden">
+
+  {/* Subtle Animated Background Glow */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 0.4 }}
+    transition={{ duration: 2 }}
+    className="absolute -top-32 -right-32 w-96 h-96 bg-orange-300 rounded-full blur-3xl"
+  />
+
+  <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+
+    {/* LEFT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="lg:w-1/2"
+    >
+      <motion.h4
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        viewport={{ once: true }}
+        className="text-orange-600 text-3xl font-bold flex items-center gap-2 mb-4"
+      >
+        Tredence AI <span className="text-2xl">✨</span>
+      </motion.h4>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-4xl lg:text-5xl font-bold leading-tight mb-8"
+      >
+        Where retail's data gets its edge
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-2xl text-gray-800 leading-snug"
+      >
+        Tredence helps leading global retailers by accelerating retail
+        data and AI modernization, turning fragmented systems into
+        actionable insights and tangible business impact.
+      </motion.p>
+    </motion.div>
+
+    {/* RIGHT CONTENT */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        visible: {
+          transition: { staggerChildren: 0.3 }
+        }
+      }}
+      className="lg:w-1/2 text-gray-700 space-y-8 text-lg"
+    >
+      {[
+        `Retailers are sitting on mountains of data. Tredence combines deep data engineering and data science capabilities with retail expertise to help the world's leading retailers modernize their data foundation and turn their enterprise data into insights with AI/ML.`,
+        `Leveraging Atom.AI, our accelerator ecosystem, with +150 AI/ML retail specific solutions and 12+ GenAI agents, Tredence helps solve the hairiest data engineering and data science challenges for the world's largest and fastest growing retailers.`,
+        `Unlike dated software-as-a-service solutions that take months to implement, Tredence Accelerators are custom-built to align with your data and unique business requirements.`
+      ].map((text, i) => (
+        <motion.p
+          key={i}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.8 }}
+          whileHover={{ x: 5 }}
+          className="leading-relaxed"
+        >
+          {text}
+        </motion.p>
+      ))}
+    </motion.div>
+
+  </div>
+</section>
+
 
       {/* --- Section 6: AI Advantage Grid --- */}
-      <section className="bg-[#fff1ea] pb-24 px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-8 border-b border-orange-200 mb-12">
-            <button className="pb-4 text-orange-600 border-b-2 border-orange-600 font-bold flex items-center gap-2">
-              ⚙️ Services
-            </button>
-            <button className="pb-4 text-gray-400 font-bold flex items-center gap-2">
-              💡 Solutions
-            </button>
-          </div>
+     <section className="bg-[#fff1ea] pb-28 px-12 lg:px-24 overflow-hidden">
+  <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-4xl font-bold mb-12">
-            The AI advantage for modern retail
-          </h2>
-        </div>
-      </section>
+    {/* Tabs */}
+    <div className="relative flex gap-8 border-b border-orange-200 mb-16">
+
+      {[
+        { id: "services", label: "⚙️ Services" },
+        { id: "solutions", label: "💡 Solutions" }
+      ].map((tab) => (
+        <motion.button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          whileHover={{ scale: 1.05 }}
+          className={`relative pb-4 font-bold flex items-center gap-2 transition-colors duration-300 ${
+            activeTab === tab.id
+              ? "text-orange-600"
+              : "text-gray-400"
+          }`}
+        >
+          {tab.label}
+
+          {/* Animated underline */}
+          {activeTab === tab.id && (
+            <motion.div
+              layoutId="activeTab"
+              className="absolute left-0 right-0 -bottom-[2px] h-[3px] bg-orange-600 rounded"
+            />
+          )}
+        </motion.button>
+      ))}
+    </div>
+
+    {/* Heading Animation */}
+    <motion.h2
+      key={activeTab}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-4xl font-bold"
+    >
+      The AI advantage for modern retail
+    </motion.h2>
+
+  </div>
+</section>
+
 
       {/* --- Section 7: Stats Grid (Why choose us) --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Why do leading retailers choose{' '}
-            <span className="text-orange-600">Tredence</span>
-          </h2>
+     <section className="py-28 px-12 lg:px-24 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'GenAI for retail',
-                image:
-                  'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600',
-              },
-              {
-                title: 'AI-driven platform modernization',
-                image:
-                  'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600',
-              },
-              {
-                title: 'Real-time AI-powered supply chain insights',
-                image:
-                  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600',
-              },
-              {
-                title: 'AI-powered customer 360 and personalization',
-                image:
-                  'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=600',
-              },
-              {
-                title: 'AI-driven data monetization & retail media networks',
-                image:
-                  'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=600',
-              },
-              {
-                title: 'AI-powered demand forecasting & pricing optimization',
-                image:
-                  'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600',
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                {/* Top Image Section (UI same as before) */}
-                <div className="bg-orange-600 h-48 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+    {/* Heading Animation */}
+    <motion.h2
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-4xl font-bold text-center mb-20"
+    >
+      Why do leading retailers choose{" "}
+      <span className="text-orange-600">Tredence</span>
+    </motion.h2>
 
-                {/* Bottom Content Section (unchanged UI) */}
-                <div className="bg-white p-8 h-40 flex flex-col justify-between border border-t-0 border-gray-100 shadow-sm group-hover:shadow-md transition-all">
-                  <h3 className="text-xl font-bold leading-tight">
-                    {item.title}
-                  </h3>
+    {/* Grid with Stagger Animation */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        visible: {
+          transition: {
+            staggerChildren: 0.15
+          }
+        }
+      }}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+    >
+      {[
+        {
+          title: "GenAI for retail",
+          image:
+            "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600",
+        },
+        {
+          title: "AI-driven platform modernization",
+          image:
+            "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600",
+        },
+        {
+          title: "Real-time AI-powered supply chain insights",
+          image:
+            "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600",
+        },
+        {
+          title: "AI-powered customer 360 and personalization",
+          image:
+            "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=600",
+        },
+        {
+          title: "AI-driven data monetization & retail media networks",
+          image:
+            "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=600",
+        },
+        {
+          title: "AI-powered demand forecasting & pricing optimization",
+          image:
+            "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
+        },
+      ].map((item, idx) => (
 
-                  <span className="text-orange-600 font-bold text-xs uppercase tracking-widest flex items-center gap-1">
-                    READ MORE
-                    <ChevronRight size={14} className="rotate-[-45deg]" />
-                  </span>
-                </div>
-              </div>
-            ))}
+        <motion.div
+          key={idx}
+          variants={{
+            hidden: { opacity: 0, y: 60 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ y: -12 }}
+          className="group cursor-pointer rounded-xl overflow-hidden"
+        >
+
+          {/* Image Section */}
+          <div className="relative h-52 overflow-hidden">
+            <motion.img
+              src={item.image}
+              alt={item.title}
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.6 }}
+              className="w-full h-full object-cover"
+            />
+
+            {/* Subtle Overlay */}
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500" />
           </div>
-        </div>
-      </section>
+
+          {/* Content Section */}
+          <div className="bg-white p-8 h-40 flex items-center border border-gray-100 shadow-md group-hover:shadow-xl transition-all duration-300">
+            <h3 className="text-xl font-bold leading-tight group-hover:text-orange-600 transition-colors duration-300">
+              {item.title}
+            </h3>
+          </div>
+
+        </motion.div>
+
+      ))}
+    </motion.div>
+
+  </div>
+</section>
 
       {/* --- Section 8: News Slider --- */}
-      <section className="bg-[#fff1ea] py-24 px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12">
-            On the cutting-edge of data & AI
-          </h2>
+      <section className="bg-[#fff1ea] py-28 px-12 lg:px-24 overflow-hidden">
+  <div className="max-w-7xl mx-auto">
 
-          <div className="flex gap-6 overflow-x-auto pb-8">
-            {[
-              {
-                tag: 'NEWS',
-                title:
-                  'Tredence Unveils Agentic Commerce Solution Accelerators at NRF 2025',
-                img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600',
-              },
-              {
-                tag: 'NEWS',
-                title:
-                  "Tredence Named a Leader in ISG's 2025 Provider Lens Assessment",
-                img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400',
-              },
-              {
-                tag: 'NEWS',
-                title:
-                  'Tredence Named 2025 Microsoft Data & Analytics Platform Partner of the Year',
-                img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400',
-              },
-            ].map((news, idx) => (
-              <div
-                key={idx}
-                className="min-w-[400px] bg-white group cursor-pointer shadow-sm hover:shadow-lg transition-all"
-              >
-                <img
-                  src={news.img}
-                  className="w-full h-56 object-cover"
-                  alt=""
-                />
-                <div className="p-8">
-                  <span className="bg-[#72c6b3] text-white px-3 py-1 text-xs font-bold tracking-widest">
-                    {news.tag}
-                  </span>
-                  <h3 className="text-xl font-bold mt-6 mb-8 group-hover:text-orange-600 transition-colors">
-                    {news.title}
-                  </h3>
-                  <div className="text-orange-600 text-2xl font-bold">→</div>
-                </div>
-              </div>
-            ))}
-          </div>
+    <motion.h2
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-4xl font-bold mb-16"
+    >
+      On the cutting-edge of data & AI
+    </motion.h2>
 
-          {/* Slider Pagination (Decorative) */}
-          <div className="flex items-center gap-4 mt-8">
-            <div className="flex gap-2">
-              <button className="p-2 border border-gray-300 bg-white">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="p-2 border border-gray-300 bg-white">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className="h-[1px] bg-gray-300 flex-grow mx-4"></div>
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5].map((n) => (
-                <span
-                  key={n}
-                  className={`w-8 h-8 flex items-center justify-center border text-xs font-bold ${n === 1 ? 'bg-[#72c6b3] text-white border-[#72c6b3]' : 'bg-white text-teal-600 border-teal-200'}`}
-                >
-                  {n}
-                </span>
-              ))}
-            </div>
+    <div className="relative h-[420px] flex items-center justify-center">
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentNews}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.8 }}
+          className="absolute w-full max-w-2xl bg-white shadow-xl rounded-xl overflow-hidden"
+        >
+          <motion.img
+            src={newsData[currentNews].img}
+            alt=""
+            className="w-full h-56 object-cover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.5 }}
+          />
+
+          <div className="p-8">
+            <span className="bg-[#72c6b3] text-white px-3 py-1 text-xs font-bold tracking-widest">
+              {newsData[currentNews].tag}
+            </span>
+
+            <h3 className="text-xl font-bold mt-6">
+              {newsData[currentNews].title}
+            </h3>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </AnimatePresence>
+
+    </div>
+
+  </div>
+</section>
+
+
+
       {/* --- Section 9: FAQs (Accordion) --- */}
       <section className="py-24 px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
@@ -430,85 +729,6 @@ const Retail = () => {
                 )}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- Section 10: Contact Form (Floating Peach Box) --- */}
-      <section className="relative pt-20">
-        {/* Background Orange Bar */}
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
-
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-[#fff1ea] shadow-2xl p-10 lg:p-16 flex flex-col lg:flex-row gap-12 relative">
-            {/* Left side: Text & Illustration */}
-            <div className="lg:w-1/2 flex flex-col justify-between">
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
-                Demand more out of AI. Talk to retail experts born and bred in
-                full-stack AI.
-              </h2>
-
-              {/* Simple Store Illustration Placeholder */}
-              <div className="mt-12 opacity-90 hidden lg:block">
-                <svg
-                  viewBox="0 0 200 150"
-                  className="w-64 h-auto fill-orange-600"
-                >
-                  <rect x="20" y="80" width="160" height="60" rx="2" />
-                  <path d="M10 80 L190 80 L170 50 L30 50 Z" />
-                  <rect
-                    x="50"
-                    y="100"
-                    width="40"
-                    height="40"
-                    fill="white"
-                    opacity="0.5"
-                  />
-                  <circle cx="150" cy="40" r="10" />
-                  <path d="M140 60 L160 30" stroke="orange" strokeWidth="2" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Right side: Form */}
-            <div className="lg:w-1/2">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 transition-colors w-full"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 transition-colors w-full"
-                  />
-                </div>
-                <input
-                  type="email"
-                  placeholder="Email Address*"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 transition-colors w-full"
-                />
-                <input
-                  type="tel"
-                  placeholder="Contact Number"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 transition-colors w-full"
-                />
-                <textarea
-                  placeholder="How can we help you?"
-                  rows="3"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 transition-colors w-full resize-none"
-                ></textarea>
-
-                <button
-                  type="submit"
-                  className="bg-orange-600 text-white px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-orange-700 transition-colors"
-                >
-                  Let's Chat
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </section>

@@ -623,41 +623,7 @@ text-white p-8 rounded-lg mb-12 sticky top-24"
         </div>
       </section>
 
-      {/* --- Section 6: CTA Section --- */}
-      <section className="relative pt-20">
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
-        <div className="max-w-6xl mx-auto px-6 pb-20">
-          <div className="bg-[#fff1ea] shadow-2xl p-10 lg:p-16 rounded-lg">
-            <div className="text-center">
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-6">
-                Sharpen Your Strategic Thinking
-              </h2>
-              <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-12">
-                Subscribe to our thought leadership newsletter and stay ahead of
-                enterprise AI and data transformation trends. Get exclusive
-                insights, research reports, and expert commentary delivered to
-                your inbox.
-              </p>
-
-              <div className="max-w-2xl mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                  <input
-                    type="email"
-                    placeholder="your.email@company.com"
-                    className="flex-1 px-6 py-4 border-2 border-orange-300 rounded-lg outline-none focus:border-orange-600 text-lg"
-                  />
-                  <button className="bg-orange-600 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-orange-700 transition-colors rounded-lg whitespace-nowrap">
-                    Subscribe Now
-                  </button>
-                </div>
-                <p className="text-sm text-gray-600">
-                  ✓ No spam • ✓ Industry insights • ✓ Unsubscribe anytime
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       <Footer />
     </div>

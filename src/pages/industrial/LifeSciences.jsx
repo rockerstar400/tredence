@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import LogoSlider from '../../components/LogoSlider';
-import isgLogo from "../../assets/Sigmalogo.png";
+import { motion } from 'framer-motion';
 import Footer from '../../components/Footer'; // Aapka scroll component
 
 const LifeSciences = () => {
@@ -26,69 +26,195 @@ const LifeSciences = () => {
 
       {/* --- Section 1: Hero Section --- */}
       <section className="relative h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
-        {/* Background Image (DNA/Tech themed) */}
-        <div
-          className="absolute inset-0 bg-cover bg-center -z-10"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=2000')` }}
-        >
-          <div className="absolute inset-0 bg-black/70"></div>
-        </div>
 
-        <div className="px-6 lg:px-24">
-          <nav className="mb-12 text-sm font-medium flex justify-center gap-2 opacity-90">
-            <span>Home</span> / <span>Industry</span> / <span className="text-orange-500">Life Sciences</span>
-          </nav>
+  {/* Animated Background */}
+  <motion.div
+    initial={{ scale: 1.08 }}
+    animate={{ scale: 1 }}
+    transition={{ duration: 8, ease: "easeOut" }}
+    className="absolute inset-0 bg-cover bg-center -z-10"
+    style={{
+      backgroundImage: `url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=2000')`
+    }}
+  >
+    <div className="absolute inset-0 bg-black/70"></div>
+  </motion.div>
 
-          <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-            Empowering Life Sciences with AI
-          </h1>
-          <p className="text-3xl lg:text-5xl font-light italic opacity-90">
-            For Smarter Operations & Faster Innovation
-          </p>
-        </div>
-      </section>
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={{
+      visible: { transition: { staggerChildren: 0.2 } }
+    }}
+    className="px-6 lg:px-24"
+  >
+
+    {/* Breadcrumb */}
+    <motion.nav
+      variants={{
+        hidden: { opacity: 0, y: -15 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      transition={{ duration: 0.6 }}
+      className="mb-12 text-sm font-medium flex justify-center gap-2 opacity-90"
+    >
+      <span>Home</span> / <span>Industry</span> /
+      <span className="text-orange-500">Life Sciences</span>
+    </motion.nav>
+
+    {/* Heading */}
+    <motion.h1
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      transition={{ duration: 0.9 }}
+      className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
+    >
+      Empowering Life Sciences with AI
+    </motion.h1>
+
+    {/* Subtitle */}
+    <motion.p
+      variants={{
+        hidden: { opacity: 0, y: 35 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      transition={{ duration: 0.8 }}
+      className="text-3xl lg:text-5xl font-light italic opacity-90"
+    >
+      For Smarter Operations & Faster Innovation
+    </motion.p>
+
+  </motion.div>
+
+</section>
+
 
       {/* --- Section 2: Modernize Data (Turn data into impact) --- */}
       <section className="py-24 px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.3 }}
+    variants={{
+      visible: { transition: { staggerChildren: 0.25 } }
+    }}
+    className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20"
+  >
 
-          {/* Left: Scientist Image with Tech Overlays */}
-          <div className="lg:w-1/2 relative">
-            {/* Orange Decorative Element (T-Shape Background) */}
-            <div className="absolute top-0 right-0 w-48 h-16 bg-orange-600 -z-0 transform -skew-x-12 opacity-90"></div>
+    {/* Left Image Side */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, x: -80 },
+        visible: { opacity: 1, x: 0 }
+      }}
+      transition={{ duration: 0.9 }}
+      className="lg:w-1/2 relative"
+    >
 
-            <div className="relative z-10 flex justify-center">
-              <img
-                src="https://img.freepik.com/free-photo/female-scientist-microscope-lab_23-2148851011.jpg"
-                alt="Life Science Specialist"
-                className="w-full max-w-md rounded-sm shadow-2xl"
-              />
+      <div className="absolute top-0 right-0 w-48 h-16 bg-orange-600 -z-0 transform -skew-x-12 opacity-90"></div>
 
-              {/* Floating Orange Circular Paths & Icons */}
-              <div className="absolute inset-0 border-[2px] border-orange-500/40 rounded-full scale-110 -rotate-12"></div>
-              <div className="absolute inset-0 border-[1px] border-orange-500/30 rounded-full scale-125 rotate-45"></div>
+      <div className="relative z-10 flex justify-center">
 
-              {/* Floating Icon Boxes (As per screenshot) */}
-              <div className="absolute top-20 -left-6 bg-orange-600 p-4 text-white text-2xl shadow-lg">🔬</div>
-              <div className="absolute top-10 -right-6 bg-orange-600 p-4 text-white text-2xl shadow-lg">🧬</div>
-              <div className="absolute bottom-10 right-10 bg-orange-600 p-4 text-white text-2xl shadow-lg">💻</div>
-            </div>
-          </div>
+        {/* Image */}
+        <motion.img
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.9 }}
+          src="https://img.freepik.com/free-photo/female-scientist-microscope-lab_23-2148851011.jpg"
+          alt="Life Science Specialist"
+          className="w-full max-w-md rounded-sm shadow-2xl"
+        />
 
-          {/* Right: Content */}
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-8">
-              Turn Enterprise <span className="text-orange-600">data into business impact</span> with AI-powered intelligence
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              Tredence helps life sciences organizations build resilient supply chains, agile manufacturing operations, and faster R&D innovation using AI and advanced analytics.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              With data modernization, digital twins, and predictive modeling, we bring together fragmented operational, clinical, and research data to create a unified intelligence layer that improves outcomes and drives competitive advantage.
-            </p>
-          </div>
-        </div>
-      </section>
+        {/* Subtle Rotating Rings */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+          className="absolute inset-0 border-[2px] border-orange-500/40 rounded-full scale-110"
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
+          className="absolute inset-0 border-[1px] border-orange-500/30 rounded-full scale-125"
+        />
+
+        {/* Floating Scientific Icons */}
+        <motion.div
+          animate={{ y: [0, -12, 0] }}
+          transition={{ repeat: Infinity, duration: 4 }}
+          className="absolute top-20 -left-6 bg-orange-600 p-4 text-white text-2xl shadow-lg"
+        >
+          🔬
+        </motion.div>
+
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 5 }}
+          className="absolute top-10 -right-6 bg-orange-600 p-4 text-white text-2xl shadow-lg"
+        >
+          🧬
+        </motion.div>
+
+        <motion.div
+          animate={{ y: [0, -8, 0] }}
+          transition={{ repeat: Infinity, duration: 4.5 }}
+          className="absolute bottom-10 right-10 bg-orange-600 p-4 text-white text-2xl shadow-lg"
+        >
+          💻
+        </motion.div>
+
+      </div>
+    </motion.div>
+
+    {/* Right Content Side */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, x: 80 },
+        visible: { opacity: 1, x: 0 }
+      }}
+      transition={{ duration: 0.9 }}
+      className="lg:w-1/2"
+    >
+
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl lg:text-5xl font-bold leading-tight mb-8"
+      >
+        Turn Enterprise <span className="text-orange-600">data into business impact</span> with AI-powered intelligence
+      </motion.h2>
+
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.7 }}
+        className="text-gray-700 text-lg leading-relaxed mb-6"
+      >
+        Tredence helps life sciences organizations build resilient supply chains, agile manufacturing operations, and faster R&D innovation using AI and advanced analytics.
+      </motion.p>
+
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.7 }}
+        className="text-gray-700 text-lg leading-relaxed"
+      >
+        With data modernization, digital twins, and predictive modeling, we bring together fragmented operational, clinical, and research data to create a unified intelligence layer that improves outcomes and drives competitive advantage.
+      </motion.p>
+
+    </motion.div>
+
+  </motion.div>
+</section>
+
 
       {/* --- Section 3: Reusable Logo Slider (SCROLL) --- */}
       <LogoSlider
@@ -97,118 +223,271 @@ const LifeSciences = () => {
         subtitle="Don't just take our word for it!"
         logos={awardLogos}
       />
-   {/* --- Section 4: Testimonial Section --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white">
+
+      {/* --- Section 4: Testimonial Section --- */}
+      <section className="py-28 px-12 lg:px-24 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold mb-2">
-            What the bold say about us:
-          </h3>
-          <h2 className="text-4xl font-bold text-orange-600 mb-16">
-            Clients. Partners. Analysts.
-          </h2>
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold mb-2">
+              What the bold say about us:
+            </h3>
+            <h2 className="text-4xl font-bold text-orange-600 mb-20">
+              Clients. Partners. Analysts.
+            </h2>
+          </motion.div>
 
-          <div className="relative border-l border-gray-200 pl-10 py-4">
-            {/* Orange Quote Icon */}
-            <div className="absolute -left-5 top-0 bg-orange-600 text-white p-2 rounded-sm">
+          {/* Testimonial Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="relative border-l border-gray-200 pl-10 py-6"
+          >
+            {/* Quote Icon */}
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+              viewport={{ once: true }}
+              className="absolute -left-5 top-0 bg-orange-600 text-white p-2 rounded-sm"
+            >
               <Star size={18} fill="white" />
-            </div>
+            </motion.div>
 
-            <p className="text-2xl lg:text-3xl font-medium leading-snug text-gray-800 mb-12">
+            {/* Quote Text */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.9 }}
+              viewport={{ once: true }}
+              className="text-2xl lg:text-3xl font-medium leading-snug text-gray-800 mb-14"
+            >
               “Tredence has accelerators that can address different steps in the
               data flow journey. If you want to build data quality checks, do
               ingestions, create data models, enable semantic layers that can go
               into self-service consumption, they have built all these
               accelerators at every step in the journey. The combination of all
               these things is what made our journey faster.”
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col md:flex-row md:items-center gap-8">
-              <img
+            {/* Author */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.2 } },
+              }}
+              className="flex flex-col md:flex-row md:items-center gap-8"
+            >
+              {/* Image */}
+              <motion.img
                 src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=200"
-                className="w-24 h-24 object-cover grayscale"
                 alt="Venkatesh Guruprasad"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                className="w-24 h-24 object-cover grayscale hover:grayscale-0 transition-all duration-300"
               />
-              <div>
+
+              {/* Author Details */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6 }}
+              >
                 <p className="font-bold text-xl">Venkatesh Guruprasad</p>
                 <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-4">
-                  DIVISION DIRECTOR, HEAD OF DATA ARCHITECTURE & GOVERNANCE
+                  Division Director, Head of Data Architecture & Governance
                 </p>
                 <div className="text-red-700 font-bold text-2xl flex items-center gap-2">
                   <span className="text-3xl italic">🕊️</span> BAYADA
                 </div>
-              </div>
-            </div>
-
-            {/* Slider Controls Placeholder */}
-            <div className="flex gap-4 mt-12"></div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Note: Iske baad aap Retail page wale FAQs aur Contact Form sections copy-paste kar sakte hain */}
       {/* --- Section 5: Tredence AI (Peach Intro) --- */}
-      <section className="bg-[#fff1ea] py-20 px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
-          <div className="lg:w-1/2">
-            <h4 className="text-orange-600 text-3xl font-bold flex items-center gap-2 mb-4">
-              Tredence AI <span className="text-2xl">✨</span>
-            </h4>
-            <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-8">
+      <section className="bg-[#fff1ea] py-28 px-12 lg:px-24 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20"
+        >
+          {/* LEFT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="lg:w-1/2"
+          >
+            <motion.h4
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-orange-600 text-3xl font-bold flex items-center gap-2 mb-6"
+            >
+              Tredence AI
+              {/* Animated Sparkle */}
+              <motion.span
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="text-2xl"
+              >
+                ✨
+              </motion.span>
+            </motion.h4>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-4xl lg:text-5xl font-bold leading-tight mb-10"
+            >
               Powering precision and progress in healthcare
-            </h2>
-            <p className="text-2xl text-gray-800 leading-snug">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-2xl text-gray-800 leading-snug"
+            >
               Tredence helps leading healthcare organizations unify fragmented
               data to enable real-time intelligence. The 360-degree view enables
               improved member experience, and delivers cost-efficient outcomes.
-            </p>
-          </div>
-          <div className="lg:w-1/2 text-gray-700 space-y-6 text-lg">
-            <p>
-              Managing complex, fast-growing data is a foundational challenge
-              that every healthcare enterprise faces. They need a scalable,
-              secure, AI-ready data foundation. Tredence helps unify siloed data
-              through cloud-native modernization, deploy domain-specific data
-              models, and activate the power of AI for faster decisions.
-            </p>
-            <p>
-              Our offerings span AI advisory, data engineering, and healthcare
-              analytics to advance value-based care, elevate member and patient
-              experiences, improve clinical outcomes, and optimize operational
-              efficiency.
-            </p>
-            <p>
-              At the center is ATOM.AI—an accelerator ecosystem with 150+ AI/ML
-              solutions and 12+ GenAI agents that deliver insights in weeks.
-              With deep domain expertise, Tredence turns AI potential into
-              measurable impact for healthcare enterprises.
-            </p>
-          </div>
-        </div>
+            </motion.p>
+          </motion.div>
+
+          {/* RIGHT SIDE */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.25 } },
+            }}
+            className="lg:w-1/2 text-gray-700 space-y-8 text-lg"
+          >
+            {[
+              'Managing complex, fast-growing data is a foundational challenge that every healthcare enterprise faces. They need a scalable, secure, AI-ready data foundation. Tredence helps unify siloed data through cloud-native modernization, deploy domain-specific data models, and activate the power of AI for faster decisions.',
+
+              'Our offerings span AI advisory, data engineering, and healthcare analytics to advance value-based care, elevate member and patient experiences, improve clinical outcomes, and optimize operational efficiency.',
+
+              'At the center is ATOM.AI—an accelerator ecosystem with 150+ AI/ML solutions and 12+ GenAI agents that deliver insights in weeks. With deep domain expertise, Tredence turns AI potential into measurable impact for healthcare enterprises.',
+            ].map((text, idx) => (
+              <motion.p
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.8 }}
+              >
+                {text}
+              </motion.p>
+            ))}
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* --- Section 6: Healthcare Services Grid --- */}
-      <section className="bg-[#fff1ea] pb-24 px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-8 border-b border-orange-200 mb-12">
-            <button className="pb-4 text-orange-600 border-b-2 border-orange-600 font-bold flex items-center gap-2">
+      <section className="bg-[#fff1ea] pb-28 px-12 lg:px-24 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
+        >
+          {/* Tabs Animation */}
+          <motion.div
+            initial={{ y: -30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex gap-8 border-b border-orange-200 mb-16"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="pb-4 text-orange-600 border-b-2 border-orange-600 font-bold flex items-center gap-2"
+            >
               ⚙️ Services
-            </button>
-            <button className="pb-4 text-gray-400 font-bold flex items-center gap-2">
-              💡 Solutions
-            </button>
-          </div>
+            </motion.button>
 
-          <div className="flex justify-between items-end mb-12">
-            <h2 className="text-4xl font-bold max-w-2xl leading-tight">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="pb-4 text-gray-400 font-bold flex items-center gap-2"
+            >
+              💡 Solutions
+            </motion.button>
+          </motion.div>
+
+          {/* Heading Section */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+            className="flex justify-between items-end mb-16"
+          >
+            <motion.h2
+              variants={{
+                hidden: { opacity: 0, x: -60 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl font-bold max-w-2xl leading-tight"
+            >
               Modernizing Healthcare with Connected Data and AI
-            </h2>
-            <p className="text-gray-600 max-w-sm text-sm hidden lg:block">
+            </motion.h2>
+
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, x: 60 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ duration: 0.8 }}
+              className="text-gray-600 max-w-sm text-sm hidden lg:block"
+            >
               Transform care delivery using intelligent, interoperable and
               AI-ready healthcare platforms.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Grid Cards */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
             {[
               {
                 title: 'Healthcare Data Interoperability',
@@ -235,38 +514,74 @@ const LifeSciences = () => {
                 image: 'https://picsum.photos/seed/health6/800/600',
               },
             ].map((item, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                {/* Image Section - SAME UI */}
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 80, rotate: -3 },
+                  visible: { opacity: 1, y: 0, rotate: 0 },
+                }}
+                transition={{ duration: 0.7 }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.03,
+                }}
+                className="group cursor-pointer"
+              >
+                {/* Image Section */}
                 <div className="bg-orange-600 h-48 flex items-center justify-center overflow-hidden">
-                  <img
+                  <motion.img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
-                {/* Content Section - SAME UI */}
-                <div className="bg-white p-8 h-40 flex flex-col justify-between border border-t-0 border-gray-100 shadow-sm group-hover:shadow-md transition-all">
+                {/* Content Section */}
+                <div className="bg-white p-8 h-40 flex flex-col justify-between border border-t-0 border-gray-100 shadow-sm group-hover:shadow-xl transition-all">
                   <h3 className="text-xl font-bold leading-tight">
                     {item.title}
                   </h3>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* --- Section 7: Stats Grid (Why Healthcare choose us) --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
+      <section className="py-28 px-12 lg:px-24 bg-white overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
+        >
+          {/* Heading Animation */}
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-20"
+          >
             Why do leading <span className="text-orange-600">Healthcare</span>{' '}
             organizations choose{' '}
             <span className="text-orange-600">Tredence</span>
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
+          {/* Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 border border-gray-200"
+          >
             {[
               {
                 val: '4,200+',
@@ -299,32 +614,91 @@ const LifeSciences = () => {
                 icon: '🏥',
               },
             ].map((stat, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-white p-12 flex flex-col items-start gap-4"
+                variants={{
+                  hidden: { opacity: 0, y: 60 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6 }}
+                whileHover={{
+                  y: -8,
+                  boxShadow: '0px 15px 40px rgba(255, 102, 0, 0.15)',
+                }}
+                className="bg-white p-12 flex flex-col items-start gap-5 transition-all"
               >
-                <span className="text-3xl">{stat.icon}</span>
-                <h3 className="text-3xl font-bold text-orange-600">
+                {/* Icon Pop */}
+                <motion.span
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 120 }}
+                  viewport={{ once: true }}
+                  className="text-4xl"
+                >
+                  {stat.icon}
+                </motion.span>
+
+                {/* Value */}
+                <motion.h3
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-3xl font-bold text-orange-600"
+                >
                   {stat.val}
-                </h3>
+                </motion.h3>
+
+                {/* Description */}
                 <p className="text-gray-600 text-sm font-medium leading-relaxed uppercase tracking-tight">
                   {stat.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* --- Section 8: Partnering Section --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Partnering with the best</h2>
-          <p className="text-xl text-gray-600 mb-16">
-            We co-build and co-innovate with the leading cloud and AI leaders
-          </p>
+      <section className="py-28 px-12 lg:px-24 bg-white border-t border-gray-100 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto text-center"
+        >
+          {/* Heading */}
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-4"
+          >
+            Partnering with the best
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-xl text-gray-600 mb-20"
+          >
+            We co-build and co-innovate with the leading cloud and AI leaders
+          </motion.p>
+
+          {/* Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left"
+          >
             {[
               {
                 name: 'Databricks',
@@ -355,15 +729,27 @@ const LifeSciences = () => {
                   'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
               },
             ].map((p, i) => (
-              <div key={i} className="space-y-6">
+              <motion.div
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 60 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ y: -8 }}
+                className="space-y-6"
+              >
                 {/* Partner Logo */}
-                <div className="h-12 flex items-center cursor-pointer grayscale hover:grayscale-0 transition-all">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="h-12 flex items-center cursor-pointer grayscale hover:grayscale-0 transition-all"
+                >
                   <img
                     src={p.logo}
                     alt={p.name}
                     className="h-full object-contain"
                   />
-                </div>
+                </motion.div>
 
                 {/* Description */}
                 <p className="text-sm text-gray-500 leading-relaxed">
@@ -371,34 +757,59 @@ const LifeSciences = () => {
                 </p>
 
                 {/* Badge */}
-                <div className="h-24 w-24 bg-gray-50 flex items-center justify-center border border-gray-100">
+                <motion.div
+                  whileHover={{ rotate: 5, scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 200 }}
+                  className="h-24 w-24 bg-gray-50 flex items-center justify-center border border-gray-100 shadow-sm"
+                >
                   <img
                     src={p.badge}
                     alt={`${p.name} badge`}
                     className="max-h-12 object-contain"
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* --- Section 9: Impact Stories (Secret Weapon) --- */}
-      <section className="py-24 px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12">
+      <section className="py-28 px-12 lg:px-24 bg-white overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
+        >
+          {/* Heading */}
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-16"
+          >
             Tredence is the{' '}
             <span className="text-orange-600">secret weapon</span> powering last
             mile impact stories
-          </h2>
+          </motion.h2>
 
-          <div className="flex flex-col lg:flex-row border border-gray-200 shadow-sm">
-            <div className="lg:w-1/2 p-12 bg-white">
+          <div className="flex flex-col lg:flex-row border border-gray-200 shadow-sm overflow-hidden">
+            {/* LEFT CONTENT */}
+            <motion.div
+              initial={{ x: -80, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2 p-12 bg-white"
+            >
               <h3 className="text-2xl font-bold mb-6">
                 Harmonizing member data for a health and home care company
               </h3>
-              <div className="text-sm text-gray-600 space-y-4 mb-8">
+
+              <div className="text-sm text-gray-600 space-y-4 mb-10 leading-relaxed">
                 <p>
                   A large senior-focused health and home care company sought to
                   create a 360-degree view of member information...
@@ -410,123 +821,179 @@ const LifeSciences = () => {
                 </p>
               </div>
 
-              <div className="space-y-2">
+              {/* Metrics with Stagger Animation */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  visible: { transition: { staggerChildren: 0.15 } },
+                }}
+                className="space-y-3"
+              >
                 {[
                   '33% reduced emergency room visits',
                   '40% improvement in the medical loss ratio',
                   '50% improved member engagement',
                   '95% enhanced patient satisfaction',
                 ].map((txt, i) => (
-                  <div
+                  <motion.div
                     key={i}
-                    className="bg-[#fff1ea] p-3 text-sm font-bold border-l-4 border-orange-500"
+                    variants={{
+                      hidden: { opacity: 0, x: -40 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                    transition={{ duration: 0.5 }}
+                    whileHover={{
+                      x: 6,
+                      boxShadow: '0px 10px 25px rgba(255,102,0,0.15)',
+                    }}
+                    className="bg-[#fff1ea] p-3 text-sm font-bold border-l-4 border-orange-500 transition-all"
                   >
                     {txt}
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <img
+              </motion.div>
+            </motion.div>
+
+            {/* RIGHT IMAGE */}
+            <motion.div
+              initial={{ x: 80, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2 overflow-hidden"
+            >
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6 }}
                 src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800"
                 className="w-full h-full object-cover"
                 alt="Care story"
               />
-            </div>
+            </motion.div>
           </div>
-
-          <div className="flex items-center gap-4 mt-8">
-            <div className="flex gap-2">
-              <button className="p-2 border border-gray-300">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="p-2 border border-gray-300">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className="flex-grow h-px bg-gray-200"></div>
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5].map((n) => (
-                <span
-                  key={n}
-                  className={`w-8 h-8 flex items-center justify-center text-xs border ${n === 1 ? 'bg-[#72c6b3] text-white border-[#72c6b3]' : 'text-teal-600 border-teal-100'}`}
-                >
-                  {n}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* --- Section 10: Featured Insights --- */}
-      <section className="py-24 px-12 lg:px-24 bg-gray-50">
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-bold mb-8">Featured Insights</h2>
-
-    <div className="flex gap-4 mb-12 overflow-x-auto pb-4">
-      {[
-        'LATEST BLOGS',
-        'CASE STUDIES',
-        'E-BOOKS',
-        'THOUGHT LEADERSHIP',
-        'VIDEOS',
-      ].map((tab, i) => (
-        <button
-          key={i}
-          className={`px-6 py-2 text-xs font-bold tracking-widest whitespace-nowrap ${
-            i === 0
-              ? 'bg-[#72c6b3] text-white'
-              : 'bg-gray-200 text-gray-500'
-          }`}
+      <section className="py-28 px-12 lg:px-24 bg-gray-50 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
         >
-          {tab}
-        </button>
-      ))}
-    </div>
+          {/* Heading */}
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-10"
+          >
+            Featured Insights
+          </motion.h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {[
-        {
-          title:
-            'Enhancing Healthcare Supply Chain Data Quality and Visibility',
-          img: 'https://picsum.photos/seed/healthblog1/600/400',
-        },
-        {
-          title:
-            'How AI Diagnostics is Transforming Clinical Decision Making',
-          img: 'https://picsum.photos/seed/healthblog2/600/400',
-        },
-        {
-          title:
-            'Improving Patient Engagement Through Advanced Analytics',
-          img: 'https://picsum.photos/seed/healthblog3/600/400',
-        },
-      ].map((blog, idx) => (
-        <div
-          key={idx}
-          className="bg-white group cursor-pointer shadow-sm hover:shadow-lg transition-all"
-        >
-          <img
-            src={blog.img}
-            className="w-full h-52 object-cover"
-            alt={blog.title}
-          />
-          <div className="p-8">
-            <span className="bg-[#72c6b3] text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">
-              BLOG
-            </span>
-            <h3 className="text-lg font-bold mt-4 mb-8 min-h-[60px] group-hover:text-orange-600 transition-colors">
-              {blog.title}
-            </h3>
-            <div className="text-orange-600 font-bold">→</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+          {/* Tabs with Stagger */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
+            className="flex gap-4 mb-16 flex-wrap"
+          >
+            {[
+              'LATEST BLOGS',
+              'CASE STUDIES',
+              'E-BOOKS',
+              'THOUGHT LEADERSHIP',
+              'VIDEOS',
+            ].map((tab, i) => (
+              <motion.button
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className={`px-6 py-2 text-xs font-bold tracking-widest whitespace-nowrap transition-all ${
+                  i === 0
+                    ? 'bg-[#72c6b3] text-white shadow-md'
+                    : 'bg-gray-200 text-gray-500 hover:bg-gray-300'
+                }`}
+              >
+                {tab}
+              </motion.button>
+            ))}
+          </motion.div>
 
+          {/* Blog Cards */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-10"
+          >
+            {[
+              {
+                title:
+                  'Enhancing Healthcare Supply Chain Data Quality and Visibility',
+                img: 'https://picsum.photos/seed/healthblog1/600/400',
+              },
+              {
+                title:
+                  'How AI Diagnostics is Transforming Clinical Decision Making',
+                img: 'https://picsum.photos/seed/healthblog2/600/400',
+              },
+              {
+                title:
+                  'Improving Patient Engagement Through Advanced Analytics',
+                img: 'https://picsum.photos/seed/healthblog3/600/400',
+              },
+            ].map((blog, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white group cursor-pointer shadow-sm hover:shadow-xl transition-all overflow-hidden"
+              >
+                {/* Image */}
+                <div className="overflow-hidden">
+                  <motion.img
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.6 }}
+                    src={blog.img}
+                    className="w-full h-52 object-cover"
+                    alt={blog.title}
+                  />
+                </div>
+
+                <div className="p-8">
+                  <span className="bg-[#72c6b3] text-white px-3 py-1 text-[10px] font-bold tracking-widest uppercase">
+                    BLOG
+                  </span>
+
+                  <h3 className="text-lg font-bold mt-5 min-h-[70px] group-hover:text-orange-600 transition-colors leading-snug">
+                    {blog.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* --- Section 11: Healthcare FAQs --- */}
       <section className="py-24 px-12 lg:px-24 bg-white">
@@ -576,62 +1043,6 @@ const LifeSciences = () => {
         </div>
       </section>
 
-      {/* --- Section 12: Contact Form --- */}
-
-      <section className="relative pt-20">
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-orange-600 -z-10"></div>
-        <div className="max-w-6xl mx-auto px-6 pb-20">
-          <div className="bg-[#fff1ea] shadow-2xl p-10 lg:p-16 flex flex-col lg:flex-row gap-12">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-12">
-                Demand more out of AI. Talk to Healthcare experts born and bred
-                in full-stack AI.
-              </h2>
-              {/* Healthcare Specific Icon/Illustration */}
-              <div className="w-64 h-64 bg-orange-600 rounded-2xl flex items-center justify-center p-8">
-                <div className="text-white text-9xl">❤️</div>
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <form className="space-y-6">
-                <div className="grid grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last name"
-                    className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                  />
-                </div>
-                <input
-                  type="email"
-                  placeholder="Email Address*"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                />
-                <input
-                  type="tel"
-                  placeholder="Contact Number"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full"
-                />
-                <textarea
-                  placeholder="How can we help you?"
-                  rows="3"
-                  className="bg-transparent border-b border-orange-300 py-3 outline-none focus:border-orange-600 w-full resize-none"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="bg-orange-600 text-white px-8 py-2 text-xs font-bold uppercase tracking-widest hover:bg-orange-700"
-                >
-                  Let's Chat
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
       <Footer />
 
     </div>

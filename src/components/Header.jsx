@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
-import logo from '../assets/Sigmalogo.png';
+import logo from '../assets/sigmaLogos.png';
 
 // Apna logo path yahan update karein
 // import logoImg from '../assets/sigma-logo.png';
@@ -9,32 +9,13 @@ import logo from '../assets/Sigmalogo.png';
 const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-[999] text-white bg-[#222] shadow-2xl font-sans">
-      {/* 1. TOP MINI BAR */}
-      <div className="flex justify-end gap-5 text-[10px] font-bold px-12 py-2 opacity-70 tracking-widest border-b border-white/5">
-        <a href="#" className="hover:text-orange-500">
-          SIGMA AT A GLANCE
-        </a>
-        <a href="#" className="hover:text-orange-500">
-          LATEST NEWS
-        </a>
-        <a href="#" className="hover:text-orange-500">
-          EVENTS
-        </a>
-        <a href="#" className="hover:text-orange-500">
-          WE'RE HIRING
-        </a>
-        <button className="bg-[#e84e0e] px-4 py-1 rounded-sm text-white font-bold ml-2">
-          CONTACT US
-        </button>
-      </div>
-
       {/* 2. MAIN NAVIGATION */}
       <div className="flex justify-between items-center px-12 h-20">
         {/* BRANDING */}
         <div className="flex items-center h-full">
           <Link to="/" className="flex items-center gap-4 h-full group">
             {/* LOGO IMAGE AREA */}
-            <div className="h-20 w-44 flex items-center justify-center p-2">
+            <div className="h-40 w-66 flex items-center justify-center p-2">
               <img
                 src={logo}
                 alt="Sigma Logo"
@@ -45,12 +26,6 @@ const Navbar = () => {
               />
             </div>
             {/* SIGMA TEXT */}
-            <div className="flex flex-col border-l border-white/20 pl-4">
-              <h1 className="text-3xl font-black tracking-tighter leading-none italic group-hover:text-orange-500 transition-colors">
-                SIGMA
-              </h1>
-              {/* <span className="text-[9px] font-bold opacity-50 tracking-widest mt-1">FROM DATA TO DECISION</span> */}
-            </div>
           </Link>
         </div>
 
@@ -58,6 +33,14 @@ const Navbar = () => {
         <div className="flex items-center gap-6 text-[13px] font-bold h-full">
           <ul className="flex gap-1 h-full">
             {/* --- INDUSTRIES DROPDOWN --- */}
+            {/* --- HOME LINK --- */}
+            <li className="group relative h-full flex items-center px-4 cursor-pointer">
+              <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
+                <Link to="/" className="transition-colors">
+                  Home
+                </Link>
+              </div>
+            </li>
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
               <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
                 Industries <ChevronDown size={14} />
@@ -160,9 +143,7 @@ const Navbar = () => {
               </div>
             </li>
 
-            <li className="h-full flex items-center px-4 hover:text-orange-500 cursor-pointer">
-              Partnerships
-            </li>
+
 
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
               <div className="flex items-center gap-1 group-hover:text-orange-500">
@@ -198,19 +179,12 @@ const Navbar = () => {
 
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
               <div className="flex items-center gap-1 group-hover:text-orange-500">
-                Company <ChevronDown size={14} />
+                Contact
               </div>
-              <div className="absolute top-full right-0 hidden group-hover:block bg-white text-black min-w-[200px] shadow-2xl border-t-4 border-orange-500 p-6 space-y-4 font-medium text-gray-600 z-[1000]">
-                <p className="hover:text-orange-500">Our Story</p>
-                <p className="hover:text-orange-500">Our Team</p>
-              </div>
+
             </li>
           </ul>
 
-          <Search
-            size={20}
-            className="cursor-pointer hover:text-orange-500 ml-4"
-          />
         </div>
       </div>
     </nav>
