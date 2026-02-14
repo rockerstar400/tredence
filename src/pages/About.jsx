@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
+import ctoImage from '../assets/cto.png';
 
 const About = () => {
   return (
@@ -159,6 +160,101 @@ const About = () => {
           </div>
         </div>
       </section>
+      {/* ================================================= */}
+      {/* ========== CHIEF TECHNOLOGY OFFICER SECTION ===== */}
+      {/* ================================================= */}
+
+      <section className="py-32 bg-gray-50 px-6">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+          {/* CTO Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative"
+          >
+            <img
+              src={ctoImage}
+              alt="Chief Technology Officer"
+              className="rounded-3xl shadow-2xl w-full h-200 object-cover"
+            />
+
+            {/* Subtle Glow Effect */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+          </motion.div>
+
+          {/* CTO Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="space-y-8"
+          >
+            <div>
+              <h2 className="text-5xl font-bold text-gray-900">
+                Chief Technology Officer
+              </h2>
+              <p className="text-orange-500 font-semibold mt-3 text-lg">
+                Driving Innovation. Scaling Intelligence.
+              </p>
+            </div>
+
+            <p className="text-gray-700 text-lg leading-relaxed">
+              At Sigma Data System, our Chief Technology Officer leads the
+              technological vision and innovation strategy that powers
+              enterprise transformation. With deep expertise in AI, cloud
+              architecture, and distributed systems, our CTO ensures that every
+              solution we deliver is scalable, secure, and future-ready.
+            </p>
+
+            <p className="text-gray-700 text-lg leading-relaxed">
+              By combining advanced engineering practices with business insight,
+              the CTO drives the evolution of Sigma’s technology stack—enabling
+              clients to unlock the full value of data, automation, and
+              intelligent systems.
+            </p>
+
+            {/* Highlights */}
+            <div className="space-y-4">
+              {[
+                'Architecting scalable cloud-native platforms',
+                'Leading AI & Machine Learning innovation',
+                'Driving digital transformation strategies',
+                'Building high-performance engineering teams',
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-4"
+                >
+                  <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                  <p className="text-gray-800 font-medium">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Quote Block */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-orange-500"
+            >
+              <p className="text-gray-700 italic text-lg">
+                “Technology should not just support business strategy — it
+                should define it. At Sigma, we engineer certainty in an
+                uncertain world.”
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* ================================================= */}
       {/* ================= IMPACT STATS ================== */}
@@ -202,8 +298,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-   
 
       {/* ================================================= */}
       {/* ================= CULTURE SECTION =============== */}

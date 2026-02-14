@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ChevronDown } from 'lucide-react';
-import logo from '../assets/Logo.png';
+import logo from '../assets/logo.png';
 
 // Apna logo path yahan update karein
 // import logoImg from '../assets/sigma-logo.png';
@@ -19,7 +19,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Sigma Logo"
-                className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-19 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
@@ -42,14 +42,7 @@ const Navbar = () => {
                 </Link>
               </div>
             </li>
-            {/* --- ABOUT US LINK --- */}
-            <li className="group relative h-full flex items-center px-4 cursor-pointer">
-              <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
-                <Link to="/about" className="transition-colors">
-                  About Us
-                </Link>
-              </div>
-            </li>
+
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
               <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
                 Industries <ChevronDown size={14} />
@@ -183,7 +176,14 @@ const Navbar = () => {
                 </Link>
               </div>
             </li>
-
+            {/* --- ABOUT US LINK --- */}
+            <li className="group relative h-full flex items-center px-4 cursor-pointer">
+              <div className="flex items-center gap-1 group-hover:text-orange-500 transition-colors">
+                <Link to="/about" className="transition-colors">
+                  About Us
+                </Link>
+              </div>
+            </li>
             <li className="group relative h-full flex items-center px-4 cursor-pointer">
               <Link
                 to="/contact"
