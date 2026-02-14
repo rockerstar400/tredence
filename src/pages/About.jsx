@@ -177,7 +177,7 @@ const About = () => {
             <img
               src={ctoImage}
               alt="Chief Technology Officer"
-              className="rounded-3xl shadow-2xl w-full h-200 object-cover"
+              className="rounded-3xl shadow-2xl w-full  object-cover"
             />
 
             {/* Subtle Glow Effect */}
