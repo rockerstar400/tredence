@@ -12,9 +12,9 @@ const Navbar = () => {
       {/* 2. MAIN NAVIGATION */}
       <div className="flex justify-between items-center px-12 h-20">
         {/* BRANDING */}
-        <div className="flex items-center h-full">
+        {/* <div className="flex items-center h-full">
           <Link to="/" className="flex items-center gap-4 h-full group">
-            {/* LOGO IMAGE AREA */}
+
             <div className="h-full flex items-center">
               <img
                 src={logo}
@@ -26,7 +26,41 @@ const Navbar = () => {
               />
             </div>
 
-            {/* SIGMA TEXT */}
+
+          </Link>
+        </div> */}
+        <div className="flex items-center h-full">
+          <Link
+            to="/"
+            className="flex flex-col items-center justify-center h-full group text-center relative"
+          >
+            {/* Glow Background */}
+            <div className="absolute -inset-2 bg-orange-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+            {/* SIGMA */}
+            <p
+              className="relative text-3xl font-extrabold tracking-widest
+      bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600
+      bg-clip-text text-transparent
+      animate-pulse
+      transition-all duration-500
+      group-hover:scale-110"
+            >
+              SIGMA
+            </p>
+
+            {/* Data System */}
+            <span className="relative text-white text-sm font-semibold tracking-wide mt-1">
+              Data System
+            </span>
+
+            {/* Tagline */}
+            <span className="relative text-gray-300 text-xs mt-1 opacity-80">
+              Take business decisions in seconds
+            </span>
+
+            {/* Animated underline */}
+            <div className="h-[2px] w-0 bg-gradient-to-r from-orange-400 to-orange-600 mt-2 transition-all duration-500 group-hover:w-16"></div>
           </Link>
         </div>
 
